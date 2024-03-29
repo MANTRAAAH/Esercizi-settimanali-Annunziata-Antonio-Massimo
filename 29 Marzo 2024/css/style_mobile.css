@@ -1,0 +1,174 @@
+body{
+    width: 430px; /*ottimizzato per iPhone 14 Pro Max */
+    font-family:  "Open Sans", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color:#393d41  ;
+}
+h1,h2{
+    color:#25a2c3;
+    font-family:"Montserrat" ;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/************************HEADER ****************/
+.header_container{
+    background-color: black;
+    height: 8vh;
+    text-align: center;
+}
+
+.header_container img{
+    width:30%;
+    margin-top: 1rem;
+}
+
+/**************** SLIDESHOW ****************/
+.slideshow{
+width: 430px;
+background-image: url(../images/banner.jpg);
+background-size: contain;
+background-repeat: no-repeat;
+text-align: center;
+}
+.slideshow_text h1{
+font-size:2rem;
+word-break:keep-all;
+padding: 0.5em 2em 0.2em 2em;
+
+}
+.slideshow_text p{
+padding-left: 2em;
+padding-right: 2em;
+
+}
+
+.slideshow button{
+background-color: #f04c2f ;
+font-family:"Montserrat" ;
+font-weight: bold;
+font-size: 0.7em;
+padding:10px;
+margin-bottom: 1.5em;
+border-radius: 5px;
+border: 1px solid transparent;
+}
+.slideshow a{
+text-decoration: none;
+color: white;
+}
+/**************** MAIN ****************/
+.main_container{
+background-color: white;
+width: auto;
+height: auto;
+text-align: center;
+padding-left: 2em;
+padding-right: 2em;
+margin-top: 2em;
+margin-bottom: 2em;
+}
+
+main h2{
+padding-bottom: 0.5em;
+}
+main p{
+padding-bottom: 0.8em;
+}
+.main_img1 img{
+width: 70%;
+border-radius: 10em;
+}
+.testo_3{
+margin-top: 1.5em;
+}
+.testo_4{
+margin-top: 1em;
+}
+
+/**************** SECTION ****************/
+.section{
+background-color:#e22d0e ;
+width: auto;
+height: auto;
+text-align: center;
+}
+.section h1{
+font-size: 2rem;
+color: white;
+padding-top: 1.5em;
+padding-bottom: 1em;
+}
+.section cite{
+color: white;
+font-family: "Open Sans", sans-serif;
+font-style: italic;
+font-weight: 300;
+}
+.section h2{
+color: white;
+font-family: "Open Sans", sans-serif;
+font-weight: 400;
+padding-top: 1em;
+}
+.section p{
+color: white;
+font-size: 0.7em;
+font-weight: 300;
+padding-bottom: 2em;
+}
+
+/**************** ASIDE ****************/
+.aside_container{
+width: auto;
+height: auto;
+background-color: white;
+text-align: center;
+margin-top: 2.5em;
+margin-left: 15%;
+margin-right: 15%;
+margin-bottom: 3em;
+}
+.s1{
+width: auto;
+border: 1px solid #dee1e3;
+border-radius: 5px;
+margin-top: 2em;
+margin-bottom: 1em;
+}
+.s1 img{
+width: 100%;
+}
+.s1 p{
+font-size: 0.9rem;
+padding: 1em;
+}
+
+/**************** FOOTER ****************/
+.footer_container{
+background-color:#25a2c3 ;
+text-align: center;
+padding-bottom: 2em;
+}
+.footer_container h1{
+color: white;
+font-size: 2rem;
+padding-top: 1em;
+padding-bottom: 1em;
+}
+.footer_container a, address{
+display: block;
+color: #c8e7f0;
+}
+.footer_container i {
+padding-right: 5px;
+}
+.footer_container p{
+color: #c8e7f0;
+margin-top: 2em;
+padding-top: 1em;
+border-top: 1px solid #dee1e3 ;
+margin-left: 20%;
+margin-right: 20%;
+}
