@@ -158,6 +158,11 @@ body{
     width: 100%;
 
  }
+
+
+ /* IMG WRAPPERS */
+
+
  .display_margin_width{
     width: 22%;
     display: inline-block;
@@ -192,6 +197,8 @@ body{
  }
 
 
+/*  IMGS  */
+
  .img_wrapper3 img{
     max-width: 20vw;
     height: 25vh;
@@ -209,6 +216,7 @@ body{
  }
 
  /*SEZIONE WIDE*/
+ 
 .sezione_wide{
     text-align: center;
     margin-top: 3%;
@@ -224,10 +232,8 @@ body{
     }
     
 
-
-
-
 /*FOOTER*/
+
 .footer_nav_container{
     background-color:#364759;
     margin: 0;
