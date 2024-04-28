@@ -1,0 +1,33 @@
+.flex_hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  background-color: #ffc017;
+  border-bottom: 1px solid black;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 15vh;
+}
+.hero-text h1 {
+  font-size: 8rem;
+  margin-bottom: 2vh;
+  font-style: italic;
+  font-weight: 500;
+}
+.hero-text p {
+  font-size: 1.8rem;
+}
+.hero-text button {
+  background-color: black;
+  margin-top: 5vh;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  padding: 0.6em 3.5em;
+}

@@ -1,0 +1,59 @@
+.flex_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 4vh;
+  border-bottom: 1px solid black;
+  padding-bottom: 3.5vh;
+  z-index: 1000;
+}
+
+.not-sticky {
+  position: relative;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.color {
+  background-color: #ffc017;
+}
+
+.white-back {
+  background-color: white;
+}
+.logo {
+  margin-right: 30vw;
+  margin-left: 10vw;
+  width: 10vw;
+}
+
+.flex_ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+.flex_ul li {
+  margin: 0 1.8vw;
+}
+.flex_ul li a {
+  text-decoration: none;
+  color: black;
+}
+.btn_style {
+  background-color: black;
+  border: no;
+  padding: 0.8em;
+  color: white !important;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.green_btn-active {
+  background-color: #1a8917;
+  transition: all 0.5s ease-in-out;
+}
