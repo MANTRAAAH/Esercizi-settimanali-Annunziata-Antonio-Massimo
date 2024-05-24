@@ -1,0 +1,42 @@
+<main class="bg-dark-subtle mb-5">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-12 text-center">
+        <img
+          [src]="getBrandLogo('fiat')"
+          alt="Ford Logo"
+          class="brand-logo w-25 img-fluid rounded-circle mb-4 mt-3 shadow"
+        />
+        <h1>FIAT</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <div class="row d-flex">
+      <div class="col-6 mb-4" *ngFor="let car of cars">
+        <div class="card shadow-lg overflow-hidden rounded-top-3">
+          <img
+            [src]="car.modelImage"
+            class="card-img-top"
+            alt="{{ car.model }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+            <p class="card-text">Anno: {{ car.year }}</p>
+            <p class="card-text">A partire da: {{ car.price }}€</p>
+          </div>
+          <div
+            class="card-footer d-flex justify-content-between"
+            [ngStyle]="{
+              'background-color': car.available ? 'green' : 'red'
+            }"
+          >
+            <h5 class="card-text">
+              Pronta consegna: {{ car.available ? "Si" : "No" }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

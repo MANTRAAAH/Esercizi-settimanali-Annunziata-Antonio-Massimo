@@ -1,0 +1,66 @@
+<main class="d-flex flex-grow-1 bg-dark-subtle mb-5 flex-column">
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold" id="home-title">Benvenuti su Rent!t</h1>
+        <p class="lead text-body-secondary">
+          Rent!t è un'azienda dinamica specializzata nel noleggio e nella
+          vendita di veicoli. Con una vasta flotta di auto di diverse marche e
+          modelli, ci impegniamo a fornire soluzioni di mobilità su misura per
+          le esigenze dei nostri clienti. Che tu abbia bisogno di un'auto per un
+          breve viaggio o per un lungo periodo, Rent!t ha la soluzione perfetta
+          per te.
+        </p>
+        <div class="row d-flex align-items-center mt-5">
+          <h2>Esplora i nostri Brand</h2>
+          <div class="col-4 mt-3" *ngFor="let brand of uniqueBrands">
+            <img
+              [src]="getBrandLogo(brand)"
+              alt="{{ brand }} logo"
+              (click)="navigateToBrand(brand)"
+              style="cursor: pointer"
+              class="img-fluid rounded-circle mb-4 shadow"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container d-flex justify-content-center">
+      <div class="row d-flex">
+        <h2 class="text-center mb-5 fs-1">IN VOGA ORA</h2>
+        <div class="col-md-6 col-sm-2 mb-4" *ngFor="let car of randomCars">
+          <div class="card shadow-lg overflow-hidden rounded-top-3">
+            <img
+              [src]="car.modelImage"
+              class="card-img-top"
+              alt="{{ car.model }}"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+              <p class="card-text">Anno: {{ car.year }}</p>
+              <p class="card-text">A partire da: {{ car.price }}€</p>
+            </div>
+            <div
+              class="card-footer d-flex justify-content-between"
+              [ngStyle]="{
+                'background-color': car.available ? 'green' : 'red'
+              }"
+            >
+              <h5 class="card-text">
+                Pronta consegna: {{ car.available ? "Si" : "No" }}
+              </h5>
+              <button
+                (click)="navigateToBrand(car.brand)"
+                class="btn btn-info shadow-sm"
+              >
+                Vai al brand
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
