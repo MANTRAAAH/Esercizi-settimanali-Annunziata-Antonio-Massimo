@@ -1,0 +1,70 @@
+<div class="container" id="top">
+  <div class="row">
+    <div
+      class="col-12 d-flex justify-content-center flex-column align-items-center"
+    >
+      <h1>USERS AND THEIR TASKS</h1>
+      <small class="lead" (click)="toggleShowAllUsers()" id="showAllUsers"
+        >Users with no tasks are not shown,click me to show them.</small
+      >
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div *ngFor="let userWithTodos of usersWithTodos">
+    <div class="row">
+      <div class="col">
+        <div class="card my-3 shadow">
+          <div class="row no-gutters">
+            <div class="col-md-3 d-flex align-items-center">
+              <img
+                src="{{ userWithTodos.user.image }}"
+                class="card-img"
+                alt="{{ userWithTodos.user.firstName }}"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{ userWithTodos.user.firstName }}
+                  {{ userWithTodos.user.lastName }}
+                </h5>
+                <div
+                  *ngFor="let todo of userWithTodos.todos; let i = index"
+                  class="my-3 card shadow"
+                  [class.card-completed]="todo.completed"
+                  [class.card-not-completed]="!todo.completed"
+                >
+                  <div class="row no-gutters">
+                    <div class="col-md-1 d-flex align-items-center">
+                      <div class="card-body">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            [(ngModel)]="userWithTodos.todos[i].completed"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ todo.todo }}</h5>
+                        <p class="card-text">
+                          <small class="text-muted"
+                            >Assigned to: {{ userWithTodos.user.firstName }}
+                            {{ userWithTodos.user.lastName }}</small
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

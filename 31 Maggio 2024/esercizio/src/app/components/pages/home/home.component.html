@@ -1,0 +1,59 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center mt-4">
+        <h1 class="text-uppercase">
+          Not<span class="text-muted text-lowercase">(quite)</span>ion
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <input
+          [(ngModel)]="search"
+          class="form-control"
+          placeholder="Search by author's name"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div *ngFor="let task of filteredData; let i = index" class="my-3">
+        <div
+          class="card shadow"
+          [class.card-completed]="task.completed"
+          [class.card-not-completed]="!task.completed"
+        >
+          <div class="row">
+            <div class="col-md-1 d-flex align-items-center">
+              <div class="card-body">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="task.completed"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class="card-title">{{ task.todo }}</h5>
+                <p class="card-text">{{ task.description }}</p>
+                <p class="card-text">
+                  <small class="text-muted"
+                    >Assigned to: {{ task.user.firstName }}
+                    {{ task.user.lastName }}</small
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

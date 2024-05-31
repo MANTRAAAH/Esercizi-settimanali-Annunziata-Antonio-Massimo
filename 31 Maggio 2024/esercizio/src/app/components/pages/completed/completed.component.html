@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="col-12 d-flex justify-content-center my-5 border-bottom border-black border-1 pb-2 flex-column align-items-center"
+    >
+      <h1 class="fs-1 fw-bold">Completed Tasks</h1>
+      <p class="lead fs-5">Our bots have gone well this week.🤖</p>
+    </div>
+  </div>
+</div>
+<div class="container pt-5">
+  <div
+    class="row justify-content-center"
+    *ngFor="let completedTodo of completedTodos"
+  >
+    <div class="col-8 my-3 mx-auto">
+      <div class="card card-completed shadow">
+        <div class="card-body">
+          <h2 class="card-title">{{ completedTodo.todo.todo }}</h2>
+          <small class="card-text">
+            Assegnato a: {{ completedTodo.user?.firstName }}
+            {{ completedTodo.user?.lastName }}
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

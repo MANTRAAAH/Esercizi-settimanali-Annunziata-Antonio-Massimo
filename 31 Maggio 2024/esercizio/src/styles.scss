@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+.card-completed {
+  background-color: #baffc9;
+}
+
+.card-not-completed {
+  background-color: #ffb3ba;
+}
+body{
+  background-color:#ffffba ;
+}
+
+
+.gra{
+  font-weight: bold;
+}
