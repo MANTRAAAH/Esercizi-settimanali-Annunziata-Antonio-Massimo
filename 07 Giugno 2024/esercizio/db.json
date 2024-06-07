@@ -11,6 +11,48 @@
       "password": "$2a$10$KcIy1wQyasyLqSY/VZsrfewmMKTVPz2J3qIcH7reLu6Ix.j0DGiwC",
       "name": "admin",
       "id": 2
+    },
+    {
+      "email": "ilove@ears.com",
+      "password": "$2a$10$8R3nvpO4dQx70b57LzeHJuaBVJTq8efVRuFGnFI17nZgxmUEexKOi",
+      "name": "Mike Tyson",
+      "id": 3
+    },
+    {
+      "email": "bomyn@mailinator.com",
+      "password": "$2a$10$nMGNVJBs35tqX/7woQVNburft5Lgenyh6BChRZWCaNgGTmH63pEmG",
+      "name": "Kato Holcomb",
+      "id": 4
+    },
+    {
+      "email": "kydojebybe@mailinator.com",
+      "password": "$2a$10$TuXTypkim/1asgFmMLQaXOcjNsqR9o.Ub7p/tJSNKm8PEVGfz/rCC",
+      "name": "Winifred Alford",
+      "id": 5
+    },
+    {
+      "email": "typytygome@mailinator.com",
+      "password": "$2a$10$sNUXHQMibIO2ybmqMCtqpOxlysUTl8HURsoLEqjftRkeqDz68thJy",
+      "name": "Chastity Marks",
+      "id": 6
+    },
+    {
+      "email": "gefijyla@mailinator.com",
+      "password": "$2a$10$6.e/8kMeAfUQPxvilGvMoeB7S1XS6QPYib6YctjnrkN.7jC8bokh.",
+      "name": "Hamilton Keller",
+      "id": 7
+    },
+    {
+      "email": "jome@mailinator.com",
+      "password": "$2a$10$xYXS9dCcd8TIQT63N.RSre/FLnp19PYdRc2YvUiCDf16JEKaxWdOq",
+      "name": "Mason Barry",
+      "id": 8
+    },
+    {
+      "email": "qizit@mailinator.com",
+      "password": "$2a$10$vdUEUBIYvjz.K8DlWk/PhOZctf7txv8V.Ud/TvcNXjLJRtQMvEPc6",
+      "name": "Lilah Herring",
+      "id": 9
     }
   ],
   "movies-popular": [
@@ -300,6 +342,116 @@
       "userId": 2,
       "movieId": 1,
       "id": 29
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 30
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 31
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 32
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 33
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 34
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 35
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 36
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 37
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 38
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 39
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 40
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 41
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 42
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 43
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 44
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 45
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 46
+    },
+    {
+      "userId": 9,
+      "movieId": 17,
+      "id": 47
+    },
+    {
+      "userId": 9,
+      "movieId": 1,
+      "id": 48
+    },
+    {
+      "userId": 9,
+      "movieId": 3,
+      "id": 49
+    },
+    {
+      "userId": 9,
+      "movieId": 8,
+      "id": 50
+    },
+    {
+      "userId": 9,
+      "movieId": 12,
+      "id": 51
     }
   ]
 }

@@ -24,18 +24,24 @@ export class AuthService {
   loginUrl:string="http://localhost:3000/login";
   registerUrl:string="http://localhost:3000/register";
 
-register(newUser:Partial<iUser>):Observable<iAuthResponse>{
-  return this.httpc.post<iAuthResponse>(this.registerUrl,newUser)
-
-}
-login(loginData:iLoginData):Observable<iAuthResponse>{
-  return this.httpc.post<iAuthResponse>(this.loginUrl,loginData)
-  .pipe(tap(data=>{
-    this.authSubject.next(data.user)
-    localStorage.setItem('datiAccesso',JSON.stringify(data))
-  }))
-  this.autoLogout()
-}
+  register(newUser: iUser): Observable<iAuthResponse> {
+    return this.httpc.post<iAuthResponse>(this.registerUrl, newUser).pipe(
+      tap(data => {
+        this.authSubject.next(data.user);
+        localStorage.setItem('datiAccesso', JSON.stringify(data));
+        this.autoLogout();
+      })
+    );
+  }
+  login(loginData: iLoginData): Observable<iAuthResponse> {
+    return this.httpc.post<iAuthResponse>(this.loginUrl, loginData).pipe(
+      tap(data => {
+        this.authSubject.next(data.user);
+        localStorage.setItem('datiAccesso', JSON.stringify(data));
+        this.autoLogout();
+      })
+    );
+  }
 
 logout():void{
   this.authSubject.next(null)

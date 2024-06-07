@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { iFavoriteMovie } from '../../../models/i-favorite-movie';
 import { AuthService } from '../../auth/auth.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FavoriteService {
+export class profileService {
   private favoritesSource = new BehaviorSubject<iFavoriteMovie[]>([]);
   favorites$ = this.favoritesSource.asObservable();
 
@@ -40,5 +41,13 @@ getUserById(): Observable<any> {
   console.log('URL:', url);
 
   return this.http.get<any>(url);
+}
+getAllUsersExceptLogged(): Observable<any[]> {
+  const userId = this.authService.getAccessData()?.user.id;
+  const url = `http://localhost:3000/users`;
+
+  return this.http.get<any[]>(url).pipe(
+    map(users => users.filter(user => user.id !== userId))
+  );
 }
 }

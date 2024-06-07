@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoriteService } from './profile.service';
+import { profileService } from './profile.service';
 import { MovieService } from '../../../shared/movie/movie.service';
 import { AuthService } from '../../auth/auth.service';
 
@@ -18,7 +18,7 @@ export class FavoritesComponent implements OnInit {
   email: string='';
 
   constructor(
-    private favoriteService: FavoriteService,
+    private favoriteService: profileService,
     private movieService: MovieService,
     private authService: AuthService
   ) { }
@@ -28,7 +28,6 @@ ngOnInit() {
     user => {
       this.name = user.name;
       this.email = user.email;
-      console.log(user);
     },
     error => {
       console.error('Errore durante il recupero dei dettagli dell\'utente:', error);

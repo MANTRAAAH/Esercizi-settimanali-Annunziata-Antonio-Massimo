@@ -1,4 +1,4 @@
-import { FavoriteService } from '../../components/pages/Profilo/profile.service';
+import { profileService } from './../../components/pages/Profilo/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from './movie.service';
 import { AuthService } from '../../components/auth/auth.service';
@@ -16,7 +16,7 @@ export class MovieComponent implements OnInit {
   isLiked = false
 
 
-  constructor(private movieService: MovieService, private authService: AuthService,private favoriteService:FavoriteService) { }
+  constructor(private movieService: MovieService, private authService: AuthService,private profileService:profileService) { }
 
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe((loggedIn) => {
@@ -39,7 +39,7 @@ likeMovie(movieId: number) {
         movieId: Number(movieId)
       };
 
-      this.favoriteService.addFavorite(favorite).subscribe(response => {
+      this.profileService.addFavorite(favorite).subscribe(response => {
         console.log(response);
       });
     }
