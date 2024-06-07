@@ -1,23 +1,33 @@
-<form (ngSubmit)="login()">
-  <div>
-    <label for="email">Email:</label>
-    <input
-      type="email"
-      id="email"
-      [(ngModel)]="authData.email"
-      name="email"
-      required
-    />
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form (ngSubmit)="login()" class="needs-validation" novalidate>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="authData.email"
+            name="email"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please provide a valid email.</div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="authData.password"
+            name="password"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please provide a password.</div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
+      </form>
+    </div>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input
-      type="password"
-      id="password"
-      [(ngModel)]="authData.password"
-      name="password"
-      required
-    />
-  </div>
-  <button type="submit">Login</button>
-</form>
+</div>

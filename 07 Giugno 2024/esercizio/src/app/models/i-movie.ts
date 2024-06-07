@@ -4,4 +4,5 @@ export interface iMovie {
   image: string;
   genre: string;
   year: number;
+  isLiked: boolean;
 }

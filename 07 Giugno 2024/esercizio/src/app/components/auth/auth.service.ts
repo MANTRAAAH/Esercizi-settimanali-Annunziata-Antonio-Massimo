@@ -55,7 +55,7 @@ getUsername(): string | null {
   const accessData = this.getAccessData();
   if (!accessData) return null;
 
-  return accessData.user.name; // o accessData.user, a seconda di come è strutturato il tuo oggetto iAuthResponse
+  return accessData.user.name;
 }
 autoLogout():void{
 const datiAccesso=this.getAccessData()

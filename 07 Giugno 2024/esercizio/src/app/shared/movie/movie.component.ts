@@ -1,3 +1,4 @@
+import { FavoriteService } from '../../components/pages/Profilo/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from './movie.service';
 import { AuthService } from '../../components/auth/auth.service';
@@ -12,8 +13,10 @@ import { iFavoriteMovie } from '../../models/i-favorite-movie';
 export class MovieComponent implements OnInit {
   movies: iMovie[] = [];
   isLoggedIn: boolean | undefined;
+  isLiked = false
 
-  constructor(private movieService: MovieService, private authService: AuthService) { }
+
+  constructor(private movieService: MovieService, private authService: AuthService,private favoriteService:FavoriteService) { }
 
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe((loggedIn) => {
@@ -25,6 +28,8 @@ export class MovieComponent implements OnInit {
     });
   }
 
+
+
 likeMovie(movieId: number) {
   if (this.isLoggedIn) {
     const accessData = this.authService.getAccessData();
@@ -34,7 +39,7 @@ likeMovie(movieId: number) {
         movieId: Number(movieId)
       };
 
-      this.movieService.addFavorite(favorite).subscribe(response => {
+      this.favoriteService.addFavorite(favorite).subscribe(response => {
         console.log(response);
       });
     }

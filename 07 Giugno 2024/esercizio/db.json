@@ -5,6 +5,12 @@
       "password": "$2a$10$D7rAwNZ1vHy21hVUKoa2A.qq1H6o2kVG38st2MAuYDegAkH4Rv7ei",
       "name": "Glenna Mendez",
       "id": 1
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$KcIy1wQyasyLqSY/VZsrfewmMKTVPz2J3qIcH7reLu6Ix.j0DGiwC",
+      "name": "admin",
+      "id": 2
     }
   ],
   "movies-popular": [
@@ -34,119 +40,119 @@
       "title": "Pulp Fiction",
       "genre": "Crime",
       "year": 1994,
-      "image": "url_immagine_inception"
+      "image": "https://static.posters.cz/image/750/poster/pulp-fiction-cover-i1288.jpg"
     },
     {
       "id": 5,
       "title": "The Dark Knight",
       "genre": "Action",
       "year": 2008,
-      "image": "url_immagine_inception"
+      "image": "https://i.ebayimg.com/images/g/DgsAAOSw4qZdnKft/s-l1200.jpg"
     },
     {
       "id": 6,
       "title": "Fight Club",
       "genre": "Drama",
       "year": 1999,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/I/61IgtYrLF5L._AC_UF1000,1000_QL80_.jpg"
     },
     {
       "id": 7,
       "title": "Forrest Gump",
       "genre": "Drama",
       "year": 1994,
-      "image": "url_immagine_inception"
+      "image": "https://media.posterlounge.com/img/products/710000/705934/705934_poster.jpg"
     },
     {
       "id": 8,
       "title": "The Matrix",
       "genre": "Action",
       "year": 1999,
-      "image": "url_immagine_inception"
+      "image": "https://i.ebayimg.com/images/g/EzkAAOSweJZiLfwM/s-l1200.jpg"
     },
     {
       "id": 9,
       "title": "The Lord of the Rings: The Fellowship of the Ring",
       "genre": "Fantasy",
       "year": 2001,
-      "image": "url_immagine_inception"
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZWAvHEL0quGtctenRfikrDOLojq0q7KKfLQ&s"
     },
     {
       "id": 10,
       "title": "The Lord of the Rings: The Two Towers",
       "genre": "Fantasy",
       "year": 2002,
-      "image": "url_immagine_inception"
+      "image": "https://shotonwhat.com/images/0167261.jpg"
     },
     {
       "id": 11,
       "title": "The Lord of the Rings: The Return of the King",
       "genre": "Fantasy",
       "year": 2003,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/I/71fl6umyGrL._AC_UF1000,1000_QL80_.jpg"
     },
     {
       "id": 12,
       "title": "Inglourious Basterds",
       "genre": "War",
       "year": 2009,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/M/MV5BOTJiNDEzOWYtMTVjOC00ZjlmLWE0NGMtZmE1OWVmZDQ2OWJhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg"
     },
     {
       "id": 13,
       "title": "The Silence of the Lambs",
       "genre": "Thriller",
       "year": 1991,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
     },
     {
       "id": 14,
       "title": "Goodfellas",
       "genre": "Crime",
       "year": 1990,
-      "image": "url_immagine_inception"
+      "image": "https://i.ebayimg.com/images/g/4Y8AAOSwqu9VHq9N/s-l1600.jpg"
     },
     {
       "id": 15,
       "title": "The Departed",
       "genre": "Crime",
       "year": 2006,
-      "image": "url_immagine_inception"
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/92/1b/05/mzi.jifetyuy.jpg/1200x1200bf-60.jpg"
     },
     {
       "id": 16,
       "title": "The Green Mile",
       "genre": "Drama",
       "year": 1999,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_FMjpg_UX1000_.jpg"
     },
     {
       "id": 17,
       "title": "Gladiator",
       "genre": "Action",
       "year": 2000,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/I/71TTECGgpuL._AC_UF894,1000_QL80_.jpg"
     },
     {
       "id": 18,
       "title": "The Prestige",
       "genre": "Drama",
       "year": 2006,
-      "image": "url_immagine_inception"
+      "image": "https://images.genius.com/6bf8e9c78d07719f02a20214c4864614.667x1000x1.jpg"
     },
     {
       "id": 19,
       "title": "The Lion King",
       "genre": "Animation",
       "year": 1994,
-      "image": "url_immagine_inception"
+      "image": "https://miro.medium.com/v2/resize:fit:1000/1*ibiKVRfLzrsFAdye8Mj4WQ.jpeg"
     },
     {
       "id": 20,
       "title": "Titanic",
       "genre": "Romance",
       "year": 1997,
-      "image": "url_immagine_inception"
+      "image": "https://m.media-amazon.com/images/I/81n3QXOwA1L._AC_UF1000,1000_QL80_.jpg"
     }
   ],
   "favorites": [
@@ -169,6 +175,131 @@
       "userId": 1,
       "movieId": 7,
       "id": 4
+    },
+    {
+      "userId": 1,
+      "movieId": 8,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "movieId": 7,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "movieId": 11,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "movieId": 11,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "movieId": 16,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "movieId": 4,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "movieId": 4,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "movieId": 4,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "movieId": 1,
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "movieId": 3,
+      "id": 17
+    },
+    {
+      "userId": 2,
+      "movieId": 3,
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 19
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 20
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 21
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 22
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 23
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 24
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 25
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 26
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 27
+    },
+    {
+      "userId": 2,
+      "movieId": 1,
+      "id": 28
+    },
+    {
+      "userId": 2,
+      "movieId": 1,
+      "id": 29
     }
   ]
 }

@@ -10,8 +10,7 @@ import { iUser } from '../../../models/i-user';
 })
 export class RegisterComponent {
   newUser: Partial<iUser> = {};
-  registerForm: FormGroup;  // Aggiungi questa linea
-
+  registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private auth: AuthService) {
   this.registerForm = this.formBuilder.group({});
 }
