@@ -1,0 +1,174 @@
+{
+  "users": [
+    {
+      "email": "mukub@mailinator.com",
+      "password": "$2a$10$D7rAwNZ1vHy21hVUKoa2A.qq1H6o2kVG38st2MAuYDegAkH4Rv7ei",
+      "name": "Glenna Mendez",
+      "id": 1
+    }
+  ],
+  "movies-popular": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "year": 2010,
+      "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Shawshank Redemption",
+      "genre": "Drama",
+      "year": 1994,
+      "image": "https://www.originalfilmart.co.uk/cdn/shop/products/shawshank_redemption_R04_original_film_art_d6143a10-40d8-483f-be6f-76a715c3d84d_5000x.jpg?v=1644085657"
+    },
+    {
+      "id": 3,
+      "title": "The Godfather",
+      "genre": "Crime",
+      "year": 1972,
+      "image": "https://www.vintagemovieposters.co.uk/wp-content/uploads/2023/08/IMG_4675-scaled.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "Pulp Fiction",
+      "genre": "Crime",
+      "year": 1994,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 5,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 6,
+      "title": "Fight Club",
+      "genre": "Drama",
+      "year": 1999,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 7,
+      "title": "Forrest Gump",
+      "genre": "Drama",
+      "year": 1994,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 8,
+      "title": "The Matrix",
+      "genre": "Action",
+      "year": 1999,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 9,
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "genre": "Fantasy",
+      "year": 2001,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 10,
+      "title": "The Lord of the Rings: The Two Towers",
+      "genre": "Fantasy",
+      "year": 2002,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 11,
+      "title": "The Lord of the Rings: The Return of the King",
+      "genre": "Fantasy",
+      "year": 2003,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 12,
+      "title": "Inglourious Basterds",
+      "genre": "War",
+      "year": 2009,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 13,
+      "title": "The Silence of the Lambs",
+      "genre": "Thriller",
+      "year": 1991,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 14,
+      "title": "Goodfellas",
+      "genre": "Crime",
+      "year": 1990,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 15,
+      "title": "The Departed",
+      "genre": "Crime",
+      "year": 2006,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 16,
+      "title": "The Green Mile",
+      "genre": "Drama",
+      "year": 1999,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 17,
+      "title": "Gladiator",
+      "genre": "Action",
+      "year": 2000,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 18,
+      "title": "The Prestige",
+      "genre": "Drama",
+      "year": 2006,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 19,
+      "title": "The Lion King",
+      "genre": "Animation",
+      "year": 1994,
+      "image": "url_immagine_inception"
+    },
+    {
+      "id": 20,
+      "title": "Titanic",
+      "genre": "Romance",
+      "year": 1997,
+      "image": "url_immagine_inception"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": 1,
+      "movieId": 2,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "movieId": 4,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "movieId": 8,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "movieId": 7,
+      "id": 4
+    }
+  ]
+}
