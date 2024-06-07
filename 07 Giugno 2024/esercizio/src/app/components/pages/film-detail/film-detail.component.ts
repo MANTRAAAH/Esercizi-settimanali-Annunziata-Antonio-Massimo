@@ -26,7 +26,6 @@ getMovie(): void {
     this.movieService.getMovie(+id)
       .subscribe(movie => {
         this.movie = movie;
-        console.log(movie);
       });
   }
 }

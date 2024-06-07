@@ -452,6 +452,21 @@
       "userId": 9,
       "movieId": 12,
       "id": 51
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "id": 52
+    },
+    {
+      "userId": 2,
+      "movieId": 6,
+      "id": 53
+    },
+    {
+      "userId": 2,
+      "movieId": 12,
+      "id": 54
     }
   ]
 }

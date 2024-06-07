@@ -37,8 +37,6 @@ getUserById(): Observable<any> {
   const userId = this.authService.getAccessData()?.user.id;
   const url = `http://localhost:3000/users/${userId}`;
 
-  console.log('ID utente:', userId);
-  console.log('URL:', url);
 
   return this.http.get<any>(url);
 }

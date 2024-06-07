@@ -22,7 +22,6 @@ ngOnInit() {
     this.isLoggedIn = loggedIn;
   });
   this.MovieService.getPopularMovies().subscribe((data: iMovie[]) => {
-    console.log(data);
     this.movies = data;
   });
 

@@ -23,7 +23,6 @@ export class MovieComponent implements OnInit {
       this.isLoggedIn = loggedIn;
     });
     this.movieService.getPopularMovies().subscribe((data: iMovie[]) => {
-      console.log(data);
       this.movies = data;
     });
   }
