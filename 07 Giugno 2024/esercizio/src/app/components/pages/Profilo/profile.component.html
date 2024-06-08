@@ -7,23 +7,27 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12 text-center mb-3">
       <h3 class="fst-italic">I tuoi film preferiti</h3>
     </div>
-    <div class="row">
-      <div class="col-sm-4" *ngFor="let favoriteMovie of favoriteMovies">
-        <div class="card">
-          <img
-            class="card-img-top"
-            [src]="favoriteMovie.movie.image"
-            alt="Poster del film"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ favoriteMovie.movie.title }}</h5>
-            <p class="card-text">{{ favoriteMovie.movie.genre }}</p>
-          </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 mb-4" *ngFor="let favoriteMovie of favoriteMovies">
+      <div class="card h-100 shadow-sm">
+        <img
+          class="card-img-top"
+          [src]="favoriteMovie.movie.image"
+          alt="Poster del film"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ favoriteMovie.movie.title }}</h5>
+          <p class="card-text">{{ favoriteMovie.movie.genre }}</p>
+          <p class="card-text">
+            <small class="text-muted">{{ favoriteMovie.movie.year }}</small>
+          </p>
         </div>
       </div>
     </div>

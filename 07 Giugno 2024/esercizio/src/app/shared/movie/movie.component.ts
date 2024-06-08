@@ -4,6 +4,7 @@ import { MovieService } from './movie.service';
 import { AuthService } from '../../components/auth/auth.service';
 import { iMovie } from '../../models/i-movie';
 import { iFavoriteMovie } from '../../models/i-favorite-movie';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-movie',
@@ -29,19 +30,25 @@ export class MovieComponent implements OnInit {
 
 
 
-likeMovie(movieId: number) {
-  if (this.isLoggedIn) {
-    const accessData = this.authService.getAccessData();
-    if (accessData) {
-      const favorite: iFavoriteMovie = {
-        userId: accessData.user.id,
-        movieId: Number(movieId)
-      };
+  likeMovie(movieId: number) {
+    if (this.isLoggedIn) {
+      const accessData = this.authService.getAccessData();
+      if (accessData) {
+        const favorite: iFavoriteMovie = {
+          userId: accessData.user.id,
+          movieId: Number(movieId)
+        };
 
-      this.profileService.addFavorite(favorite).subscribe(response => {
-        console.log(response);
-      });
+        this.profileService.addFavorite(favorite).subscribe(response => {
+          console.log(response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Aggiunto ai preferiti',
+            text: 'Il film è stato aggiunto ai tuoi preferiti.',
+            confirmButtonText: 'OK'
+          });
+        });
+      }
     }
   }
-}
 }
