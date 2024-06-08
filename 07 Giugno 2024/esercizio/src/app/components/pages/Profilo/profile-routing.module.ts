@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FavoritesComponent } from './profile.component';
+import { AuthGuard } from '../../auth/auth.guard';
 
-const routes: Routes = [{ path: '', component: FavoritesComponent }];
+const routes: Routes = [{ path: '', component: FavoritesComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

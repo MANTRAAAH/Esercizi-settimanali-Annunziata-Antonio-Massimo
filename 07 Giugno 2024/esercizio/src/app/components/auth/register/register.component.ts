@@ -34,7 +34,7 @@ register() {
     this.auth.register(this.newUser).subscribe({
       next: () => {
         console.log('user registered');
-        this.router.navigate(['/']); // reindirizza alla home
+        this.router.navigate(['/']);
       },
       error: (err) => console.error('Registration failed', err)
     });
