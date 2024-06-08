@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/main/navbar/navbar.component';
 import { FooterComponent } from './components/main/footer/footer.component';
-import { HomeComponent } from './components/pages/home/home.component';
 
 @NgModule({
   declarations: [
