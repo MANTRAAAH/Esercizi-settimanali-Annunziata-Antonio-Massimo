@@ -3,17 +3,17 @@
     <div class="card-body d-flex flex-column">
       <div *ngIf="isLoggedIn; else notLoggedIn">
         <h2 class="text-center">
-          Bentornato
+          Welcome back,
           <span class="text-success fw-bold">{{ username }}</span>
         </h2>
       </div>
 
       <ng-template #notLoggedIn>
-        <h2>Effettua il login per visualizzare il contenuto</h2>
+        <h2>Log in to view the content</h2>
         <button routerLink="/auth" class="btn btn-primary">Login</button>
       </ng-template>
       <button routerLink="/profile" class="btn btn-primary" *ngIf="isLoggedIn">
-        Il Mio Profilo
+        Your Profile
       </button>
     </div>
   </div>
