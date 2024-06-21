@@ -1,0 +1,13 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Esercizio_S1_Back_End
+build_property.ProjectDir = D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
