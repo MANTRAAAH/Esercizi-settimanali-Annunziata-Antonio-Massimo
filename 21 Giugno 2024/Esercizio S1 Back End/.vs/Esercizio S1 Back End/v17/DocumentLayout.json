@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{C36BF3E8-03CA-426B-9F92-BBEADCFA9F80}|Esercizio S1 Back End\\Esercizio S1 Back End.csproj|d:\\iclouddrive\\coding\\epicode\\esercizi venerd\u00EC\\esercizi-settimanali-annunziata-antonio-massimo\\21 giugno 2024\\esercizio s1 back end\\esercizio s1 back end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C36BF3E8-03CA-426B-9F92-BBEADCFA9F80}|Esercizio S1 Back End\\Esercizio S1 Back End.csproj|solutionrelative:esercizio s1 back end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36BF3E8-03CA-426B-9F92-BBEADCFA9F80}|Esercizio S1 Back End\\Esercizio S1 Back End.csproj|d:\\iclouddrive\\coding\\epicode\\esercizi venerd\u00EC\\esercizi-settimanali-annunziata-antonio-massimo\\21 giugno 2024\\esercizio s1 back end\\esercizio s1 back end\\contribuente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C36BF3E8-03CA-426B-9F92-BBEADCFA9F80}|Esercizio S1 Back End\\Esercizio S1 Back End.csproj|solutionrelative:esercizio s1 back end\\contribuente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Contribuente.cs",
+              "DocumentMoniker": "D:\\iCloudDrive\\Coding\\Epicode\\Esercizi Venerd\u00EC\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\21 Giugno 2024\\Esercizio S1 Back End\\Esercizio S1 Back End\\Contribuente.cs",
+              "RelativeDocumentMoniker": "Esercizio S1 Back End\\Contribuente.cs",
+              "ToolTip": "D:\\iCloudDrive\\Coding\\Epicode\\Esercizi Venerd\u00EC\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\21 Giugno 2024\\Esercizio S1 Back End\\Esercizio S1 Back End\\Contribuente.cs",
+              "RelativeToolTip": "Esercizio S1 Back End\\Contribuente.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T07:49:30.526Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "Esercizio S1 Back End\\Program.cs",
               "ToolTip": "D:\\iCloudDrive\\Coding\\Epicode\\Esercizi Venerd\u00EC\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\21 Giugno 2024\\Esercizio S1 Back End\\Esercizio S1 Back End\\Program.cs",
               "RelativeToolTip": "Esercizio S1 Back End\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAAAgwC0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T07:19:47.502Z",
               "EditorCaption": ""

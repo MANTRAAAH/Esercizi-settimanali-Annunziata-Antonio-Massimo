@@ -1,0 +1,15 @@
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.GeneratedMSBuildEditorConfig.editorconfig
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.AssemblyInfoInputs.cache
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.AssemblyInfo.cs
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.csproj.CoreCompileInputs.cache
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.sourcelink.json
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\bin\Debug\net8.0\Esercizio S1 Back End.exe
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\bin\Debug\net8.0\Esercizio S1 Back End.deps.json
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\bin\Debug\net8.0\Esercizio S1 Back End.runtimeconfig.json
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\bin\Debug\net8.0\Esercizio S1 Back End.dll
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\bin\Debug\net8.0\Esercizio S1 Back End.pdb
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.dll
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\refint\Esercizio S1 Back End.dll
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.pdb
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\Esercizio S1 Back End.genruntimeconfig.cache
+D:\iCloudDrive\Coding\Epicode\Esercizi Venerdì\Esercizi-settimanali-Annunziata-Antonio-Massimo\21 Giugno 2024\Esercizio S1 Back End\Esercizio S1 Back End\obj\Debug\net8.0\ref\Esercizio S1 Back End.dll
