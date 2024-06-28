@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ScarpeCo.Models.Product>
+
+@{
+    ViewData["Title"] = "Vetrina Prodotti";
+}
+
+<style>
+    body {
+        background-color: #CCCCCC;
+    }
+
+    h1 {
+        color: #003366;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .product-item {
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+    }
+
+        .product-item h2 {
+            color: #000000;
+        }
+
+        .product-item p {
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-item a {
+            color: #003366;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+            .product-item a:hover {
+                color: #002147;
+            }
+</style>
+
+<h1>Vetrina Prodotti</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Aggiungi Prodotto</a>
+</p>
+
+<div class="product-list">
+    @foreach (var product in Model)
+    {
+        <div class="product-item">
+            <h2>@product.Name</h2>
+            <p>@product.Price.ToString("C")</p>
+            <a href="@Url.Action("Details", "Products", new { id = product.Id })">Dettagli</a>
+        </div>
+    }
+</div>

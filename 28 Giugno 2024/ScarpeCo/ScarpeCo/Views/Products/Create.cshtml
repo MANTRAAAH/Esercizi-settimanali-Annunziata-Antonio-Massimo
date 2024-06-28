@@ -1,0 +1,86 @@
+﻿@model ScarpeCo.Models.Product
+
+@{
+    ViewData["Title"] = "Aggiungi Prodotto";
+}
+<style>
+    body {
+        background-color: #CCCCCC;
+    }
+
+    .form-label {
+        color: #000000;
+    }
+
+    .form-control {
+        border-color: #003366;
+        color: #000000;
+    }
+
+    .btn-primary {
+        background-color: #003366;
+        border-color: #003366;
+    }
+
+        .btn-primary:hover {
+            background-color: #002147;
+            border-color: #002147;
+        }
+
+    .invalid-feedback {
+        color: #FF0000;
+    }
+
+    .form-container {
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="form-container">
+    <h1 class="text-dark">Aggiungi Prodotto</h1>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Nome Prodotto</label>
+            <input asp-for="Name" class="form-control" required />
+            <div class="invalid-feedback">
+                Per favore inserisci il nome del prodotto.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Prezzo</label>
+            <input asp-for="Price" class="form-control" required />
+            <div class="invalid-feedback">
+                Per favore inserisci un prezzo valido.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Descrizione</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        </div>
+
+        <div class="mb-3 text-center">
+            <input type="submit" value="Aggiungi" class="btn btn-primary btn-lg" />
+        </div>
+    </form>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-action="Index" class="text-dark">Torna alla vetrina</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
