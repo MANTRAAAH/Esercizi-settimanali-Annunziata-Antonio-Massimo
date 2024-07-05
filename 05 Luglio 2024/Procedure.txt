@@ -81,58 +81,69 @@ VALUES
 ('2024-09-01', 'Via Napoli, 15', 'Agente Bianco', '2024-09-02', 200.00, 5, 9, 1),
 ('2024-10-01', 'Via Firenze, 17', 'Agente Marrone', '2024-10-02', 300.00, 7, 10, 2);
 
-select count(*) as NumeroVerbali from Verbale;
+-- Query per contare il numero totale di record nella tabella 'Verbale'
+SELECT count(*) AS NumeroVerbali 
+FROM Verbale;
 
-
+-- Query per ottenere il nome completo di ogni persona e il numero di record 'Verbale' associati a ciascuno di essi
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto, COUNT(V.idVerbale) AS NumeroVerbali
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idanagrafica = V.idanagrafica
 GROUP BY CONCAT(a.Nome, ' ', a.Cognome);
 
+-- Query per ottenere la descrizione di ciascun tipo di violazione e il numero di record 'Verbale' per ciascun tipo
 SELECT TV.descrizione AS DescrizioneViolazione, COUNT(*) AS NumeroVerbali
 FROM VERBALE V
 JOIN TIPO_VIOLAZIONE TV ON V.idviolazione = TV.idviolazione
 GROUP BY TV.descrizione;
 
+-- Query per ottenere il nome completo di ciascuna persona e il totale dei punti decurtati dai loro record
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto, SUM(V.DecurtamentoPunti) AS TotalePuntiDecurtati
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idanagrafica = V.idanagrafica
 GROUP BY A.Nome, A.Cognome;
 
-
+-- Query per ottenere i dettagli dei record 'Verbale' per le persone che vivono a Palermo
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto, V.DataViolazione, V.IndirizzoViolazione, V.Importo, V.DecurtamentoPunti
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idanagrafica = V.idanagrafica
 WHERE A.Città LIKE '%Palermo%';
 
+-- Query per ottenere i dettagli dei record 'Verbale' all'interno di un intervallo di date specifico
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto, A.Indirizzo, V.DataViolazione, V.Importo, V.DecurtamentoPunti
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idAnagrafica = V.idAnagrafica
 WHERE V.DataViolazione BETWEEN '2024-02-01' AND '2024-07-31';
 
+-- Query per ottenere il nome completo di ciascuna persona e il totale degli importi delle multe dai loro record
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto, SUM(V.Importo) AS TotaleImporti
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idAnagrafica = V.idAnagrafica
 GROUP BY CONCAT(a.Nome, ' ', a.Cognome);
 
+-- Query per ottenere il nome completo delle persone che vivono a Palermo
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto
 FROM ANAGRAFICA A
-where a.Città = 'Palermo'
+WHERE a.Città = 'Palermo';
 
+-- Query per ottenere i dettagli dei record 'Verbale' per una data specifica
 SELECT CONCAT(a.Nome, ' ', a.Cognome) AS NomeCompleto, A.Indirizzo, V.DataViolazione, V.Importo, V.DecurtamentoPunti
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idAnagrafica = V.idAnagrafica
 WHERE V.DataViolazione = '2024-03-01';
 
+-- Query per ottenere il nome degli agenti e il numero di violazioni che hanno registrato
 SELECT Nominativo_Agente, COUNT(*) AS NumeroViolazioni
 FROM VERBALE
 GROUP BY Nominativo_Agente;
 
+-- Query per ottenere i dettagli dei record 'Verbale' con più di 5 punti decurtati
 SELECT A.Cognome, A.Nome, A.Indirizzo, V.DataViolazione, V.Importo, V.DecurtamentoPunti
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idAnagrafica = V.idAnagrafica
 WHERE V.DecurtamentoPunti > 5;
 
+-- Query per ottenere i dettagli dei record 'Verbale' con un importo della multa superiore a 400
 SELECT A.Cognome, A.Nome, A.Indirizzo, V.DataViolazione, V.Importo, V.DecurtamentoPunti
 FROM ANAGRAFICA A
 JOIN VERBALE V ON A.idAnagrafica = V.idAnagrafica
