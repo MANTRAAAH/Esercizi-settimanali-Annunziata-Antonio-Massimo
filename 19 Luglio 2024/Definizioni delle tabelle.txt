@@ -1,0 +1,33 @@
+CREATE TABLE ANAGRAFICA (
+    idanagrafica INT IDENTITY(1,1) PRIMARY KEY,
+    Cognome VARCHAR(50) NOT NULL,
+    Nome VARCHAR(50) NOT NULL,
+    Indirizzo VARCHAR(100) NOT NULL,
+    Città VARCHAR(50) NOT NULL,
+    CAP VARCHAR(10) NOT NULL,
+    Cod_Fisc VARCHAR(16) NOT NULL
+);
+
+CREATE TABLE [dbo].[TIPO_VIOLAZIONE] (
+    [idviolazione]      INT             IDENTITY (1, 1) NOT NULL,
+    [descrizione]       VARCHAR (255)   NOT NULL,
+    [importo]           DECIMAL (10, 2) NOT NULL,
+    [DecurtamentoPunti] INT             NOT NULL,
+    [RitiroPatente]     BIT             NOT NULL,
+    [IsContestabile]    BIT             DEFAULT ((0)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([idviolazione] ASC)
+);
+
+CREATE TABLE VERBALE (
+    idverbale INT IDENTITY(1,1) PRIMARY KEY,
+    DataViolazione DATE NOT NULL,
+    IndirizzoViolazione VARCHAR(100) NOT NULL,
+    Nominativo_Agente VARCHAR(50) NOT NULL,
+    DataTrascrizioneVerbale DATE NOT NULL,
+    Importo DECIMAL(10, 2) NOT NULL,
+    DecurtamentoPunti INT NOT NULL,
+    idanagrafica INT,
+    idviolazione INT,
+    FOREIGN KEY (idanagrafica) REFERENCES ANAGRAFICA(idanagrafica),
+    FOREIGN KEY (idviolazione) REFERENCES TIPO_VIOLAZIONE(idviolazione)
+);
