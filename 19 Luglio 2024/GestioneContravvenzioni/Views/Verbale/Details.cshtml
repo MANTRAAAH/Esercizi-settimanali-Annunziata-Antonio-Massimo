@@ -1,0 +1,73 @@
+﻿@model GestioneContravvenzioni.Models.VerbaleDetailsViewModel
+
+@{
+    ViewData["Title"] = "Dettagli Verbale";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+    <!-- Dettagli Verbale -->
+    <div class="mb-4">
+        <h4 class="text-center">Verbale</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Idverbale</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.Idverbale</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Data Violazione</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.DataViolazione.ToShortDateString()</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Indirizzo Violazione</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.IndirizzoViolazione</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Nominativo Agente</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.Nominativo_Agente</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Data Trascrizione Verbale</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.DataTrascrizioneVerbale.ToShortDateString()</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Importo</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.Importo.ToString("C")</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Decurtamento Punti</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Verbale.DecurtamentoPunti</dd>
+        </dl>
+    </div>
+
+    <!-- Dettagli Anagrafica -->
+    <div class="mb-4">
+        <h4 class="text-center">Anagrafica</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Nome</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Anagrafica.Nome</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Cognome</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Anagrafica.Cognome</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Indirizzo</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Anagrafica.Indirizzo</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Città</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Anagrafica.Città</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>CAP</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Anagrafica.CAP</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Codice Fiscale</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.Anagrafica.Cod_Fisc</dd>
+        </dl>
+    </div>
+
+    <!-- Dettagli Violazione -->
+    <div class="mb-4">
+        <h4 class="text-center">Violazione</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Descrizione</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.TipoViolazione.Descrizione</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Importo</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.TipoViolazione.Importo.ToString("C")</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Decurtamento Punti</strong></dt>
+            <dd class="col-sm-8 col-md-9">@Model.TipoViolazione.DecurtamentoPunti</dd>
+            <dt class="col-sm-4 col-md-3 text-end"><strong>Ritiro Patente</strong></dt>
+            <dd class="col-sm-8 col-md-9">
+                    @(Model.TipoViolazione.RitiroPatente ? "Sì" : "No")
+            </dd>
+        </dl>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary">Torna alla lista</a>
+    </div>
+</div>

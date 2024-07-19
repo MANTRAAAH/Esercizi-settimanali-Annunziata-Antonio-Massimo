@@ -1,0 +1,78 @@
+﻿@model Tuple<IEnumerable<GestioneContravvenzioni.Models.TipoViolazione>, IEnumerable<GestioneContravvenzioni.Models.TipoViolazione>>
+
+@{
+    ViewData["Title"] = "Lista Delle Violazioni";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+
+    <h2 class="my-4">Violazioni Contestabili</h2>
+    @if (Model.Item1.Any())
+    {
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id Violazione</th>
+                    <th>Descrizione</th>
+                    <th>Importo</th>
+                    <th>Decurtamento Punti</th>
+                    <th>Ritiro Patente</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Item1)
+                {
+                    <tr>
+                        <td>@item.Idviolazione</td>
+                        <td>@item.Descrizione</td>
+                        <td>@item.Importo.ToString("C")</td>
+                        <td>@item.DecurtamentoPunti</td>
+                        <td>@(item.RitiroPatente ? "Si" : "No")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            No contestable violations found.
+        </div>
+    }
+
+    <h2 class="my-4">Altre Violazioni</h2>
+    @if (Model.Item2.Any())
+    {
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id Violazione</th>
+                    <th>Descrizione</th>
+                    <th>Importo</th>
+                    <th>Decurtamento Punti</th>
+                    <th>Ritiro Patente</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Item2)
+                {
+                    <tr>
+                        <td>@item.Idviolazione</td>
+                        <td>@item.Descrizione</td>
+                        <td>@item.Importo.ToString("C")</td>
+                        <td>@item.DecurtamentoPunti</td>
+                        <td>@(item.RitiroPatente ? "Si" : "No")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            No non-contestable violations found.
+        </div>
+    }
+</div>

@@ -1,0 +1,103 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GestioneContravvenzioni
+build_property.RootNamespace = GestioneContravvenzioni
+build_property.ProjectDir = C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\19 Luglio 2024\GestioneContravvenzioni\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\19 Luglio 2024\GestioneContravvenzioni
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Anagrafica/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hZ3JhZmljYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Anagrafica/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hZ3JhZmljYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Anagrafica/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hZ3JhZmljYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Report/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Report/TotalePuntiDecurtatiPerTrasgressore.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFRvdGFsZVB1bnRpRGVjdXJ0YXRpUGVyVHJhc2dyZXNzb3JlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Report/TotaleVerbaliPerTrasgressore.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFRvdGFsZVZlcmJhbGlQZXJUcmFzZ3Jlc3NvcmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Report/ViolazioniConImportoSuperioreAQuattrocento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFZpb2xhemlvbmlDb25JbXBvcnRvU3VwZXJpb3JlQVF1YXR0cm9jZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Report/ViolazioniConPuntiSuperioriADieci.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFZpb2xhemlvbmlDb25QdW50aVN1cGVyaW9yaUFEaWVjaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/TipoViolazione/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1Zpb2xhemlvbmVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Verbale/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyYmFsZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Verbale/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyYmFsZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Verbale/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVyYmFsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/19 Luglio 2024/GestioneContravvenzioni/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fm1t41b4o8

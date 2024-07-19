@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GestioneContravvenzioni.Models.Verbale>
+
+@{
+    ViewData["Title"] = "Verbali";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Lista e azioni dei verbali</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Crea Verbale</a>
+    </p>
+
+    <!-- Tabella con Bootstrap -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID Verbale</th>
+                    <th>Data Violazione</th>
+                    <th>Indirizzo Violazione</th>
+                    <th>Nominativo Agente</th>
+                    <th>Data Trascrizione Verbale</th>
+                    <th>Importo</th>
+                    <th>Decurtamento Punti</th>
+                    <th>ID Anagrafica</th>
+                    <th>ID Violazione</th>
+                    <th>Azioni</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Idverbale</td>
+                        <td>@item.DataViolazione.ToString("d")</td>
+                        <td>@item.IndirizzoViolazione</td>
+                        <td>@item.Nominativo_Agente</td>
+                        <td>@item.DataTrascrizioneVerbale.ToString("d")</td>
+                        <td>@item.Importo.ToString("C")</td>
+                        <td>@item.DecurtamentoPunti</td>
+                        <td>@item.Idanagrafica</td>
+                        <td>@item.Idviolazione</td>
+                        <td>
+                            @Html.ActionLink("Dettagli", "Details", new { id = item.Idverbale }, new { @class = "btn btn-info btn-sm" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

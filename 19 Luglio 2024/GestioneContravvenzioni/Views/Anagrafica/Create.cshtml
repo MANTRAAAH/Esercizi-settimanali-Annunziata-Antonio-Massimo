@@ -1,0 +1,69 @@
+﻿@model GestioneContravvenzioni.Models.Anagrafica
+
+@{
+    ViewData["Title"] = "Crea Anagrafica";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <form asp-action="Create">
+                <div class="form-group mb-3">
+                    <label asp-for="Cognome" class="form-label"></label>
+                    <input asp-for="Cognome" class="form-control" />
+                    <div class="invalid-feedback">
+                        <span asp-validation-for="Cognome"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Nome" class="form-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <div class="invalid-feedback">
+                        <span asp-validation-for="Nome"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Indirizzo" class="form-label"></label>
+                    <input asp-for="Indirizzo" class="form-control" />
+                    <div class="invalid-feedback">
+                        <span asp-validation-for="Indirizzo"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Città" class="form-label"></label>
+                    <input asp-for="Città" class="form-control" />
+                    <div class="invalid-feedback">
+                        <span asp-validation-for="Città"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="CAP" class="form-label"></label>
+                    <input asp-for="CAP" class="form-control" />
+                    <div class="invalid-feedback">
+                        <span asp-validation-for="CAP"></span>
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Cod_Fisc" class="form-label">Codice Fiscale</label>
+                    <input asp-for="Cod_Fisc" class="form-control" />
+                    <div class="invalid-feedback">
+                        <span asp-validation-for="Cod_Fisc"></span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Crea" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary ms-2">Torna Alla Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Report Mensili";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <div class="mt-4">
+        <div class="list-group">
+            <a href="@Url.Action("TotaleVerbaliPerTrasgressore", "Report")" class="list-group-item list-group-item-action">
+                Totale Verbali per Trasgressore
+            </a>
+            <a href="@Url.Action("TotalePuntiDecurtatiPerTrasgressore", "Report")" class="list-group-item list-group-item-action">
+                Totale Punti Decurtati per Trasgressore
+            </a>
+            <a href="@Url.Action("ViolazioniConPuntiSuperioriADieci", "Report")" class="list-group-item list-group-item-action">
+                Violazioni con Punti Superiori a 10
+            </a>
+            <a href="@Url.Action("ViolazioniConImportoSuperioreAQuattrocento", "Report")" class="list-group-item list-group-item-action">
+                Violazioni con Importo Superiore a 400 Euro
+            </a>
+        </div>
+    </div>
+</div>

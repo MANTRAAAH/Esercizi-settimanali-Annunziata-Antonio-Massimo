@@ -1,0 +1,68 @@
+﻿@model GestioneContravvenzioni.Models.VerbaleCreateViewModel
+
+@{
+    ViewData["Title"] = "Crea Verbale";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+    <form asp-action="Create">
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.Idanagrafica" class="form-label">ID Anagrafica</label>
+            <select asp-for="Verbale.Idanagrafica" asp-items="Model.AnagraficaList" class="form-select">
+                <option value="">Seleziona...</option>
+            </select>
+            <span asp-validation-for="Verbale.Idanagrafica" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.Idviolazione" class="form-label">ID Violazione</label>
+            <select asp-for="Verbale.Idviolazione" asp-items="Model.TipoViolazioneList" class="form-select">
+                <option value="">Seleziona...</option>
+            </select>
+            <span asp-validation-for="Verbale.Idviolazione" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.DataViolazione" class="form-label">Data Violazione</label>
+            <input asp-for="Verbale.DataViolazione" class="form-control" type="date" />
+            <span asp-validation-for="Verbale.DataViolazione" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.IndirizzoViolazione" class="form-label">Indirizzo Violazione</label>
+            <input asp-for="Verbale.IndirizzoViolazione" class="form-control" />
+            <span asp-validation-for="Verbale.IndirizzoViolazione" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.Nominativo_Agente" class="form-label">Nominativo Agente</label>
+            <input asp-for="Verbale.Nominativo_Agente" class="form-control" />
+            <span asp-validation-for="Verbale.Nominativo_Agente" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.DataTrascrizioneVerbale" class="form-label">Data Trascrizione Verbale</label>
+            <input asp-for="Verbale.DataTrascrizioneVerbale" class="form-control" type="date" />
+            <span asp-validation-for="Verbale.DataTrascrizioneVerbale" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.Importo" class="form-label">Importo</label>
+            <input asp-for="Verbale.Importo" class="form-control" type="number" step="0.01" />
+            <span asp-validation-for="Verbale.Importo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Verbale.DecurtamentoPunti" class="form-label">Decurtamento Punti</label>
+            <input asp-for="Verbale.DecurtamentoPunti" class="form-control" type="number" />
+            <span asp-validation-for="Verbale.DecurtamentoPunti" class="text-danger"></span>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Crea</button>
+            <a asp-action="Index" class="btn btn-secondary">Torna alla Lista</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Pagina Iniziale";
+}
+
+<div class="container mt-4">
+    <div class="text-center mb-4">
+        <h1 class="display-4">Benvenuto</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Anagrafica
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestisci Anagrafica</h5>
+                    <p class="card-text">Crea, modifica e visualizza tutti i record anagrafici.</p>
+                    <a href="@Url.Action("Index", "Anagrafica")" class="btn btn-primary">Vai all'Anagrafica</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Tipo Violazione
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Lista Violazioni</h5>
+                    <p class="card-text">Visualizza la lista delle violazioni.</p>
+                    <a href="@Url.Action("Index", "TipoViolazione")" class="btn btn-primary">Vai alla Lista delle Violazioni</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Verbale
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestisci Verbale</h5>
+                    <p class="card-text">Crea, modifica e visualizza tutti i record di verbali.</p>
+                    <a href="@Url.Action("Index", "Verbale")" class="btn btn-primary">Vai ai Verbali</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Report
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Visualizza Report</h5>
+                    <p class="card-text">Visualizza vari report relativi ai dati del sistema.</p>
+                    <a href="@Url.Action("Index", "Report")" class="btn btn-primary">Vai ai Report</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
