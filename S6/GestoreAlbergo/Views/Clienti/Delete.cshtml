@@ -1,0 +1,41 @@
+﻿@model Cliente
+
+@{
+    ViewData["Title"] = "Elimina Cliente";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div>
+    <h4>@Model.Cognome @Model.Nome</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cellulare)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cellulare)
+        </dd>
+        <!-- Aggiungi altri dettagli se necessario -->
+    </dl>
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <input type="submit" value="Elimina" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+        </div>
+    </form>
+</div>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestioneContravvenzioni")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9c2d4c88cedc1590a97c28119439235928e2570")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e10c0164f27140a9ec0675ed01d943584e5969f")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestioneContravvenzioni")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestioneContravvenzioni")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

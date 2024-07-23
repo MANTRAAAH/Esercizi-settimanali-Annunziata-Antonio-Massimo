@@ -1,0 +1,132 @@
+﻿@model PrenotazioneViewModel
+
+@{
+    ViewData["Title"] = "Crea Prenotazione";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Prenotazione</h4>
+<hr />
+<form asp-action="Create">
+    <div class="form-group">
+        <label for="clienteSearch" class="control-label">Cerca Cliente</label>
+        <div class="input-group">
+            <input type="text" id="clienteSearch" class="form-control" placeholder="Inserisci il nome del cliente..." />
+            <div class="input-group-append">
+                <button id="searchButton" class="btn btn-primary" type="button">Cerca</button>
+            </div>
+        </div>
+        <select id="clientiList" class="form-control">
+            <option value="">Seleziona Cliente</option>
+        </select>
+        <span asp-validation-for="Prenotazione.ClienteId" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Prenotazione.Cliente.CodiceFiscale" id="Prenotazione_CodiceFiscale" />
+    <input type="hidden" asp-for="Prenotazione.ClienteId" id="Prenotazione_ClienteId" />
+
+    <div class="form-group">
+        <label asp-for="Prenotazione.NumeroCamera" class="control-label"></label>
+        <select asp-for="Prenotazione.NumeroCamera" class="form-control" asp-items="Model.Camere"></select>
+        <span asp-validation-for="Prenotazione.NumeroCamera" class="text-danger"></span>
+    </div>
+
+    <input asp-for="Prenotazione.DataPrenotazione" type="hidden" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    <div class="form-group">
+        <label asp-for="Prenotazione.PeriodoDal" class="control-label"></label>
+        <input asp-for="Prenotazione.PeriodoDal" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+        <span asp-validation-for="Prenotazione.PeriodoDal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.PeriodoAl" class="control-label"></label>
+        <input asp-for="Prenotazione.PeriodoAl" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+        <span asp-validation-for="Prenotazione.PeriodoAl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.Caparra" class="control-label"></label>
+        <input asp-for="Prenotazione.Caparra" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Prenotazione.Caparra" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.TariffaApplicata" class="control-label"></label>
+        <input asp-for="Prenotazione.TariffaApplicata" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Prenotazione.TariffaApplicata" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.Dettagli" class="control-label"></label>
+        <input asp-for="Prenotazione.Dettagli" class="form-control" />
+        <span asp-validation-for="Prenotazione.Dettagli" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Crea" class="btn btn-primary" />
+    </div>
+
+    <!-- Hidden fields for client details -->
+    <input type="hidden" asp-for="Prenotazione.Cliente.Nome" id="Prenotazione_Cliente_Nome" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.Cognome" id="Prenotazione_Cliente_Cognome" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.Citta" id="Prenotazione_Cliente_Citta" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.Email" id="Prenotazione_Cliente_Email" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.Telefono" id="Prenotazione_Cliente_Telefono" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.Cellulare" id="Prenotazione_Cliente_Cellulare" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.Provincia" id="Prenotazione_Cliente_Provincia" />
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#searchButton').on('click', function () {
+                var query = $('#clienteSearch').val();
+                if (query.length > 2) {
+                    $.ajax({
+                        url: '@Url.Action("Search", "Prenotazioni")',
+                        data: { query: query },
+                        success: function (data) {
+                            var clientiList = $('#clientiList');
+                            clientiList.empty();
+                            clientiList.append('<option value="">Seleziona Cliente</option>'); // Default option
+                            $.each(data, function (i, cliente) {
+                                clientiList.append($('<option>', {
+                                    value: cliente.cod_fisc, // Corrected value to use cliente.cod_fisc
+                                    text: cliente.nome + ' ' + cliente.cognome,
+                                    'data-id': cliente.id, // Store cliente.id in a data attribute
+                                    'data-nome': cliente.nome,
+                                    'data-cognome': cliente.cognome,
+                                    'data-citta': cliente.citta,
+                                    'data-email': cliente.email,
+                                    'data-telefono': cliente.telefono,
+                                    'data-cellulare': cliente.cellulare,
+                                    'data-provincia': cliente.provincia,
+                                    'data-cod_fisc': cliente.cod_fisc
+                                }));
+                            });
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log("Error in AJAX request:", textStatus, errorThrown);
+                        }
+                    });
+                }
+            });
+
+            $('#clientiList').on('change', function () {
+                var selectedOption = $(this).find('option:selected');
+                $('#Prenotazione_ClienteId').val(selectedOption.data('id')); // Set ClienteId using data-id
+                $('#Prenotazione_CodiceFiscale').val(selectedOption.val()); // Set CodiceFiscale using the selected value
+                $('#Prenotazione_Cliente_Nome').val(selectedOption.data('nome'));
+                $('#Prenotazione_Cliente_Cognome').val(selectedOption.data('cognome'));
+                $('#Prenotazione_Cliente_Citta').val(selectedOption.data('citta'));
+                $('#Prenotazione_Cliente_Email').val(selectedOption.data('email'));
+                $('#Prenotazione_Cliente_Telefono').val(selectedOption.data('telefono'));
+                $('#Prenotazione_Cliente_Cellulare').val(selectedOption.data('cellulare'));
+                $('#Prenotazione_Cliente_Provincia').val(selectedOption.data('provincia'));
+            });
+
+            // Prevent form submission on Enter key press
+            $('#clienteSearch').on('keypress', function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
+}

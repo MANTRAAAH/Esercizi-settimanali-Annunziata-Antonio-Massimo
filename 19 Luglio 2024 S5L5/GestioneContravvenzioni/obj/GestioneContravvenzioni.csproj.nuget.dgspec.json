@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj": {}
+    "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024 S5L5\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj": {}
   },
   "projects": {
-    "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj": {
+    "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024 S5L5\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj",
+        "projectUniqueName": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024 S5L5\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj",
         "projectName": "GestioneContravvenzioni",
-        "projectPath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj",
+        "projectPath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024 S5L5\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj",
         "packagesPath": "C:\\Users\\antan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024\\GestioneContravvenzioni\\obj\\",
+        "outputPath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024 S5L5\\GestioneContravvenzioni\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

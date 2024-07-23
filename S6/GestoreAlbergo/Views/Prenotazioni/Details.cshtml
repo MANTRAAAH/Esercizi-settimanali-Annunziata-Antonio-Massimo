@@ -1,0 +1,47 @@
+﻿@model GestoreAlbergo.Models.Prenotazione
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h4>Prenotazione Details</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@Model.Cliente?.Nome @Model.Cliente?.Cognome</dd>
+
+            <dt class="col-sm-3">Codice Fiscale</dt>
+            <dd class="col-sm-9">@Model.Cliente?.CodiceFiscale</dd>
+
+            <dt class="col-sm-3">Numero Camera</dt>
+            <dd class="col-sm-9">@Model.Camera.Numero</dd>
+
+            <dt class="col-sm-3">Data Prenotazione</dt>
+            <dd class="col-sm-9">@Model.DataPrenotazione.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-3">Periodo Dal</dt>
+            <dd class="col-sm-9">@Model.PeriodoDal.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-3">Periodo Al</dt>
+            <dd class="col-sm-9">@Model.PeriodoAl.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-3">Caparra</dt>
+            <dd class="col-sm-9">@Model.Caparra.ToString("C")</dd>
+
+            <dt class="col-sm-3">Tariffa Applicata</dt>
+            <dd class="col-sm-9">@Model.TariffaApplicata.ToString("C")</dd>
+
+            <dt class="col-sm-3">Dettagli</dt>
+            <dd class="col-sm-9">@Model.Dettagli</dd>
+        </dl>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

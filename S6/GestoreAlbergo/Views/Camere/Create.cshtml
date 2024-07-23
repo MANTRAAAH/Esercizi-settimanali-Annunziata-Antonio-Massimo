@@ -1,0 +1,35 @@
+﻿@model Camera
+
+@{
+    ViewData["Title"] = "Aggiungi Camera";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Camera</h4>
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descrizione" class="control-label"></label>
+                <input asp-for="Descrizione" class="form-control" />
+                <span asp-validation-for="Descrizione" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tipologia" class="control-label"></label>
+                <input asp-for="Tipologia" class="form-control" />
+                <span asp-validation-for="Tipologia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crea" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Indietro</a>

@@ -1,0 +1,44 @@
+﻿@model CheckoutDetailsViewModel
+
+@{
+    ViewData["Title"] = "Dettagli Checkout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h3>Dettagli Prenotazione</h3>
+    <p>Numero Camera: @Model.NumeroCamera</p>
+    <p>Periodo: @Model.PeriodoDal.ToString("dd/MM/yyyy") - @Model.PeriodoAl.ToString("dd/MM/yyyy")</p>
+    <p>Tariffa Applicata: @Model.TariffaApplicata.ToString("C")</p>
+</div>
+
+<div>
+    <h3>Servizi Aggiuntivi</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Quantità</th>
+                <th>Prezzo</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var servizio in Model.ServiziAggiuntivi)
+            {
+                <tr>
+                    <td>@servizio.Data.ToString("dd/MM/yyyy")</td>
+                    <td>@servizio.Quantita</td>
+                    <td>@servizio.Prezzo.ToString("C")</td>
+                    <td>@servizio.Descrizione</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>Totale da Saldare</h3>
+    <p>@Model.TotaleDaSaldare.ToString("C")</p>
+</div>

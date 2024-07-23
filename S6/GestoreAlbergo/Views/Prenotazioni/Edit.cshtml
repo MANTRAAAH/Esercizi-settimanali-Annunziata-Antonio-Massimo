@@ -1,0 +1,56 @@
+﻿@model PrenotazioneEditViewModel
+
+@{
+    ViewData["Title"] = "Modifica Prenotazione";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Prenotazione</h4>
+<hr />
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Prenotazione.Id" />
+    <div class="form-group">
+        <label asp-for="Prenotazione.Cliente.CodiceFiscale" class="control-label"></label>
+        <select asp-for="Prenotazione.Cliente.CodiceFiscale" class="form-control" asp-items="Model.Clienti"></select>
+        <span asp-validation-for="Prenotazione.Cliente.CodiceFiscale" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.NumeroCamera" class="control-label"></label>
+        <select asp-for="Prenotazione.NumeroCamera" class="form-control" asp-items="Model.Camere"></select>
+        <span asp-validation-for="Prenotazione.NumeroCamera" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.DataPrenotazione" class="control-label"></label>
+        <input asp-for="Prenotazione.DataPrenotazione" class="form-control" type="date" />
+        <span asp-validation-for="Prenotazione.DataPrenotazione" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.PeriodoDal" class="control-label"></label>
+        <input asp-for="Prenotazione.PeriodoDal" class="form-control" type="date" />
+        <span asp-validation-for="Prenotazione.PeriodoDal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.PeriodoAl" class="control-label"></label>
+        <input asp-for="Prenotazione.PeriodoAl" class="form-control" type="date" />
+        <span asp-validation-for="Prenotazione.PeriodoAl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.Caparra" class="control-label"></label>
+        <input asp-for="Prenotazione.Caparra" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Prenotazione.Caparra" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.TariffaApplicata" class="control-label"></label>
+        <input asp-for="Prenotazione.TariffaApplicata" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Prenotazione.TariffaApplicata" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenotazione.Dettagli" class="control-label"></label>
+        <input asp-for="Prenotazione.Dettagli" class="form-control" />
+        <span asp-validation-for="Prenotazione.Dettagli" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salva" class="btn btn-primary" />
+    </div>
+</form>

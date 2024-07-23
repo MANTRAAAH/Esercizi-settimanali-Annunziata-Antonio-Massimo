@@ -1,0 +1,58 @@
+﻿@model Prenotazione
+
+@{
+    ViewData["Title"] = "Elimina Prenotazione";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Prenotazione</h4>
+<hr />
+<div>
+    <h4>@Model.Cliente.Nome @Model.Cliente.Cognome</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Camera.Descrizione)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Camera.Descrizione)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PeriodoDal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PeriodoDal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PeriodoAl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PeriodoAl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Caparra)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Caparra)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TariffaApplicata)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TariffaApplicata)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dettagli)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dettagli)
+        </dd>
+    </dl>
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <input type="submit" value="Elimina" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+        </div>
+    </form>
+</div>

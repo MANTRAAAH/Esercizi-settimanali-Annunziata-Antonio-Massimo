@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GestoreAlbergo.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Prenotazioni";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crea Nuova Prenotazione</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome Cliente</th>
+            <th>Descrizione Camera</th>
+            <th>Periodo Dal</th>
+            <th>Periodo Al</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cliente.Nome @item.Cliente.Cognome</td>
+                <td>@item.Camera.Descrizione</td>
+                <td>@item.PeriodoDal.ToShortDateString()</td>
+                <td>@item.PeriodoAl.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Dettagli</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Modifica</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Elimina</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AtylhnsG4WE=",
+  "dgSpecHash": "GyGlS7deTxA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj",
+  "projectFilePath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\19 Luglio 2024 S5L5\\GestioneContravvenzioni\\GestioneContravvenzioni.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\antan\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\antan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
