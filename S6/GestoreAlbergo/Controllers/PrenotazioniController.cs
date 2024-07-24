@@ -30,7 +30,7 @@ namespace GestoreAlbergo.Controllers
             foreach (var prenotazione in prenotazioni)
             {
                 prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-                prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.NumeroCamera);
+                prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
             }
 
             return View(prenotazioni);
@@ -45,7 +45,7 @@ namespace GestoreAlbergo.Controllers
             }
 
             prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-            prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.NumeroCamera);
+            prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
 
             return View(prenotazione);
         }

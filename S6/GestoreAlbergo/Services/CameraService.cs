@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 public class CameraService : ICameraService
 {
     private readonly string _connectionString;
+    private readonly ILogger<CameraService> _logger;
 
-    public CameraService(string connectionString)
+    public CameraService(string connectionString, ILogger<CameraService> logger)
     {
         _connectionString = connectionString;
+        _logger = logger;
     }
-
     public async Task<IEnumerable<Camera>> GetAllCamerasAsync()
     {
         var cameras = new List<Camera>();
@@ -40,12 +41,12 @@ public class CameraService : ICameraService
         return cameras;
     }
 
-    public async Task<Camera> GetCameraByIdAsync(int id)
+    public async Task<Camera> GetCameraByNumeroAsync(int numero)
     {
         using (var connection = new SqlConnection(_connectionString))
         {
             var command = new SqlCommand("SELECT Id, Numero, Descrizione, Tipologia FROM Camere WHERE Numero = @Numero", connection);
-            command.Parameters.AddWithValue("@Numero", id);
+            command.Parameters.AddWithValue("@Numero", numero);
             connection.Open();
 
             using (var reader = await command.ExecuteReaderAsync())
@@ -64,6 +65,35 @@ public class CameraService : ICameraService
         }
         return null;
     }
+
+    public async Task<Camera> GetCameraByIdAsync(int id)
+    {
+        _logger.LogInformation("Searching for camera with ID: {Id}", id);
+
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            var command = new SqlCommand("SELECT Id, Numero, Descrizione, Tipologia FROM Camere WHERE Id = @Id", connection);
+            command.Parameters.AddWithValue("@Id", id);
+            connection.Open();
+
+            using (var reader = await command.ExecuteReaderAsync())
+            {
+                if (await reader.ReadAsync())
+                {
+                    return new Camera
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                        Numero = reader.GetInt32(reader.GetOrdinal("Numero")),
+                        Descrizione = reader.GetString(reader.GetOrdinal("Descrizione")),
+                        Tipologia = reader.GetString(reader.GetOrdinal("Tipologia"))
+                    };
+                }
+            }
+        }
+        return null;
+    }
+
+
 
     public async Task AddCameraAsync(Camera camera)
     {

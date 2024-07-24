@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GestoreAlbergo.Models.ServizioAggiuntivo>
+
+@{
+    ViewData["Title"] = "Lista Servizi Aggiuntivi";
+}
+
+<h1>Lista Servizi Aggiuntivi</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrizione</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+            <th>Totale</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var servizio in Model)
+        {
+            <tr>
+                <td>@servizio.Descrizione</td>
+                <td>@servizio.Quantita</td>
+                <td>@servizio.Prezzo.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</td>
+                <td>@(servizio.Prezzo * servizio.Quantita).ToString("C", System.Globalization.CultureInfo.CurrentCulture)</td>
+                <td>
+                    <form asp-action="RimuoviServizioAggiuntivo" method="post">
+                        <input type="hidden" name="servizioId" value="@servizio.ID" />
+                        <input type="hidden" name="prenotazioneId" value="@ViewBag.PrenotazioneId" />
+                        <button type="submit" class="btn btn-danger">Rimuovi</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CercaPrenotazione" class="btn btn-secondary">Torna alla Ricerca Prenotazioni</a>

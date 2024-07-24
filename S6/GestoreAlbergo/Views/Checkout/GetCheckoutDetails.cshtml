@@ -1,0 +1,41 @@
+﻿@model GestoreAlbergo.Models.CheckoutViewModel
+
+<h2>Dettagli del Checkout</h2>
+
+<div>
+    <h3>Dettagli Prenotazione</h3>
+    <p>Numero Camera: @Model.Prenotazione.Camera.Numero</p>
+    <p>Periodo: @Model.Prenotazione.PeriodoDal.ToShortDateString() - @Model.Prenotazione.PeriodoAl.ToShortDateString()</p>
+    <p>Tariffa Applicata: @Model.Prenotazione.TariffaApplicata.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</p>
+    <p>Caparra: @Model.Prenotazione.Caparra.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</p>
+</div>
+
+<div>
+    <h3>Servizi Aggiuntivi</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Descrizione</th>
+                <th>Quantità</th>
+                <th>Prezzo</th>
+                <th>Totale</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var servizio in Model.ServiziAggiuntivi)
+            {
+                <tr>
+                    <td>@servizio.Descrizione</td>
+                    <td>@servizio.Quantita</td>
+                    <td>@servizio.PrezzoFormatted</td>
+                    <td>@servizio.TotaleFormatted</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>Totale da Saldare</h3>
+    <p>@Model.TotaleDaSaldareFormatted</p>
+</div>

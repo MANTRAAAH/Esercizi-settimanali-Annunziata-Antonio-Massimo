@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GestoreAlbergo.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (!Model.Any())
+{
+    <p>No reservations found for the provided Codice Fiscale.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numero Camera</th>
+                <th>Periodo Dal</th>
+                <th>Periodo Al</th>
+                <th>Tariffa Applicata</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prenotazione in Model)
+            {
+                <tr>
+                    <td>@prenotazione.NumeroCamera</td>
+                    <td>@prenotazione.PeriodoDal.ToShortDateString()</td>
+                    <td>@prenotazione.PeriodoAl.ToShortDateString()</td>
+                    <td>@prenotazione.TariffaApplicata.ToString("C")</td>
+                    <td>
+                        <a asp-action="GetCheckoutDetails" asp-route-prenotazioneId="@prenotazione.Id" class="btn btn-info">View Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

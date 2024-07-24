@@ -50,8 +50,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Checkout/GetCheckoutDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcR2V0Q2hlY2tvdXREZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Checkout/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Checkout/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Checkout/SearchResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcU2VhcmNoUmVzdWx0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Clienti/Create.cshtml]
@@ -102,8 +114,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbm90YXppb25pXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServizioAggiuntivo/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aW9BZ2dpdW50aXZvXEluZGV4LmNzaHRtbA==
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServiziAggiuntivi/AggiungiServizioAggiuntivo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aUFnZ2l1bnRpdmlcQWdnaXVuZ2lTZXJ2aXppb0FnZ2l1bnRpdm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServiziAggiuntivi/CatalogoServizi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aUFnZ2l1bnRpdmlcQ2F0YWxvZ29TZXJ2aXppLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServiziAggiuntivi/CercaPrenotazione.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aUFnZ2l1bnRpdmlcQ2VyY2FQcmVub3RhemlvbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServiziAggiuntivi/ListaServiziAggiuntivi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aUFnZ2l1bnRpdmlcTGlzdGFTZXJ2aXppQWdnaXVudGl2aS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServiziAggiuntivi/RimuoviServizioAggiuntivo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aUFnZ2l1bnRpdmlcUmltdW92aVNlcnZpemlvQWdnaXVudGl2by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/ServiziAggiuntivi/RisultatiPrenotazione.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydml6aUFnZ2l1bnRpdmlcUmlzdWx0YXRpUHJlbm90YXppb25lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Shared/Error.cshtml]

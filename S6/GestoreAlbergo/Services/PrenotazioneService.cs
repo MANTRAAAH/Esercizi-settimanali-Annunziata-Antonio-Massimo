@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using GestoreAlbergo.Models;
+using Microsoft.Extensions.Logging;
 
 namespace GestoreAlbergo.Services
 {
@@ -10,12 +11,14 @@ namespace GestoreAlbergo.Services
         private readonly string _connectionString;
         private readonly IClienteService _clienteService;
         private readonly ICameraService _cameraService;
+        private readonly ILogger<PrenotazioneService> _logger;
 
-        public PrenotazioneService(string connectionString, IClienteService clienteService, ICameraService cameraService)
+        public PrenotazioneService(string connectionString, IClienteService clienteService, ICameraService cameraService, ILogger<PrenotazioneService> logger)
         {
             _connectionString = connectionString;
             _clienteService = clienteService;
             _cameraService = cameraService;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<Prenotazione>> GetAllAsync()
@@ -84,18 +87,18 @@ namespace GestoreAlbergo.Services
                             TariffaApplicata = reader.GetDecimal(reader.GetOrdinal("Tariffa")),
                             Dettagli = reader.IsDBNull(reader.GetOrdinal("Dettagli")) ? null : reader.GetString(reader.GetOrdinal("Dettagli")),
                             Anno = reader.GetInt32(reader.GetOrdinal("Anno")),
-                            NumeroProgressivo = reader.GetInt32(reader.GetOrdinal("NumeroProgressivo"))
+                            NumeroProgressivo = reader.GetInt32(reader.GetOrdinal("NumeroProgressivo")),
                         };
 
-                        // Load related Cliente and Camera objects
                         prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-                        prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.NumeroCamera);
+                        prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
                     }
                 }
             }
 
             return prenotazione;
         }
+
 
         public async Task CreateAsync(Prenotazione prenotazione)
         {
@@ -170,6 +173,116 @@ namespace GestoreAlbergo.Services
                 await command.ExecuteNonQueryAsync();
             }
         }
+        public async Task<IEnumerable<Prenotazione>> GetPrenotazioniByCodiceFiscaleAsync(string codiceFiscale)
+        {
+            _logger.LogInformation("Getting prenotazioni for CodiceFiscale: {CodiceFiscale}", codiceFiscale);
+            var prenotazioni = new List<Prenotazione>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    var command = new SqlCommand("SELECT * FROM Prenotazioni WHERE CodiceFiscale = @CodiceFiscale", connection);
+                    command.Parameters.AddWithValue("@CodiceFiscale", codiceFiscale);
+
+                    await connection.OpenAsync();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            _logger.LogInformation("Prenotazione found with Id: {Id}", reader.GetInt32(reader.GetOrdinal("Id")));
+                            var prenotazione = new Prenotazione
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                                CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
+                                NumeroCamera = reader.GetInt32(reader.GetOrdinal("NumeroCamera")),
+                                DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
+                                PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
+                                PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
+                                Caparra = reader.GetDecimal(reader.GetOrdinal("Caparra")),
+                                TariffaApplicata = reader.GetDecimal(reader.GetOrdinal("Tariffa")),
+                                Dettagli = reader.IsDBNull(reader.GetOrdinal("Dettagli")) ? null : reader.GetString(reader.GetOrdinal("Dettagli")),
+                                Anno = reader.GetInt32(reader.GetOrdinal("Anno")),
+                                NumeroProgressivo = reader.GetInt32(reader.GetOrdinal("NumeroProgressivo"))
+                            };
+
+                            // Fetch related Cliente and Camera data if required
+                            prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
+                            prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.NumeroCamera);
+
+                            prenotazioni.Add(prenotazione);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "An error occurred while retrieving prenotazioni for CodiceFiscale: {CodiceFiscale}", codiceFiscale);
+                }
+                finally
+                {
+                    await connection.CloseAsync();
+                }
+            }
+
+            if (prenotazioni.Count == 0)
+            {
+                _logger.LogWarning("No prenotazioni found for CodiceFiscale: {CodiceFiscale}", codiceFiscale);
+            }
+
+            return prenotazioni;
+        }
+        public async Task<IEnumerable<ServizioAggiuntivo>> GetServiziAggiuntiviByPrenotazioneIdAsync(int prenotazioneId)
+        {
+            _logger.LogInformation("Getting servizi aggiuntivi for PrenotazioneID: {PrenotazioneID}", prenotazioneId);
+            var serviziAggiuntivi = new List<ServizioAggiuntivo>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                var command = new SqlCommand(
+                    "SELECT * FROM ServiziAggiuntivi WHERE PrenotazioneID = @PrenotazioneID",
+                    connection);
+                command.Parameters.AddWithValue("@PrenotazioneID", prenotazioneId);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        var servizio = new ServizioAggiuntivo
+                        {
+                            ID = reader.GetInt32(reader.GetOrdinal("ID")),
+                            PrenotazioneID = reader.GetInt32(reader.GetOrdinal("PrenotazioneID")),
+                            Data = reader.GetDateTime(reader.GetOrdinal("Data")),
+                            Quantita = reader.GetInt32(reader.GetOrdinal("Quantita")),
+                            ListaServizioID = reader.GetInt32(reader.GetOrdinal("ListaServizioID"))
+                        };
+
+                        serviziAggiuntivi.Add(servizio);
+                    }
+                }
+
+                // Fetch details from ListaServiziAggiuntivi for each servizio
+                foreach (var servizio in serviziAggiuntivi)
+                {
+                    var listaServizioCommand = new SqlCommand(
+                        "SELECT * FROM ListaServiziAggiuntivi WHERE ID = @ID",
+                        connection);
+                    listaServizioCommand.Parameters.AddWithValue("@ID", servizio.ListaServizioID);
+
+                    using (var listaServizioReader = await listaServizioCommand.ExecuteReaderAsync())
+                    {
+                        if (await listaServizioReader.ReadAsync())
+                        {
+                            servizio.Descrizione = (string)listaServizioReader["Descrizione"];
+                            servizio.Prezzo = (decimal)listaServizioReader["Prezzo"];
+                        }
+                    }
+                }
+            }
+
+            return serviziAggiuntivi;
+        }
+
 
         public async Task<int> GetNextProgressiveNumberAsync(int anno)
         {

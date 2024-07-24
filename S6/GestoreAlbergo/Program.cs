@@ -12,13 +12,24 @@ builder.Services.AddSingleton(new DatabaseHelper(connectionString));
 
 // Register services
 builder.Services.AddTransient<IClienteService, ClienteService>();
-builder.Services.AddTransient<ICameraService>(provider => new CameraService(connectionString));
+builder.Services.AddTransient<ICameraService>(provider =>
+{
+    var logger = provider.GetRequiredService<ILogger<CameraService>>();
+    return new CameraService(connectionString, logger);
+});
+
+builder.Services.AddTransient<IListaServiziAggiuntiviService>(provider =>
+{
+    var logger = provider.GetRequiredService<ILogger<ListaServiziAggiuntiviService>>();
+    return new ListaServiziAggiuntiviService(connectionString, logger);
+});
 
 builder.Services.AddScoped<IPrenotazioneService>(provider =>
 {
     var clienteService = provider.GetRequiredService<IClienteService>();
     var cameraService = provider.GetRequiredService<ICameraService>();
-    return new PrenotazioneService(connectionString, clienteService, cameraService);
+    var logger = provider.GetRequiredService<ILogger<PrenotazioneService>>();
+    return new PrenotazioneService(connectionString, clienteService, cameraService, logger);
 });
 
 // Add cookie-based authentication

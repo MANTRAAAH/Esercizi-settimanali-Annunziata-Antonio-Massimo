@@ -8,6 +8,8 @@
     {
         Task<IEnumerable<Camera>> GetAllCamerasAsync();
         Task<Camera> GetCameraByIdAsync(int id); 
+        Task<Camera> GetCameraByNumeroAsync(int numero);
+
         Task AddCameraAsync(Camera camera);
         Task UpdateCameraAsync(Camera camera);
         Task DeleteCameraAsync(int id); 

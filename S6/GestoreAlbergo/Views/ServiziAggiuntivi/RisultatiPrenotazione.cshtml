@@ -1,0 +1,36 @@
+﻿@model IEnumerable<GestoreAlbergo.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Risultati Prenotazione";
+}
+
+<h1>Risultati Prenotazione</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Codice Fiscale</th>
+            <th>Numero Camera</th>
+            <th>Data Prenotazione</th>
+            <th>Periodo Dal</th>
+            <th>Periodo Al</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prenotazione in Model)
+        {
+            <tr>
+                <td>@prenotazione.CodiceFiscale</td>
+                <td>@prenotazione.NumeroCamera</td>
+                <td>@prenotazione.DataPrenotazione.ToShortDateString()</td>
+                <td>@prenotazione.PeriodoDal.ToShortDateString()</td>
+                <td>@prenotazione.PeriodoAl.ToShortDateString()</td>
+                <td>
+                    <a asp-action="AggiungiServizioAggiuntivo" asp-route-prenotazioneId="@prenotazione.Id" class="btn btn-primary">Aggiungi Servizio Aggiuntivo</a>
+                    <a asp-action="ListaServiziAggiuntivi" asp-route-prenotazioneId="@prenotazione.Id" class="btn btn-secondary">Visualizza Servizi Aggiuntivi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

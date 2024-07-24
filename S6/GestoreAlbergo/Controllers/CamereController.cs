@@ -65,7 +65,7 @@ namespace GestoreAlbergo.Controllers
         // POST: Camere/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Numero,Descrizione,Tipologia")] Camera camera)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Numero,Descrizione,Tipologia")] Camera camera)
         {
             if (id != camera.Id)
             {
@@ -74,9 +74,15 @@ namespace GestoreAlbergo.Controllers
 
             if (ModelState.IsValid)
             {
-                camera.Id = id; // Assicurati che l'ID non venga sovrascritto dal model binding
-                await _cameraService.UpdateCameraAsync(camera);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await _cameraService.UpdateCameraAsync(camera);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, "An error occurred while updating the camera.");
+                }
             }
             return View(camera);
         }

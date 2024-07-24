@@ -1,0 +1,21 @@
+﻿@model GestoreAlbergo.Models.ServizioAggiuntivo
+
+<h2>Conferma Rimozione Servizio Aggiuntivo</h2>
+
+<div>
+    <h4>Sei sicuro di voler rimuovere il seguente servizio aggiuntivo?</h4>
+    <dl class="dl-horizontal">
+        <dt>Descrizione</dt>
+        <dd>@Model.Descrizione</dd>
+        <dt>Quantità</dt>
+        <dd>@Model.Quantita</dd>
+        <dt>Data</dt>
+        <dd>@Model.Data.ToShortDateString()</dd>
+    </dl>
+
+    <form asp-action="RimuoviServizioAggiuntivoConfirmed" method="post">
+        <input type="hidden" asp-for="ID" />
+        <button type="submit" class="btn btn-danger">Rimuovi</button>
+        <a asp-action="ListaServiziAggiuntivi" class="btn btn-secondary">Annulla</a>
+    </form>
+</div>

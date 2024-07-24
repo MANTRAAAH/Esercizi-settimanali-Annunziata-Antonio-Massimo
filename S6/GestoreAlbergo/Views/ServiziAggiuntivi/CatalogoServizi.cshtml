@@ -1,0 +1,27 @@
+﻿@model IEnumerable<GestoreAlbergo.Models.ListaServiziAggiuntivi>
+
+@{
+    ViewData["Title"] = "Lista Servizi Aggiuntivi";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome Servizio</th>
+            <th>Descrizione</th>
+            <th>Prezzo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var servizio in Model)
+        {
+            <tr>
+                <td>@servizio.NomeServizio</td>
+                <td>@servizio.Descrizione</td>
+                <td>@servizio.Prezzo.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
