@@ -26,8 +26,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S6\GestoreAlbergo
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/antan/Desktop/EPICODE/Esercizi-settimanali-Annunziata-Antonio-Massimo/S6/GestoreAlbergo/Views/Camere/Create.cshtml]

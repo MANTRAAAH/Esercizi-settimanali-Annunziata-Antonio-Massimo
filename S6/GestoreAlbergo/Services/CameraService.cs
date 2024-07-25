@@ -45,7 +45,7 @@ public class CameraService : ICameraService
     {
         using (var connection = new SqlConnection(_connectionString))
         {
-            var command = new SqlCommand("SELECT Id, Numero, Descrizione, Tipologia FROM Camere WHERE Numero = @Numero", connection);
+            var command = new SqlCommand("SELECT Numero FROM Camere WHERE Numero = @Numero", connection);
             command.Parameters.AddWithValue("@Numero", numero);
             connection.Open();
 
@@ -55,10 +55,7 @@ public class CameraService : ICameraService
                 {
                     return new Camera
                     {
-                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
                         Numero = reader.GetInt32(reader.GetOrdinal("Numero")),
-                        Descrizione = reader.GetString(reader.GetOrdinal("Descrizione")),
-                        Tipologia = reader.GetString(reader.GetOrdinal("Tipologia"))
                     };
                 }
             }

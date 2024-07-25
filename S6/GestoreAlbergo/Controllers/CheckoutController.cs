@@ -1,5 +1,6 @@
 ﻿using GestoreAlbergo.Models;
 using GestoreAlbergo.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GestoreAlbergo.Controllers
 {
+    [Authorize(Roles = "Admin,Dipendente")]
     public class CheckoutController : Controller
     {
         private readonly DatabaseHelper _databaseHelper;
@@ -50,13 +52,21 @@ namespace GestoreAlbergo.Controllers
             }
 
             // Log the camera ID
-            _logger.LogInformation("Prenotazione retrieved. Camera ID: {CameraId}", prenotazione.NumeroCamera);
+            _logger.LogInformation("Prenotazione retrieved. Camera ID: {CameraId}", prenotazione.CameraId);
 
-            prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
+            if (prenotazione.CameraId.HasValue)
+            {
+                prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.CameraId.Value);
+            }
+            else
+            {
+                _logger.LogWarning("Camera ID is null for Prenotazione with ID {PrenotazioneID}.", prenotazioneId);
+                return NotFound();
+            }
 
             if (prenotazione.Camera == null)
             {
-                _logger.LogWarning("Camera with ID {CameraID} not found.", prenotazione.NumeroCamera);
+                _logger.LogWarning("Camera with ID {CameraID} not found.", prenotazione.CameraId);
                 return NotFound();
             }
 
@@ -72,16 +82,27 @@ namespace GestoreAlbergo.Controllers
             decimal totaleServiziAggiuntivi = serviziAggiuntivi.Sum(sa => sa.Prezzo * sa.Quantita);
             var totale = prenotazione.TariffaApplicata - prenotazione.Caparra + totaleServiziAggiuntivi;
 
+            // Recupera le informazioni del cliente
+            var cliente = await _prenotazioneService.GetClienteByPrenotazioneIdAsync(prenotazioneId);
+            if (cliente == null)
+            {
+                _logger.LogWarning("Cliente for Prenotazione with ID {PrenotazioneID} not found.", prenotazioneId);
+                return NotFound();
+            }
+
             var model = new CheckoutViewModel
             {
                 Prenotazione = prenotazione,
                 ServiziAggiuntivi = serviziAggiuntivi,
                 TotaleDaSaldare = totale,
-                TotaleDaSaldareFormatted = totale.ToString("C", System.Globalization.CultureInfo.CurrentCulture)
+                TotaleDaSaldareFormatted = totale.ToString("C", System.Globalization.CultureInfo.CurrentCulture),
+                Cliente = cliente // Aggiungi le informazioni del cliente al modello
             };
 
             return View(model);
         }
+
+
 
     }
 }

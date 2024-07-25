@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GestoreAlbergo.Models.ServizioAggiuntivo>
+﻿@model IEnumerable<GestoreAlbergo.Models.ServizioAggiuntivoViewModel>
 
 @{
     ViewData["Title"] = "Lista Servizi Aggiuntivi";
@@ -22,8 +22,8 @@
             <tr>
                 <td>@servizio.Descrizione</td>
                 <td>@servizio.Quantita</td>
-                <td>@servizio.Prezzo.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</td>
-                <td>@(servizio.Prezzo * servizio.Quantita).ToString("C", System.Globalization.CultureInfo.CurrentCulture)</td>
+                <td>@servizio.Prezzo</td>
+                <td>@servizio.Totale</td>
                 <td>
                     <form asp-action="RimuoviServizioAggiuntivo" method="post">
                         <input type="hidden" name="servizioId" value="@servizio.ID" />

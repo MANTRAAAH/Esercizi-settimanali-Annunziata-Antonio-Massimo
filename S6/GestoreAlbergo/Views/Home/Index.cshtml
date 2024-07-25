@@ -1,72 +1,83 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Pagina Principale";
+    var user = User;
+    var isAdminOrDipendente = user.IsInRole("Admin") || user.IsInRole("Dipendente");
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
 <div class="container mt-5">
     <div class="row">
-        <!-- Card for Clienti -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Clienti">
-                <div class="card-body">
-                    <h5 class="card-title">Gestione Clienti</h5>
-                    <p class="card-text">Visualizza, aggiungi, modifica e gestisci i clienti dell'hotel.</p>
-                    <a href="@Url.Action("Index", "Clienti")" class="btn btn-primary">Vai a Clienti</a>
+        @if (isAdminOrDipendente)
+        {
+            <!-- Card per Clienti -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Clienti">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestione Clienti</h5>
+                        <p class="card-text">Visualizza, aggiungi, modifica e gestisci i clienti dell'hotel.</p>
+                        <a href="@Url.Action("Index", "Clienti")" class="btn btn-primary">Vai a Clienti</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card for Prenotazioni -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Prenotazioni">
-                <div class="card-body">
-                    <h5 class="card-title">Gestione Prenotazioni</h5>
-                    <p class="card-text">Visualizza, crea, modifica e gestisci le prenotazioni delle camere.</p>
-                    <a href="@Url.Action("Index", "Prenotazioni")" class="btn btn-primary">Vai a Prenotazioni</a>
+            <!-- Card per Prenotazioni -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Prenotazioni">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestione Prenotazioni</h5>
+                        <p class="card-text">Visualizza, crea, modifica e gestisci le prenotazioni delle camere.</p>
+                        <a href="@Url.Action("Index", "Prenotazioni")" class="btn btn-primary">Vai a Prenotazioni</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card for Camere -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Camere">
-                <div class="card-body">
-                    <h5 class="card-title">Gestione Camere</h5>
-                    <p class="card-text">Visualizza e gestisci le camere dell'hotel.</p>
-                    <a href="@Url.Action("Index", "Camere")" class="btn btn-primary">Vai a Camere</a>
+            <!-- Card per Camere -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Camere">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestione Camere</h5>
+                        <p class="card-text">Visualizza e gestisci le camere dell'hotel.</p>
+                        <a href="@Url.Action("Index", "Camere")" class="btn btn-primary">Vai a Camere</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
 
-        <!-- Card for Servizi Aggiuntivi -->
+        <!-- Card per Servizi Aggiuntivi -->
         <div class="col-md-4 mb-4">
             <div class="card">
                 <img src="https://via.placeholder.com/150" class="card-img-top" alt="Servizi Aggiuntivi">
                 <div class="card-body">
                     <h5 class="card-title">Servizi Aggiuntivi</h5>
-                    <p class="card-text">Visualizza e gestisci i servizi aggiuntivi offerti durante il soggiorno.</p>
-                    <a href="@Url.Action("Index", "ServizioAggiuntivo")" class="btn btn-primary">Vai a Servizi Aggiuntivi</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p class="card-text">Visualizza e gestisci i servizi aggiuntivi offerti durante il soggiorno.</p>
+                        <a href="@Url.Action("CercaPrenotazione", "ServiziAggiuntivi")" class="btn btn-primary">Aggiungi un Servizio ad una Prenotazione</a>
+                    }
+                    else
+                    {
+                        <p class="card-text">Abbiamo Una Vasta offerta Per Rendere Il Tuo Soggiorno Indimenticabile</p>
+                        <a href="@Url.Action("CatalogoServizi", "ServiziAggiuntivi")" class="btn btn-primary">Scopri I Nostri Servizi</a>
+                    }
                 </div>
             </div>
         </div>
 
-        <!-- Card for Report -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Report">
-                <div class="card-body">
-                    <h5 class="card-title">Report</h5>
-                    <p class="card-text">Visualizza report e statistiche sulle prenotazioni e i servizi.</p>
-                    <a href="@Url.Action("Index", "Report")" class="btn btn-primary">Vai a Report</a>
+
+        @if (isAdminOrDipendente)
+        {
+            <!-- Card per Report -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Report">
+                    <div class="card-body">
+                        <h5 class="card-title">Checkout</h5>
+                        <p class="card-text">Effettua il Checkout di una prenotazione</p>
+                        <a href="@Url.Action("Search", "Checkout")" class="btn btn-primary">Effettua il Checkout</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>

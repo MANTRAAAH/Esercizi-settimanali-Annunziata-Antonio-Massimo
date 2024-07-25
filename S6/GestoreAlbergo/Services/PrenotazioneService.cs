@@ -38,7 +38,7 @@ namespace GestoreAlbergo.Services
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
                             CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
-                            NumeroCamera = reader.GetInt32(reader.GetOrdinal("NumeroCamera")),
+                            CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("CameraId")),
                             DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
                             PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
                             PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
@@ -51,7 +51,10 @@ namespace GestoreAlbergo.Services
 
                         // Load related Cliente and Camera objects
                         prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-                        prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.NumeroCamera);
+                        if (prenotazione.CameraId.HasValue)
+                        {
+                            prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.CameraId.Value);
+                        }
 
                         prenotazioni.Add(prenotazione);
                     }
@@ -61,9 +64,10 @@ namespace GestoreAlbergo.Services
             return prenotazioni;
         }
 
-        public async Task<Prenotazione> GetByIdAsync(int id)
+
+        public async Task<Prenotazione?> GetByIdAsync(int id)
         {
-            Prenotazione prenotazione = null;
+            Prenotazione? prenotazione = null;
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -79,7 +83,7 @@ namespace GestoreAlbergo.Services
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
                             CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
-                            NumeroCamera = reader.GetInt32(reader.GetOrdinal("NumeroCamera")),
+                            CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("CameraId")),
                             DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
                             PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
                             PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
@@ -91,13 +95,17 @@ namespace GestoreAlbergo.Services
                         };
 
                         prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-                        prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
+                        if (prenotazione.CameraId.HasValue)
+                        {
+                            prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.CameraId.Value);
+                        }
                     }
                 }
             }
 
             return prenotazione;
         }
+
 
 
         public async Task CreateAsync(Prenotazione prenotazione)
@@ -107,11 +115,10 @@ namespace GestoreAlbergo.Services
                 await connection.OpenAsync();
 
                 var command = new SqlCommand(@"
-                    INSERT INTO Prenotazioni (CodiceFiscale, NumeroCamera, DataPrenotazione, NumeroProgressivo, Anno, Dal, Al, Caparra, Tariffa, Dettagli)
-                    VALUES (@CodiceFiscale, @NumeroCamera, @DataPrenotazione, @NumeroProgressivo, @Anno, @Dal, @Al, @Caparra, @Tariffa, @Dettagli)", connection);
+            INSERT INTO Prenotazioni (CodiceFiscale, DataPrenotazione, NumeroProgressivo, Anno, Dal, Al, Caparra, Tariffa, Dettagli, CameraId)
+            VALUES (@CodiceFiscale, @DataPrenotazione, @NumeroProgressivo, @Anno, @Dal, @Al, @Caparra, @Tariffa, @Dettagli, @CameraId)", connection);
 
                 command.Parameters.AddWithValue("@CodiceFiscale", prenotazione.CodiceFiscale);
-                command.Parameters.AddWithValue("@NumeroCamera", prenotazione.NumeroCamera);
                 command.Parameters.AddWithValue("@DataPrenotazione", prenotazione.DataPrenotazione);
                 command.Parameters.AddWithValue("@NumeroProgressivo", prenotazione.NumeroProgressivo);
                 command.Parameters.AddWithValue("@Anno", prenotazione.Anno);
@@ -119,7 +126,8 @@ namespace GestoreAlbergo.Services
                 command.Parameters.AddWithValue("@Al", prenotazione.PeriodoAl);
                 command.Parameters.AddWithValue("@Caparra", prenotazione.Caparra);
                 command.Parameters.AddWithValue("@Tariffa", prenotazione.TariffaApplicata);
-                command.Parameters.AddWithValue("@Dettagli", prenotazione.Dettagli);
+                command.Parameters.AddWithValue("@Dettagli", prenotazione.Dettagli ?? string.Empty);
+                command.Parameters.AddWithValue("@CameraId", prenotazione.CameraId.HasValue ? (object)prenotazione.CameraId.Value : DBNull.Value);
 
                 await command.ExecuteNonQueryAsync();
             }
@@ -134,7 +142,6 @@ namespace GestoreAlbergo.Services
                 var command = new SqlCommand(@"
                     UPDATE Prenotazioni
                     SET CodiceFiscale = @CodiceFiscale,
-                        NumeroCamera = @NumeroCamera,
                         DataPrenotazione = @DataPrenotazione,
                         NumeroProgressivo = @NumeroProgressivo,
                         Anno = @Anno,
@@ -147,7 +154,7 @@ namespace GestoreAlbergo.Services
 
                 command.Parameters.AddWithValue("@Id", prenotazione.Id);
                 command.Parameters.AddWithValue("@CodiceFiscale", prenotazione.CodiceFiscale);
-                command.Parameters.AddWithValue("@NumeroCamera", prenotazione.NumeroCamera);
+                command.Parameters.AddWithValue("@CameraId", prenotazione.CameraId);
                 command.Parameters.AddWithValue("@DataPrenotazione", prenotazione.DataPrenotazione);
                 command.Parameters.AddWithValue("@NumeroProgressivo", prenotazione.NumeroProgressivo);
                 command.Parameters.AddWithValue("@Anno", prenotazione.Anno);
@@ -167,10 +174,28 @@ namespace GestoreAlbergo.Services
             {
                 await connection.OpenAsync();
 
-                var command = new SqlCommand("DELETE FROM Prenotazioni WHERE Id = @Id", connection);
-                command.Parameters.AddWithValue("@Id", id);
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Delete related ServiziAggiuntivi
+                        var deleteServiziCommand = new SqlCommand("DELETE FROM ServiziAggiuntivi WHERE PrenotazioneID = @PrenotazioneID", connection, transaction);
+                        deleteServiziCommand.Parameters.AddWithValue("@PrenotazioneID", id);
+                        await deleteServiziCommand.ExecuteNonQueryAsync();
 
-                await command.ExecuteNonQueryAsync();
+                        // Delete the Prenotazione
+                        var deletePrenotazioneCommand = new SqlCommand("DELETE FROM Prenotazioni WHERE Id = @Id", connection, transaction);
+                        deletePrenotazioneCommand.Parameters.AddWithValue("@Id", id);
+                        await deletePrenotazioneCommand.ExecuteNonQueryAsync();
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
             }
         }
         public async Task<IEnumerable<Prenotazione>> GetPrenotazioniByCodiceFiscaleAsync(string codiceFiscale)
@@ -195,7 +220,7 @@ namespace GestoreAlbergo.Services
                             {
                                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
                                 CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
-                                NumeroCamera = reader.GetInt32(reader.GetOrdinal("NumeroCamera")),
+                                CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("CameraId")),
                                 DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
                                 PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
                                 PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
@@ -208,7 +233,10 @@ namespace GestoreAlbergo.Services
 
                             // Fetch related Cliente and Camera data if required
                             prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-                            prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.NumeroCamera);
+                            if (prenotazione.CameraId.HasValue)
+                            {
+                                prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.CameraId.Value);
+                            }
 
                             prenotazioni.Add(prenotazione);
                         }
@@ -231,6 +259,7 @@ namespace GestoreAlbergo.Services
 
             return prenotazioni;
         }
+
         public async Task<IEnumerable<ServizioAggiuntivo>> GetServiziAggiuntiviByPrenotazioneIdAsync(int prenotazioneId)
         {
             _logger.LogInformation("Getting servizi aggiuntivi for PrenotazioneID: {PrenotazioneID}", prenotazioneId);
@@ -296,5 +325,40 @@ namespace GestoreAlbergo.Services
                 return (int)await command.ExecuteScalarAsync();
             }
         }
+        public async Task<Cliente> GetClienteByPrenotazioneIdAsync(int prenotazioneId)
+        {
+            Cliente cliente = null;
+            var query = "SELECT c.* FROM Clienti c JOIN Prenotazioni p ON c.CodiceFiscale = p.CodiceFiscale WHERE p.Id = @PrenotazioneId";
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PrenotazioneId", prenotazioneId);
+                    await connection.OpenAsync();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (reader.Read())
+                        {
+                            cliente = new Cliente
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                                CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
+                                Cognome = reader.GetString(reader.GetOrdinal("Cognome")),
+                                Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                                Citta = reader.GetString(reader.GetOrdinal("Citta")),
+                                Provincia = reader.GetString(reader.GetOrdinal("Provincia")),
+                                Email = reader.GetString(reader.GetOrdinal("Email")),
+                                Telefono = reader.GetString(reader.GetOrdinal("Telefono")),
+                                Cellulare = reader.GetString(reader.GetOrdinal("Cellulare"))
+                            };
+                        }
+                    }
+                }
+            }
+
+            return cliente;
+        }
+
     }
 }

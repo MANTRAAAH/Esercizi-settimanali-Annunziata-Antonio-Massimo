@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GestoreAlbergo.Models;
 using System.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestoreAlbergo.Controllers
 {
@@ -27,6 +28,8 @@ namespace GestoreAlbergo.Controllers
             _logger = logger;
         }
 
+
+        [Authorize(Roles = "Admin,Dipendente")]
         [HttpGet("CercaPrenotazione")]
         public IActionResult CercaPrenotazione()
         {
@@ -34,6 +37,9 @@ namespace GestoreAlbergo.Controllers
             return View();
         }
 
+
+
+        [Authorize(Roles = "Admin,Dipendente")]
         [HttpPost("CercaPrenotazione")]
         public async Task<IActionResult> CercaPrenotazione(string codiceFiscale)
         {
@@ -48,7 +54,7 @@ namespace GestoreAlbergo.Controllers
             _logger.LogInformation("Found {Count} prenotazioni for CodiceFiscale: {CodiceFiscale}", prenotazioni.Count(), codiceFiscale);
             return View("RisultatiPrenotazione", prenotazioni);
         }
-
+        [Authorize(Roles = "Admin,Dipendente")]
         [HttpGet("AggiungiServizioAggiuntivo")]
         public async Task<IActionResult> AggiungiServizioAggiuntivo(int prenotazioneId)
         {
@@ -67,7 +73,7 @@ namespace GestoreAlbergo.Controllers
 
             return View(model);
         }
-
+        [Authorize(Roles = "Admin,Dipendente")]
         [HttpPost("AggiungiServizioAggiuntivo")]
         public IActionResult AggiungiServizioAggiuntivo(ServizioAggiuntivo servizio)
         {
@@ -92,17 +98,30 @@ namespace GestoreAlbergo.Controllers
             return RedirectToAction("CercaPrenotazione", "ServiziAggiuntivi", new { id = servizio.PrenotazioneID });
         }
 
+
+        [Authorize(Roles = "Admin,Dipendente")]
         [HttpGet("ListaServiziAggiuntivi/{prenotazioneId}")]
         public async Task<IActionResult> ListaServiziAggiuntivi(int prenotazioneId)
         {
             _logger.LogInformation("Accessed ListaServiziAggiuntivi GET method for prenotazioneId: {PrenotazioneID}", prenotazioneId);
 
             var serviziAggiuntivi = await _prenotazioneService.GetServiziAggiuntiviByPrenotazioneIdAsync(prenotazioneId);
+            var viewModel = serviziAggiuntivi.Select(sa => new ServizioAggiuntivoViewModel
+            {
+                ID = sa.ID,
+                Descrizione = sa.Descrizione,
+                Quantita = sa.Quantita,
+                Prezzo = sa.Prezzo.ToString("C", System.Globalization.CultureInfo.CurrentCulture),
+                Totale = (sa.Prezzo * sa.Quantita).ToString("C", System.Globalization.CultureInfo.CurrentCulture)
+            }).ToList();
+
             ViewBag.PrenotazioneId = prenotazioneId;
 
-            return View(serviziAggiuntivi);
+            return View(viewModel);
         }
 
+
+        [Authorize(Roles = "Admin,Dipendente")]
         [HttpPost("RimuoviServizioAggiuntivo")]
         public async Task<IActionResult> RimuoviServizioAggiuntivo(int servizioId, int prenotazioneId)
         {
@@ -119,7 +138,8 @@ namespace GestoreAlbergo.Controllers
 
             return RedirectToAction("ListaServiziAggiuntivi", new { prenotazioneId });
         }
-
+        
+        [Authorize(Roles = "Admin,Dipendente")]
         private async Task<ServizioAggiuntivo> GetServizioAggiuntivoByIdAsync(int id)
         {
             using (var connection = _databaseHelper.GetConnection())
@@ -146,7 +166,7 @@ namespace GestoreAlbergo.Controllers
 
             return null;
         }
-
+        [AllowAnonymous]
         [HttpGet("CatalogoServizi")]
         public async Task<IActionResult> CatalogoServizi()
         {

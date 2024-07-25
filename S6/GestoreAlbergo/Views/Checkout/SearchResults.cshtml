@@ -15,6 +15,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>Cliente</th>
                 <th>Numero Camera</th>
                 <th>Periodo Dal</th>
                 <th>Periodo Al</th>
@@ -26,7 +27,8 @@ else
             @foreach (var prenotazione in Model)
             {
                 <tr>
-                    <td>@prenotazione.NumeroCamera</td>
+                    <td>@prenotazione.Cliente.Nome @prenotazione.Cliente.Cognome</td>
+                    <td>@prenotazione.Camera.Numero</td>
                     <td>@prenotazione.PeriodoDal.ToShortDateString()</td>
                     <td>@prenotazione.PeriodoAl.ToShortDateString()</td>
                     <td>@prenotazione.TariffaApplicata.ToString("C")</td>

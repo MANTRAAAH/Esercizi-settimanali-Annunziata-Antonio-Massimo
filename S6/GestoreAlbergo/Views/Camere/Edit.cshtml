@@ -22,9 +22,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tipologia" class="control-label"></label>
-                <input asp-for="Tipologia" class="form-control" />
+                <select asp-for="Tipologia" class="form-control">
+                    <option value="Singola">Singola</option>
+                    <option value="Doppia">Doppia</option>
+                    <option value="Suite">Suite</option>
+                </select>
                 <span asp-validation-for="Tipologia" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Salva" class="btn btn-primary" />
             </div>

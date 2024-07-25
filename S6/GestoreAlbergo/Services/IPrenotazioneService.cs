@@ -11,6 +11,7 @@ namespace GestoreAlbergo.Services
         Task CreateAsync(Prenotazione prenotazione);
         Task UpdateAsync(Prenotazione prenotazione);
         Task DeleteAsync(int id);
+        Task<Cliente> GetClienteByPrenotazioneIdAsync(int prenotazioneId);
         Task<int> GetNextProgressiveNumberAsync(int year);
         Task<IEnumerable<Prenotazione>> GetPrenotazioniByCodiceFiscaleAsync(string codiceFiscale);
         Task<IEnumerable<ServizioAggiuntivo>> GetServiziAggiuntiviByPrenotazioneIdAsync(int prenotazioneId);

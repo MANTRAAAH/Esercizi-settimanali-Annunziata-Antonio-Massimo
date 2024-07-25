@@ -6,9 +6,11 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestoreAlbergo.Controllers
 {
+    [Authorize(Roles = "Admin,Dipendente")]
     public class PrenotazioniController : Controller
     {
         private readonly IClienteService _clienteService;
@@ -30,7 +32,10 @@ namespace GestoreAlbergo.Controllers
             foreach (var prenotazione in prenotazioni)
             {
                 prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-                prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
+                if (prenotazione.CameraId.HasValue)
+                {
+                    prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.CameraId.Value);
+                }
             }
 
             return View(prenotazioni);
@@ -45,10 +50,14 @@ namespace GestoreAlbergo.Controllers
             }
 
             prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
-            prenotazione.Camera = await _cameraService.GetCameraByNumeroAsync(prenotazione.NumeroCamera);
+            if (prenotazione.CameraId.HasValue)
+            {
+                prenotazione.Camera = await _cameraService.GetCameraByIdAsync(prenotazione.CameraId.Value);
+            }
 
             return View(prenotazione);
         }
+
 
         public async Task<IActionResult> Create()
         {
@@ -75,7 +84,7 @@ namespace GestoreAlbergo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Prenotazione")] PrenotazioneViewModel model)
+        public async Task<IActionResult> Create([Bind("Prenotazione,CameraId")] PrenotazioneViewModel model)
         {
             _logger.LogInformation("Create action called.");
 
@@ -89,8 +98,21 @@ namespace GestoreAlbergo.Controllers
 
                     _logger.LogInformation("Anno set to {Anno}, NumeroProgressivo set to {NumeroProgressivo}.", model.Prenotazione.Anno, model.Prenotazione.NumeroProgressivo);
 
+                    // Log the camera ID being passed
+                    _logger.LogInformation("Camera ID passed: {CameraId}", model.CameraId);
+
+                    // Ensure the Camera exists
+                    var camera = await _cameraService.GetCameraByIdAsync(model.CameraId);
+                    if (camera == null)
+                    {
+                        _logger.LogWarning("Camera with ID {CameraId} not found.", model.CameraId);
+                        ModelState.AddModelError("CameraId", "The selected camera does not exist.");
+                        return View(model);
+                    }
+
                     model.Prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(model.Prenotazione.CodiceFiscale);
-                    model.Prenotazione.Camera = await _cameraService.GetCameraByIdAsync(model.Prenotazione.NumeroCamera);
+                    model.Prenotazione.CameraId = model.CameraId; // Imposta CameraId
+                    model.Prenotazione.Camera = camera;
 
                     await _prenotazioneService.CreateAsync(model.Prenotazione);
                     _logger.LogInformation("Prenotazione created successfully.");
@@ -124,12 +146,13 @@ namespace GestoreAlbergo.Controllers
             }).ToList();
             model.Camere = camere.Select(c => new SelectListItem
             {
-                Value = c.Id.ToString(),
-                Text = c.Numero.ToString()
+                Value = c.Id.ToString(), // Use Id for value
+                Text = c.Numero.ToString() // Display Numero
             }).ToList();
 
             return View(model);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Search(string query)
@@ -152,9 +175,12 @@ namespace GestoreAlbergo.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
+            _logger.LogInformation("Edit GET action called with id: {Id}", id);
+
             var prenotazione = await _prenotazioneService.GetByIdAsync(id);
             if (prenotazione == null)
             {
+                _logger.LogWarning("Prenotazione with id {Id} not found.", id);
                 return NotFound();
             }
 
@@ -165,9 +191,10 @@ namespace GestoreAlbergo.Controllers
             {
                 Prenotazione = prenotazione,
                 Clienti = new SelectList(clienti, "CodiceFiscale", "Nome", prenotazione.CodiceFiscale),
-                Camere = new SelectList(camere, "Id", "Numero", prenotazione.NumeroCamera)
+                Camere = new SelectList(camere, "Id", "Numero", prenotazione.CameraId)
             };
 
+            _logger.LogInformation("Edit GET action completed for id: {Id}", id);
             return View(model);
         }
 
@@ -175,22 +202,65 @@ namespace GestoreAlbergo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, PrenotazioneEditViewModel model)
         {
+            _logger.LogInformation("Edit POST action called with id: {Id}", id);
+
             if (id != model.Prenotazione.Id)
             {
+                _logger.LogWarning("Mismatched id in Edit POST action. Route id: {RouteId}, Model id: {ModelId}", id, model.Prenotazione.Id);
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                await _prenotazioneService.UpdateAsync(model.Prenotazione);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _logger.LogInformation("Model state is valid. Updating prenotazione with id: {Id}", id);
+
+                    // Ensure the Camera exists
+                    var camera = await _cameraService.GetCameraByIdAsync(model.Prenotazione.CameraId.Value);
+                    if (camera == null)
+                    {
+                        _logger.LogWarning("Camera with ID {CameraId} not found.", model.Prenotazione.CameraId);
+                        ModelState.AddModelError("CameraId", "The selected camera does not exist.");
+                        return View(model);
+                    }
+
+                    model.Prenotazione.Camera = camera;
+                    model.Prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(model.Prenotazione.CodiceFiscale);
+
+                    await _prenotazioneService.UpdateAsync(model.Prenotazione);
+                    _logger.LogInformation("Prenotazione with id {Id} updated successfully.", id);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error occurred while updating prenotazione with id: {Id}", id);
+                    ModelState.AddModelError(string.Empty, "An error occurred while updating the prenotazione.");
+                }
+            }
+            else
+            {
+                _logger.LogWarning("Model state is invalid for prenotazione with id: {Id}", id);
+                foreach (var state in ModelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        _logger.LogWarning("Model state error in {Key}: {ErrorMessage}", state.Key, error.ErrorMessage);
+                    }
+                }
             }
 
+            var clienti = await _clienteService.GetAllClientiAsync();
             var camere = await _cameraService.GetAllCamerasAsync();
-            model.Clienti = new SelectList(await _clienteService.GetAllClientiAsync(), "CodiceFiscale", "Nome", model.Prenotazione.CodiceFiscale);
-            model.Camere = new SelectList(camere, "Id", "Numero", model.Prenotazione.NumeroCamera);
+
+            model.Clienti = new SelectList(clienti, "CodiceFiscale", "Nome", model.Prenotazione.CodiceFiscale);
+            model.Camere = new SelectList(camere, "Id", "Numero", model.Prenotazione.CameraId);
+
+            _logger.LogInformation("Edit POST action completed for id: {Id}", id);
             return View(model);
         }
+
+
 
         public async Task<IActionResult> Delete(int id)
         {
@@ -199,15 +269,9 @@ namespace GestoreAlbergo.Controllers
             {
                 return NotFound();
             }
-            return View(prenotazione);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
             await _prenotazioneService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

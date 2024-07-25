@@ -2,9 +2,11 @@
 using GestoreAlbergo.Models;
 using GestoreAlbergo.Services;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestoreAlbergo.Controllers
 {
+    [Authorize(Roles = "Admin,Dipendente")]
     public class CamereController : Controller
     {
         private readonly ICameraService _cameraService;
@@ -96,15 +98,6 @@ namespace GestoreAlbergo.Controllers
                 return NotFound();
             }
             return View(camera);
-        }
-
-        // POST: Camere/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            await _cameraService.DeleteCameraAsync(id);
-            return RedirectToAction(nameof(Index));
         }
     }
 }

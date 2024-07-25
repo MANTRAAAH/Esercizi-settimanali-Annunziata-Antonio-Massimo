@@ -1,8 +1,8 @@
-﻿@model GestoreAlbergo.Models.LoginViewModel
+﻿@model GestoreAlbergo.Models.RegisterViewModel
 
-<h2>Login</h2>
+<h2>Registrazione</h2>
 
-<form asp-action="Login" method="post">
+<form asp-action="Register" method="post">
     <div class="form-group">
         <label asp-for="Username"></label>
         <input asp-for="Username" class="form-control" />
@@ -13,5 +13,10 @@
         <input asp-for="Password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrati</button>
 </form>

@@ -22,14 +22,18 @@
         </select>
         <span asp-validation-for="Prenotazione.ClienteId" class="text-danger"></span>
     </div>
-    <input type="hidden" asp-for="Prenotazione.Cliente.CodiceFiscale" id="Prenotazione_CodiceFiscale" />
+    <input type="hidden" asp-for="Prenotazione.CodiceFiscale" id="Prenotazione_CodiceFiscale" />
+    <input type="hidden" asp-for="Prenotazione.Cliente.CodiceFiscale" id="Prenotazione_Cliente_CodiceFiscale" />
     <input type="hidden" asp-for="Prenotazione.ClienteId" id="Prenotazione_ClienteId" />
 
     <div class="form-group">
-        <label asp-for="Prenotazione.NumeroCamera" class="control-label"></label>
-        <select asp-for="Prenotazione.NumeroCamera" class="form-control" asp-items="Model.Camere"></select>
-        <span asp-validation-for="Prenotazione.NumeroCamera" class="text-danger"></span>
+        <label asp-for="CameraId" class="control-label"></label>
+        <select asp-for="CameraId" class="form-control" asp-items="Model.Camere"></select>
+        <span asp-validation-for="CameraId" class="text-danger"></span>
     </div>
+
+    <input type="hidden" asp-for="Prenotazione.Camera.Descrizione" id="Prenotazione_Camera_Descrizione" />
+    <input type="hidden" asp-for="Prenotazione.Camera.Tipologia" id="Prenotazione_Camera_Tipologia" />
 
     <input asp-for="Prenotazione.DataPrenotazione" type="hidden" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
     <div class="form-group">
@@ -54,7 +58,11 @@
     </div>
     <div class="form-group">
         <label asp-for="Prenotazione.Dettagli" class="control-label"></label>
-        <input asp-for="Prenotazione.Dettagli" class="form-control" />
+        <select asp-for="Prenotazione.Dettagli" class="form-control">
+            <option value="Pernottamento">Pernottamento Con Prima Colazione</option>
+            <option value="Mezza Pensione">Mezza Pensione</option>
+            <option value="Pensione Completa">Pensione Completa</option>
+        </select>
         <span asp-validation-for="Prenotazione.Dettagli" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -110,7 +118,8 @@
             $('#clientiList').on('change', function () {
                 var selectedOption = $(this).find('option:selected');
                 $('#Prenotazione_ClienteId').val(selectedOption.data('id')); // Set ClienteId using data-id
-                $('#Prenotazione_CodiceFiscale').val(selectedOption.val()); // Set CodiceFiscale using the selected value
+                $('#Prenotazione_CodiceFiscale').val(selectedOption.data('cod_fisc')); // Set CodiceFiscale using data-cod_fisc
+                $('#Prenotazione_Cliente_CodiceFiscale').val(selectedOption.data('cod_fisc'));
                 $('#Prenotazione_Cliente_Nome').val(selectedOption.data('nome'));
                 $('#Prenotazione_Cliente_Cognome').val(selectedOption.data('cognome'));
                 $('#Prenotazione_Cliente_Citta').val(selectedOption.data('citta'));
@@ -126,7 +135,13 @@
                     e.preventDefault();
                 }
             });
+
+            // Populate camera details when the camera is selected
+            $('#Prenotazione_NumeroCamera').on('change', function () {
+                var selectedOption = $(this).find('option:selected');
+                $('#Prenotazione_Camera_Descrizione').val(selectedOption.data('descrizione'));
+                $('#Prenotazione_Camera_Tipologia').val(selectedOption.data('tipologia'));
+            });
         });
     </script>
-
 }

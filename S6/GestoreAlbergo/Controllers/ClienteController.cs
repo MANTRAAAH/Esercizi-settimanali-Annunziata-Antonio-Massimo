@@ -1,10 +1,12 @@
 ﻿using GestoreAlbergo.Models;
 using GestoreAlbergo.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace GestoreAlbergo.Controllers
 {
+    [Authorize(Roles = "Admin,Dipendente")]
     public class ClientiController : Controller
     {
         private readonly IClienteService _clienteService;

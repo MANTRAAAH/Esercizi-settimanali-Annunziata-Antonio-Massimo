@@ -11,13 +11,11 @@
         [Display(Name = "Numero Camera")]
         public int Numero { get; set; }
 
-        [Required]
         [Display(Name = "Descrizione")]
-        public string Descrizione { get; set; }
+        public string? Descrizione { get; set; }
 
-        [Required]
         [Display(Name = "Tipologia")]
-        public string Tipologia { get; set; } // "Singola" o "Doppia"
+        public string? Tipologia { get; set; } // "Singola" o "Doppia"
     }
 
 }

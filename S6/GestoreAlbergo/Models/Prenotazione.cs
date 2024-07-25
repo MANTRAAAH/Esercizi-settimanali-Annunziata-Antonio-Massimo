@@ -7,7 +7,7 @@
         public int ClienteId { get; set; }
         public string CodiceFiscale { get; set; }
         public Cliente? Cliente { get; set; }
-        public int NumeroCamera { get; set; }  // Fixed typo in NumeroCamera
+        public int? CameraId { get; set; }
         public Camera? Camera { get; set; }
         public DateTime DataPrenotazione { get; set; }
         public int NumeroProgressivo { get; set; }
