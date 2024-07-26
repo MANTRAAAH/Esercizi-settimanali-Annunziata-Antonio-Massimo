@@ -3,36 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\camere\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\camere\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\camere\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\camere\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\report\\gettotalprenotazionipensionecompleta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\report\\gettotalprenotazionipensionecompleta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\prenotazioni\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\prenotazioni\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\prenotazioni\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\prenotazioni\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\services\\iclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:services\\iclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\models\\prenotazioneeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:models\\prenotazioneeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\controllers\\prenotazionicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:controllers\\prenotazionicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\controllers\\camerecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:controllers\\camerecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s6\\gestorealbergo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0088D477-AB2A-47D4-A9B3-C9C82717B8BA}|GestoreAlbergo.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,105 +51,105 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Camere\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Camere\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Camere\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Camere\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAZAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAFgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-25T09:28:24.413Z",
+              "WhenOpened": "2024-07-26T10:44:50.157Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Camere\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Camere\\Create.cshtml",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Camere\\Create.cshtml",
-              "RelativeToolTip": "Views\\Camere\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Title": "GetTotalPrenotazioniPensioneCompleta.cshtml",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Report\\GetTotalPrenotazioniPensioneCompleta.cshtml",
+              "RelativeDocumentMoniker": "Views\\Report\\GetTotalPrenotazioniPensioneCompleta.cshtml",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Report\\GetTotalPrenotazioniPensioneCompleta.cshtml",
+              "RelativeToolTip": "Views\\Report\\GetTotalPrenotazioniPensioneCompleta.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-25T09:27:56.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Prenotazioni\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Prenotazioni\\Create.cshtml",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Prenotazioni\\Create.cshtml",
-              "RelativeToolTip": "Views\\Prenotazioni\\Create.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAADoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-25T09:24:24.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PrenotazioneEditViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Models\\PrenotazioneEditViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\PrenotazioneEditViewModel.cs",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Models\\PrenotazioneEditViewModel.cs",
-              "RelativeToolTip": "Models\\PrenotazioneEditViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T09:17:35.955Z",
+              "WhenOpened": "2024-07-26T10:43:53.063Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Prenotazioni\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Prenotazioni\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Prenotazioni\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Prenotazioni\\Edit.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAAEMAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-25T09:16:13.143Z",
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "Controllers\\ReportController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T10:43:05.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Services\\IClienteService.cs",
+              "RelativeDocumentMoniker": "Services\\IClienteService.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Services\\IClienteService.cs",
+              "RelativeToolTip": "Services\\IClienteService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T10:38:35.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Services\\ClienteService.cs",
+              "RelativeDocumentMoniker": "Services\\ClienteService.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Services\\ClienteService.cs",
+              "RelativeToolTip": "Services\\ClienteService.cs",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAuwAcAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T10:38:11.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "PrenotazioniController.cs",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\PrenotazioniController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PrenotazioniController.cs",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\PrenotazioniController.cs",
-              "RelativeToolTip": "Controllers\\PrenotazioniController.cs",
-              "ViewState": "AQIAAMIAAAAAAAAAAAD4v94AAABwAAAA",
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "Controllers\\ClienteController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T09:12:02.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CamereController.cs",
-              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\CamereController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CamereController.cs",
-              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\CamereController.cs",
-              "RelativeToolTip": "Controllers\\CamereController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAIwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T09:11:50.957Z",
+              "WhenOpened": "2024-07-26T10:37:55.07Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-26T10:36:57.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S6\\GestoreAlbergo\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAADgAAAAAAAAAAAAwwFkAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T09:11:48.863Z",
+              "WhenOpened": "2024-07-26T10:35:51.832Z",
               "EditorCaption": ""
             }
           ]

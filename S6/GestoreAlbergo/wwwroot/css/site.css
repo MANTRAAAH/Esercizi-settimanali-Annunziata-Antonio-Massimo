@@ -1,22 +1,94 @@
+:root {
+    --primary: #2C3E50; /* Blu Marino */
+    --secondary: #7F8C8D; /* Grigio Scuro */
+    --success: #2ECC71; /* Verde Menta */
+    --info: #ECF0F1; /* Grigio Chiaro */
+    --warning: #F5F5DC; /* Beige */
+    --light: #FFFFFF; /* Bianco */
+    --dark: #2C3E50; /* Blu Marino */
+    --input-bg: #D3D3D3; /* Grigio Medio per gli input */
+    --input-focus-bg: #BEBEBE; /* Grigio Scuro per gli input al focus */
+}
+
+/* Stili personalizzati */
+body {
+    background-color: var(--info);
+    color: var(--dark);
+}
+
+.navbar {
+    background-color: var(--primary);
+}
+
+.nav-link {
+    color: var(--light);
+}
+
+    .nav-link:hover {
+        color: var(--success);
+    }
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    margin-right: 10px; /* Distanza tra i bottoni */
+}
+
+    .btn-primary:hover {
+        background-color: #1b2d3f; /* Colore più scuro */
+        border-color: #1b2d3f;
+    }
+
+.form-control {
+    background-color: var(--input-bg);
+}
+
+    .form-control:focus {
+        background-color: var(--input-focus-bg);
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    }
+
+/* Override delle classi Bootstrap */
+.navbar {
+    background-color: var(--primary) !important;
+}
+
+.nav-link {
+    color: var(--light) !important;
+}
+
+    .nav-link:hover {
+        color: var(--success) !important;
+    }
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    margin-right: 10px !important; /* Distanza tra i bottoni */
+}
+
+    .btn-primary:hover {
+        background-color: #1b2d3f !important; /* Colore più scuro */
+        border-color: #1b2d3f !important;
+    }
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--info);
+    color: var(--dark);
 }

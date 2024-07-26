@@ -1,73 +1,52 @@
-﻿@model GestoreAlbergo.Models.Cliente
+﻿@model Cliente
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Dettagli Del Cliente";
 }
 
-<h1>Details</h1>
+<h1 class="text-center">Dettagli Del Cliente</h1>
 
-<div>
-    <h4>Cliente</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodiceFiscale)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodiceFiscale)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cognome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cognome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Citta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Citta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Provincia)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Provincia)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cellulare)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cellulare)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
 
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.CodiceFiscale)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.CodiceFiscale)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Cognome)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Cognome)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Nome)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Nome)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Citta)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Citta)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Provincia)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Provincia)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Telefono)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Telefono)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Cellulare)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Cellulare)</dd>
+        </dl>
+    </div>
+    <div class="card-footer text-muted">
+        <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+    </div>
 </div>
+
+<style>
+    .card {
+        margin-top: 20px;
+    }
+
+    .btn-primary, .btn-secondary {
+        margin-right: 10px;
+    }
+</style>

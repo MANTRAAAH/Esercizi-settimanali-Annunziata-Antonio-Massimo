@@ -1,11 +1,12 @@
-﻿@model IEnumerable<GestoreAlbergo.Models.Prenotazione>
+﻿@model IEnumerable<Prenotazione>
+<h1 class=" text-center">Prenotazioni</h1>
 
-<a asp-action="Create" class="btn btn-primary">Crea Nuova Prenotazione</a>
+<a asp-action="Create" class="btn btn-primary mb-3">Crea Nuova Prenotazione</a>
 
 @if (Model != null)
 {
-    <table class="table">
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Nome Cliente</th>
                 <th>Descrizione Camera</th>
@@ -20,12 +21,12 @@
                 <tr>
                     <td>@item.Cliente.Nome @item.Cliente.Cognome</td>
                     <td>@item.Camera.Descrizione</td>
-                    <td>@item.PeriodoDal</td>
-                    <td>@item.PeriodoAl</td>
+                    <td>@item.PeriodoDal.ToShortDateString()</td>
+                    <td>@item.PeriodoAl.ToShortDateString()</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Modifica</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Dettagli</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Elimina</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Modifica</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Dettagli</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Elimina</a>
                     </td>
                 </tr>
             }
@@ -34,5 +35,11 @@
 }
 else
 {
-    <p>Nessuna prenotazione trovata.</p>
+    <p class="alert alert-warning">Nessuna prenotazione trovata.</p>
 }
+
+<style>
+    .btn {
+        margin-right: 5px;
+    }
+</style>

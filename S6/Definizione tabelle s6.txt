@@ -1,0 +1,106 @@
+CREATE TABLE [dbo].[Camere] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Numero]      INT            NOT NULL,
+    [Descrizione] NVARCHAR (100) NULL,
+    [Tipologia]   NVARCHAR (20)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    UNIQUE NONCLUSTERED ([Numero] ASC)
+);
+
+CREATE TABLE [dbo].[Clienti] (
+    [Id]            INT            IDENTITY (1, 1) NOT NULL,
+    [CodiceFiscale] NVARCHAR (16)  NOT NULL,
+    [Cognome]       NVARCHAR (50)  NOT NULL,
+    [Nome]          NVARCHAR (50)  NOT NULL,
+    [Citta]         NVARCHAR (50)  NOT NULL,
+    [Provincia]     NVARCHAR (50)  NOT NULL,
+    [Email]         NVARCHAR (100) NOT NULL,
+    [Telefono]      NVARCHAR (20)  NULL,
+    [Cellulare]     NVARCHAR (20)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    UNIQUE NONCLUSTERED ([CodiceFiscale] ASC)
+);
+
+CREATE TABLE [dbo].[Dipendenti] (
+    [ID]           INT            IDENTITY (1, 1) NOT NULL,
+    [NomeUtente]   NVARCHAR (50)  NOT NULL,
+    [PasswordHash] NVARCHAR (256) NOT NULL,
+    [Ruolo]        NVARCHAR (20)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[ListaServiziAggiuntivi] (
+    [Id]           INT             IDENTITY (1, 1) NOT NULL,
+    [NomeServizio] NVARCHAR (100)  NOT NULL,
+    [Descrizione]  NVARCHAR (255)  NULL,
+    [Prezzo]       DECIMAL (18, 2) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Prenotazioni] (
+    [ID]                INT             IDENTITY (1, 1) NOT NULL,
+    [CodiceFiscale]     NVARCHAR (16)   NOT NULL,
+    [DataPrenotazione]  DATE            DEFAULT (getdate()) NOT NULL,
+    [NumeroProgressivo] INT             NOT NULL,
+    [Anno]              INT             NOT NULL,
+    [Dal]               DATE            NOT NULL,
+    [Al]                DATE            NOT NULL,
+    [Caparra]           DECIMAL (10, 2) NOT NULL,
+    [Tariffa]           DECIMAL (10, 2) NOT NULL,
+    [Dettagli]          NVARCHAR (100)  NULL,
+    [CameraId]          INT             NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    CONSTRAINT [FK_Prenotazioni_Clienti] FOREIGN KEY ([CodiceFiscale]) REFERENCES [dbo].[Clienti] ([CodiceFiscale]),
+    CONSTRAINT [FK_Prenotazioni_Camere] FOREIGN KEY ([CameraId]) REFERENCES [dbo].[Camere] ([Id])
+);
+
+CREATE NONCLUSTERED INDEX [IDX_Prenotazioni_CodiceFiscale]
+    ON [dbo].[Prenotazioni]([CodiceFiscale] ASC);
+
+CREATE TABLE [dbo].[ServiziAggiuntivi] (
+    [ID]              INT  IDENTITY (1, 1) NOT NULL,
+    [PrenotazioneID]  INT  NOT NULL,
+    [Data]            DATE NOT NULL,
+    [Quantita]        INT  NOT NULL,
+    [ListaServizioID] INT  NOT NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    CONSTRAINT [FK_ServiziAggiuntivi_ListaServiziAggiuntivi] FOREIGN KEY ([ListaServizioID]) REFERENCES [dbo].[ListaServiziAggiuntivi] ([Id])
+);
+
+CREATE NONCLUSTERED INDEX [IDX_ServiziAggiuntivi_PrenotazioneID]
+    ON [dbo].[ServiziAggiuntivi]([PrenotazioneID] ASC);
+
+CREATE NONCLUSTERED INDEX [IDX_ServiziAggiuntivi_ListaServizioID]
+    ON [dbo].[ServiziAggiuntivi]([ListaServizioID] ASC);
+
+
+
+
+
+Query per aggiungere servizi aggiuntivi
+
+INSERT INTO [dbo].[ListaServiziAggiuntivi] (NomeServizio, Descrizione, Prezzo) VALUES
+('Accesso Spa', 'Accesso alla spa dell''hotel', 50.00),
+('Accesso Palestra', 'Accesso alla palestra dell''hotel', 30.00),
+('Colazione', 'Servizio colazione giornaliero', 20.00),
+('Parcheggio', 'Servizio parcheggio giornaliero', 15.00),
+('Servizio in Camera', 'Servizio di pasti in camera', 25.00),
+('Wi-Fi', 'Accesso internet Wi-Fi', 10.00),
+('Piscina', 'Accesso alla piscina', 35.00),
+('Lavanderia', 'Servizio lavanderia', 20.00),
+('Navetta Aeroporto', 'Servizio navetta per l''aeroporto', 40.00),
+('Massaggio', 'Servizio massaggio', 60.00),
+('Mini Bar', 'Accesso al mini bar in camera', 15.00),
+('Cena', 'Cena gourmet nel ristorante dell''hotel', 50.00),
+('Tour Guidato', 'Tour guidato della città', 45.00),
+('Noleggio Biciclette', 'Noleggio biciclette per un giorno', 20.00),
+('Lezione di Yoga', 'Lezione di yoga mattutina', 30.00),
+('Degustazione Vini', 'Degustazione di vini locali', 40.00),
+('Baby Sitter', 'Servizio di baby-sitter', 50.00),
+('Pet Sitter', 'Servizio di pet-sitter', 45.00);
+
+
+
+
+
+

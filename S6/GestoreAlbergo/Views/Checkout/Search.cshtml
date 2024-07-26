@@ -1,13 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Search Prenotazione";
+    ViewData["Title"] = "Cerca Prenotazione";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2 class="text-center">@ViewData["Title"]</h2>
 
-<form asp-action="Search" method="post">
-    <div class="form-group">
-        <label for="codiceFiscale">Codice Fiscale</label>
+<form asp-action="Search" method="post" class="mt-4">
+    <div class="form-group text-center fw-bold fs-3">
+        <label for="codiceFiscale">Inserisci Codice Fiscale</label>
         <input type="text" id="codiceFiscale" name="codiceFiscale" class="form-control" required />
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mt-3 px-5">Search</button>
+    </div>
 </form>

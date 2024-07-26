@@ -51,7 +51,6 @@ namespace GestoreAlbergo.Controllers
                 return NotFound();
             }
 
-            // Log the camera ID
             _logger.LogInformation("Prenotazione retrieved. Camera ID: {CameraId}", prenotazione.CameraId);
 
             if (prenotazione.CameraId.HasValue)
@@ -72,7 +71,6 @@ namespace GestoreAlbergo.Controllers
 
             var serviziAggiuntivi = (await _prenotazioneService.GetServiziAggiuntiviByPrenotazioneIdAsync(prenotazioneId)).ToList();
 
-            // Format the pricing and totals
             foreach (var servizio in serviziAggiuntivi)
             {
                 servizio.PrezzoFormatted = servizio.Prezzo.ToString("C", System.Globalization.CultureInfo.CurrentCulture);
@@ -82,7 +80,6 @@ namespace GestoreAlbergo.Controllers
             decimal totaleServiziAggiuntivi = serviziAggiuntivi.Sum(sa => sa.Prezzo * sa.Quantita);
             var totale = prenotazione.TariffaApplicata - prenotazione.Caparra + totaleServiziAggiuntivi;
 
-            // Recupera le informazioni del cliente
             var cliente = await _prenotazioneService.GetClienteByPrenotazioneIdAsync(prenotazioneId);
             if (cliente == null)
             {
@@ -96,7 +93,7 @@ namespace GestoreAlbergo.Controllers
                 ServiziAggiuntivi = serviziAggiuntivi,
                 TotaleDaSaldare = totale,
                 TotaleDaSaldareFormatted = totale.ToString("C", System.Globalization.CultureInfo.CurrentCulture),
-                Cliente = cliente // Aggiungi le informazioni del cliente al modello
+                Cliente = cliente
             };
 
             return View(model);

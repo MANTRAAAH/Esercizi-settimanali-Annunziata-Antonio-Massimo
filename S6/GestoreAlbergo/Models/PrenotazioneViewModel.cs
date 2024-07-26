@@ -15,8 +15,6 @@ namespace GestoreAlbergo.Models
         public Prenotazione Prenotazione { get; set; }
         public IEnumerable<SelectListItem>? Clienti { get; set; }
         public IEnumerable<SelectListItem>? Camere { get; set; }
-
-        // Aggiungi la proprietà CameraId
         public int CameraId { get; set; }
     }
 }

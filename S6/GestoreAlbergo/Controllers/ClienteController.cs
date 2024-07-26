@@ -2,6 +2,7 @@
 using GestoreAlbergo.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace GestoreAlbergo.Controllers
@@ -10,10 +11,14 @@ namespace GestoreAlbergo.Controllers
     public class ClientiController : Controller
     {
         private readonly IClienteService _clienteService;
+        private readonly IPrenotazioneService _prenotazioneService;
+        private readonly ILogger<ClientiController> _logger;
 
-        public ClientiController(IClienteService clienteService)
+        public ClientiController(IClienteService clienteService, IPrenotazioneService prenotazioneService, ILogger<ClientiController> logger)
         {
             _clienteService = clienteService;
+            _prenotazioneService = prenotazioneService;
+            _logger = logger;
         }
 
         // GET: Clienti
@@ -56,11 +61,15 @@ namespace GestoreAlbergo.Controllers
         // GET: Clienti/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
+            _logger.LogInformation("Edit GET action called for Cliente ID: {Id}", id);
+
             var cliente = await _clienteService.GetByIdAsync(id);
             if (cliente == null)
             {
+                _logger.LogWarning("Cliente with ID: {Id} not found", id);
                 return NotFound();
             }
+            _logger.LogInformation("Cliente with ID: {Id} retrieved successfully", id);
             return View(cliente);
         }
 
@@ -69,15 +78,39 @@ namespace GestoreAlbergo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Cliente cliente)
         {
+            _logger.LogInformation("Edit POST action called for Cliente ID: {Id}", id);
+
             if (id != cliente.Id)
             {
+                _logger.LogWarning("Route ID: {RouteId} does not match Cliente ID: {ClienteId}", id, cliente.Id);
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                await _clienteService.UpdateAsync(cliente);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _logger.LogInformation("Model state is valid for Cliente ID: {Id}", id);
+                    await _clienteService.UpdateAsync(cliente);
+                    _logger.LogInformation("Cliente with ID: {Id} updated successfully", id);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error occurred while updating Cliente with ID: {Id}", id);
+                    ModelState.AddModelError(string.Empty, "An error occurred while updating the cliente.");
+                }
+            }
+            else
+            {
+                _logger.LogWarning("Model state is invalid for Cliente ID: {Id}", id);
+                foreach (var state in ModelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        _logger.LogWarning("Model state error in {Key}: {ErrorMessage}", state.Key, error.ErrorMessage);
+                    }
+                }
             }
             return View(cliente);
         }
@@ -94,12 +127,28 @@ namespace GestoreAlbergo.Controllers
         }
 
         // POST: Clienti/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var cliente = await _clienteService.GetByIdAsync(id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            // Elimina prenotazioni associate al cliente
+            var prenotazioni = await _prenotazioneService.GetPrenotazioniByCodiceFiscaleAsync(cliente.CodiceFiscale);
+            foreach (var prenotazione in prenotazioni)
+            {
+                await _prenotazioneService.DeleteAsync(prenotazione.Id);
+            }
+
+            // Elimina il cliente
             await _clienteService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }

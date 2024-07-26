@@ -1,15 +1,12 @@
-﻿@model GestoreAlbergo.Models.Prenotazione
+﻿@model Prenotazione
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Dettagli";
 }
 
-<h1>Details</h1>
+<h1 class="text-center">Dettagli Prenotazione</h1>
 
 <div class="card">
-    <div class="card-header">
-        <h4>Prenotazione Details</h4>
-    </div>
     <div class="card-body">
         <dl class="row">
             <dt class="col-sm-3">Cliente</dt>
@@ -24,10 +21,10 @@
             <dt class="col-sm-3">Data Prenotazione</dt>
             <dd class="col-sm-9">@Model.DataPrenotazione.ToString("yyyy-MM-dd")</dd>
 
-            <dt class="col-sm-3">Periodo Dal</dt>
+            <dt class="col-sm-3">Inizio Soggiorno</dt>
             <dd class="col-sm-9">@Model.PeriodoDal.ToString("yyyy-MM-dd")</dd>
 
-            <dt class="col-sm-3">Periodo Al</dt>
+            <dt class="col-sm-3">Fine Soggiorno</dt>
             <dd class="col-sm-9">@Model.PeriodoAl.ToString("yyyy-MM-dd")</dd>
 
             <dt class="col-sm-3">Caparra</dt>
@@ -41,7 +38,7 @@
         </dl>
     </div>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+<div class="mt-2">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
     <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>

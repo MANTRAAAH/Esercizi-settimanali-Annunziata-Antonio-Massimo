@@ -1,4 +1,8 @@
-﻿@model GestoreAlbergo.Models.LoginViewModel
+﻿@section Styles {
+    <link rel="stylesheet" href="~/css/Account.css" asp-append-version="true" />
+}
+
+@model LoginViewModel
 
 <h2>Login</h2>
 
@@ -13,5 +17,5 @@
         <input asp-for="Password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary mt-2">Login</button>
 </form>

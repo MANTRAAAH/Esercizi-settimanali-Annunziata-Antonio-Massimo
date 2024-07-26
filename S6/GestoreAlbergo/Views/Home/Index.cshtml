@@ -7,7 +7,6 @@
     <div class="row">
         @if (isAdminOrDipendente)
         {
-            <!-- Card per Clienti -->
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Clienti">
@@ -19,7 +18,6 @@
                 </div>
             </div>
 
-            <!-- Card per Prenotazioni -->
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Prenotazioni">
@@ -31,7 +29,6 @@
                 </div>
             </div>
 
-            <!-- Card per Camere -->
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Camere">
@@ -42,9 +39,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Report">
+                    <div class="card-body">
+                        <h5 class="card-title">Report Prenotazioni</h5>
+                        <p class="card-text">Visualizza il numero totale di prenotazioni per soggiorni di tipo "pensione completa".</p>
+                        <a href="@Url.Action("GetTotalPrenotazioniPensioneCompleta", "Report")" class="btn btn-primary">Visualizza Report</a>
+                    </div>
+                </div>
+            </div>
         }
 
-        <!-- Card per Servizi Aggiuntivi -->
         <div class="col-md-4 mb-4">
             <div class="card">
                 <img src="https://via.placeholder.com/150" class="card-img-top" alt="Servizi Aggiuntivi">
@@ -64,13 +71,11 @@
             </div>
         </div>
 
-
         @if (isAdminOrDipendente)
         {
-            <!-- Card per Report -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Report">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Checkout">
                     <div class="card-body">
                         <h5 class="card-title">Checkout</h5>
                         <p class="card-text">Effettua il Checkout di una prenotazione</p>

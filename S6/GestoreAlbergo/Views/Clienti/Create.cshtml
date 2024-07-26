@@ -4,13 +4,12 @@
     ViewData["Title"] = "Crea Cliente";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<h4>Cliente</h4>
 <hr />
 <form asp-action="Create">
     <div class="form-group">
-        <label asp-for="CodiceFiscale" class="control-label"></label>
+        <label asp-for="CodiceFiscale" class="control-label">Codice Fiscale</label>
         <input asp-for="CodiceFiscale" class="form-control" />
         <span asp-validation-for="CodiceFiscale" class="text-danger"></span>
     </div>
@@ -49,7 +48,7 @@
         <input asp-for="Cellulare" class="form-control" />
         <span asp-validation-for="Cellulare" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group mt-3">
         <input type="submit" value="Crea" class="btn btn-primary" />
     </div>
 </form>

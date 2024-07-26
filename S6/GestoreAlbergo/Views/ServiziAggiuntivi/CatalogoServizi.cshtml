@@ -1,4 +1,5 @@
-﻿@model IEnumerable<GestoreAlbergo.Models.ListaServiziAggiuntivi>
+﻿
+@model IEnumerable<GestoreAlbergo.Models.ListaServiziAggiuntivi>
 
 @{
     ViewData["Title"] = "Lista Servizi Aggiuntivi";
@@ -6,8 +7,8 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
             <th>Nome Servizio</th>
             <th>Descrizione</th>
@@ -25,3 +26,32 @@
         }
     </tbody>
 </table>
+
+<style>
+    :root {
+        --primary: #2C3E50;
+        --secondary: #7F8C8D;
+        --success: #2ECC71;
+        --info: #ECF0F1;
+        --warning: #F5F5DC;
+        --light: #FFFFFF;
+        --dark: #2C3E50;
+    }
+
+    .bg-primary {
+        background-color: var(--primary) !important;
+    }
+
+    .text-primary {
+        color: var(--primary) !important;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .thead-dark th {
+        background-color: var(--primary);
+        color: var(--light);
+    }
+</style>

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
-using GestoreAlbergo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Data.SqlClient;
 using Microsoft.AspNetCore.Authorization;
+using GestoreAlbergo.Models;
 
 namespace GestoreAlbergo.Controllers
 {
@@ -18,7 +18,6 @@ namespace GestoreAlbergo.Controllers
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-
 
         // GET: /Account/Login
         [HttpGet]
@@ -49,10 +48,10 @@ namespace GestoreAlbergo.Controllers
                             if (VerifyPasswordHash(model.Password, storedHash))
                             {
                                 var claims = new List<Claim>
-                        {
-                            new Claim(ClaimTypes.Name, model.Username),
-                            new Claim(ClaimTypes.Role, ruolo)
-                        };
+                                {
+                                    new Claim(ClaimTypes.Name, model.Username),
+                                    new Claim(ClaimTypes.Role, ruolo)
+                                };
 
                                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -69,7 +68,6 @@ namespace GestoreAlbergo.Controllers
 
             return View(model);
         }
-
 
         // GET: /Account/Register
         [HttpGet]
@@ -89,7 +87,7 @@ namespace GestoreAlbergo.Controllers
                     var command = new SqlCommand("INSERT INTO Dipendenti (NomeUtente, PasswordHash, Ruolo) VALUES (@NomeUtente, @PasswordHash, @Ruolo)", connection);
                     command.Parameters.AddWithValue("@NomeUtente", model.Username);
                     command.Parameters.AddWithValue("@PasswordHash", HashPassword(model.Password));
-                    command.Parameters.AddWithValue("@Ruolo", "User"); // Puoi cambiare il ruolo come necessario
+                    command.Parameters.AddWithValue("@Ruolo", "Dipendente");
 
                     await connection.OpenAsync();
                     await command.ExecuteNonQueryAsync();
@@ -101,7 +99,6 @@ namespace GestoreAlbergo.Controllers
             return View(model);
         }
 
-
         // POST: /Account/Logout
         [HttpPost]
         public async Task<IActionResult> Logout()
@@ -109,7 +106,6 @@ namespace GestoreAlbergo.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
-
 
         private string HashPassword(string password)
         {
@@ -130,6 +126,5 @@ namespace GestoreAlbergo.Controllers
             var hash = HashPassword(password);
             return hash == storedHash;
         }
-
     }
 }

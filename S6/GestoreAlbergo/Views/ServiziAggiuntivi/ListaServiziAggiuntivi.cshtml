@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GestoreAlbergo.Models.ServizioAggiuntivoViewModel>
+﻿@model IEnumerable<ServizioAggiuntivoViewModel>
 
 @{
     ViewData["Title"] = "Lista Servizi Aggiuntivi";
@@ -6,8 +6,8 @@
 
 <h1>Lista Servizi Aggiuntivi</h1>
 
-<table class="table">
-    <thead>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
         <tr>
             <th>Descrizione</th>
             <th>Quantità</th>
@@ -25,10 +25,10 @@
                 <td>@servizio.Prezzo</td>
                 <td>@servizio.Totale</td>
                 <td>
-                    <form asp-action="RimuoviServizioAggiuntivo" method="post">
+                    <form asp-action="RimuoviServizioAggiuntivo" method="post" class="d-inline">
                         <input type="hidden" name="servizioId" value="@servizio.ID" />
                         <input type="hidden" name="prenotazioneId" value="@ViewBag.PrenotazioneId" />
-                        <button type="submit" class="btn btn-danger">Rimuovi</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Rimuovi</button>
                     </form>
                 </td>
             </tr>

@@ -16,7 +16,7 @@
         public DateTime PeriodoAl { get; set; }
         public decimal Caparra { get; set; }
         public decimal TariffaApplicata { get; set; }
-        public string Dettagli { get; set; } // e.g., Mezza pensione, Pensione completa, etc.
+        public string Dettagli { get; set; } 
         public ICollection<ServizioAggiuntivo>? ServiziAggiuntivi { get; set; }
     }
 }

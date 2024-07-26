@@ -15,7 +15,7 @@
         public string? Descrizione { get; set; }
 
         [Display(Name = "Tipologia")]
-        public string? Tipologia { get; set; } // "Singola" o "Doppia"
+        public string? Tipologia { get; set; } 
     }
 
 }

@@ -1,9 +1,9 @@
-﻿@model GestoreAlbergo.Models.CheckoutViewModel
+﻿@model CheckoutViewModel
 
 <h2 class="my-4">Dettagli del Checkout</h2>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-primary text-white">
         <h3>Dettagli Cliente</h3>
     </div>
     <div class="card-body">
@@ -11,12 +11,12 @@
         <p><strong>Cognome:</strong> @Model.Cliente.Cognome</p>
         <p><strong>Email:</strong> @Model.Cliente.Email</p>
         <p><strong>Telefono:</strong> @Model.Cliente.Telefono</p>
-        <p><strong>Indirizzo:</strong> @Model.Cliente.CodiceFiscale</p>
+        <p><strong>Codice Fiscale:</strong> @Model.Cliente.CodiceFiscale</p>
     </div>
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-primary text-white">
         <h3>Dettagli Prenotazione</h3>
     </div>
     <div class="card-body">
@@ -28,12 +28,12 @@
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-primary text-white">
         <h3>Servizi Aggiuntivi</h3>
     </div>
     <div class="card-body">
         <table class="table table-striped">
-            <thead>
+            <thead class="thead-dark">
                 <tr>
                     <th>Descrizione</th>
                     <th>Quantità</th>
@@ -57,10 +57,30 @@
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-primary text-white">
         <h3>Totale da Saldare</h3>
     </div>
     <div class="card-body">
         <p class="h4">@Model.TotaleDaSaldareFormatted</p>
     </div>
 </div>
+
+<style>
+    :root {
+        --primary: #2C3E50;
+        --secondary: #7F8C8D;
+        --success: #2ECC71;
+        --info: #ECF0F1;
+        --warning: #F5F5DC;
+        --light: #FFFFFF;
+        --dark: #2C3E50;
+    }
+
+    .bg-primary {
+        background-color: var(--primary) !important;
+    }
+
+    .text-primary {
+        color: var(--primary) !important;
+    }
+</style>

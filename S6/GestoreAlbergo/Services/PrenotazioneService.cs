@@ -38,7 +38,7 @@ namespace GestoreAlbergo.Services
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
                             CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
-                            CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("CameraId")),
+                            CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? null : reader.GetInt32(reader.GetOrdinal("CameraId")),
                             DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
                             PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
                             PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
@@ -49,7 +49,6 @@ namespace GestoreAlbergo.Services
                             NumeroProgressivo = reader.GetInt32(reader.GetOrdinal("NumeroProgressivo"))
                         };
 
-                        // Load related Cliente and Camera objects
                         prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
                         if (prenotazione.CameraId.HasValue)
                         {
@@ -62,6 +61,28 @@ namespace GestoreAlbergo.Services
             }
 
             return prenotazioni;
+        }
+        public async Task<IEnumerable<Prenotazione>> GetPrenotazioniByClienteIdAsync(int clienteId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("SELECT * FROM Prenotazioni WHERE ClienteId = @ClienteId", connection);
+                command.Parameters.AddWithValue("@ClienteId", clienteId);
+                connection.Open();
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    var prenotazioni = new List<Prenotazione>();
+                    while (await reader.ReadAsync())
+                    {
+                        prenotazioni.Add(new Prenotazione
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                        });
+                    }
+                    return prenotazioni;
+                }
+            }
         }
 
 
@@ -83,7 +104,7 @@ namespace GestoreAlbergo.Services
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
                             CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
-                            CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("CameraId")),
+                            CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? null : reader.GetInt32(reader.GetOrdinal("CameraId")),
                             DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
                             PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
                             PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
@@ -127,7 +148,7 @@ namespace GestoreAlbergo.Services
                 command.Parameters.AddWithValue("@Caparra", prenotazione.Caparra);
                 command.Parameters.AddWithValue("@Tariffa", prenotazione.TariffaApplicata);
                 command.Parameters.AddWithValue("@Dettagli", prenotazione.Dettagli ?? string.Empty);
-                command.Parameters.AddWithValue("@CameraId", prenotazione.CameraId.HasValue ? (object)prenotazione.CameraId.Value : DBNull.Value);
+                command.Parameters.AddWithValue("@CameraId", prenotazione.CameraId.HasValue ? prenotazione.CameraId.Value : DBNull.Value);
 
                 await command.ExecuteNonQueryAsync();
             }
@@ -178,12 +199,12 @@ namespace GestoreAlbergo.Services
                 {
                     try
                     {
-                        // Delete related ServiziAggiuntivi
+
                         var deleteServiziCommand = new SqlCommand("DELETE FROM ServiziAggiuntivi WHERE PrenotazioneID = @PrenotazioneID", connection, transaction);
                         deleteServiziCommand.Parameters.AddWithValue("@PrenotazioneID", id);
                         await deleteServiziCommand.ExecuteNonQueryAsync();
 
-                        // Delete the Prenotazione
+
                         var deletePrenotazioneCommand = new SqlCommand("DELETE FROM Prenotazioni WHERE Id = @Id", connection, transaction);
                         deletePrenotazioneCommand.Parameters.AddWithValue("@Id", id);
                         await deletePrenotazioneCommand.ExecuteNonQueryAsync();
@@ -220,7 +241,7 @@ namespace GestoreAlbergo.Services
                             {
                                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
                                 CodiceFiscale = reader.GetString(reader.GetOrdinal("CodiceFiscale")),
-                                CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("CameraId")),
+                                CameraId = reader.IsDBNull(reader.GetOrdinal("CameraId")) ? null : reader.GetInt32(reader.GetOrdinal("CameraId")),
                                 DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
                                 PeriodoDal = reader.GetDateTime(reader.GetOrdinal("Dal")),
                                 PeriodoAl = reader.GetDateTime(reader.GetOrdinal("Al")),
@@ -231,7 +252,7 @@ namespace GestoreAlbergo.Services
                                 NumeroProgressivo = reader.GetInt32(reader.GetOrdinal("NumeroProgressivo"))
                             };
 
-                            // Fetch related Cliente and Camera data if required
+
                             prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(prenotazione.CodiceFiscale);
                             if (prenotazione.CameraId.HasValue)
                             {
@@ -290,7 +311,7 @@ namespace GestoreAlbergo.Services
                     }
                 }
 
-                // Fetch details from ListaServiziAggiuntivi for each servizio
+
                 foreach (var servizio in serviziAggiuntivi)
                 {
                     var listaServizioCommand = new SqlCommand(

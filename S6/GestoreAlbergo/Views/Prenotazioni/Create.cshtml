@@ -4,17 +4,15 @@
     ViewData["Title"] = "Crea Prenotazione";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<h4>Prenotazione</h4>
+<h1 class="text-center">@ViewData["Title"]</h1>
 <hr />
 <form asp-action="Create">
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="clienteSearch" class="control-label">Cerca Cliente</label>
         <div class="input-group">
-            <input type="text" id="clienteSearch" class="form-control" placeholder="Inserisci il nome del cliente..." />
+            <input type="text" id="clienteSearch" class="form-control mb-3" placeholder="Inserisci il nome del cliente..." />
             <div class="input-group-append">
-                <button id="searchButton" class="btn btn-primary" type="button">Cerca</button>
+                <button id="searchButton" class="btn btn-primary ms-2" type="button">Cerca</button>
             </div>
         </div>
         <select id="clientiList" class="form-control">
@@ -27,7 +25,7 @@
     <input type="hidden" asp-for="Prenotazione.ClienteId" id="Prenotazione_ClienteId" />
 
     <div class="form-group">
-        <label asp-for="CameraId" class="control-label"></label>
+        <label asp-for="CameraId" class="control-label">Numero Della Camera</label>
         <select asp-for="CameraId" class="form-control" asp-items="Model.Camere"></select>
         <span asp-validation-for="CameraId" class="text-danger"></span>
     </div>
@@ -37,12 +35,12 @@
 
     <input asp-for="Prenotazione.DataPrenotazione" type="hidden" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
     <div class="form-group">
-        <label asp-for="Prenotazione.PeriodoDal" class="control-label"></label>
+        <label asp-for="Prenotazione.PeriodoDal" class="control-label">Inizio Soggiorno</label>
         <input asp-for="Prenotazione.PeriodoDal" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
         <span asp-validation-for="Prenotazione.PeriodoDal" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Prenotazione.PeriodoAl" class="control-label"></label>
+        <label asp-for="Prenotazione.PeriodoAl" class="control-label">Fine Soggiorno</label>
         <input asp-for="Prenotazione.PeriodoAl" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
         <span asp-validation-for="Prenotazione.PeriodoAl" class="text-danger"></span>
     </div>
@@ -52,11 +50,11 @@
         <span asp-validation-for="Prenotazione.Caparra" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Prenotazione.TariffaApplicata" class="control-label"></label>
+        <label asp-for="Prenotazione.TariffaApplicata" class="control-label">Tariffa Applicata</label>
         <input asp-for="Prenotazione.TariffaApplicata" class="form-control" type="number" step="0.01" />
         <span asp-validation-for="Prenotazione.TariffaApplicata" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-2">
         <label asp-for="Prenotazione.Dettagli" class="control-label"></label>
         <select asp-for="Prenotazione.Dettagli" class="form-control">
             <option value="Pernottamento">Pernottamento Con Prima Colazione</option>
@@ -69,7 +67,7 @@
         <input type="submit" value="Crea" class="btn btn-primary" />
     </div>
 
-    <!-- Hidden fields for client details -->
+
     <input type="hidden" asp-for="Prenotazione.Cliente.Nome" id="Prenotazione_Cliente_Nome" />
     <input type="hidden" asp-for="Prenotazione.Cliente.Cognome" id="Prenotazione_Cliente_Cognome" />
     <input type="hidden" asp-for="Prenotazione.Cliente.Citta" id="Prenotazione_Cliente_Citta" />
@@ -91,12 +89,12 @@
                         success: function (data) {
                             var clientiList = $('#clientiList');
                             clientiList.empty();
-                            clientiList.append('<option value="">Seleziona Cliente</option>'); // Default option
+                            clientiList.append('<option value="">Seleziona Cliente</option>');
                             $.each(data, function (i, cliente) {
                                 clientiList.append($('<option>', {
-                                    value: cliente.cod_fisc, // Corrected value to use cliente.cod_fisc
+                                    value: cliente.cod_fisc, 
                                     text: cliente.nome + ' ' + cliente.cognome,
-                                    'data-id': cliente.id, // Store cliente.id in a data attribute
+                                    'data-id': cliente.id, 
                                     'data-nome': cliente.nome,
                                     'data-cognome': cliente.cognome,
                                     'data-citta': cliente.citta,
@@ -117,8 +115,8 @@
 
             $('#clientiList').on('change', function () {
                 var selectedOption = $(this).find('option:selected');
-                $('#Prenotazione_ClienteId').val(selectedOption.data('id')); // Set ClienteId using data-id
-                $('#Prenotazione_CodiceFiscale').val(selectedOption.data('cod_fisc')); // Set CodiceFiscale using data-cod_fisc
+                $('#Prenotazione_ClienteId').val(selectedOption.data('id')); 
+                $('#Prenotazione_CodiceFiscale').val(selectedOption.data('cod_fisc')); 
                 $('#Prenotazione_Cliente_CodiceFiscale').val(selectedOption.data('cod_fisc'));
                 $('#Prenotazione_Cliente_Nome').val(selectedOption.data('nome'));
                 $('#Prenotazione_Cliente_Cognome').val(selectedOption.data('cognome'));
@@ -129,14 +127,14 @@
                 $('#Prenotazione_Cliente_Provincia').val(selectedOption.data('provincia'));
             });
 
-            // Prevent form submission on Enter key press
+           
             $('#clienteSearch').on('keypress', function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
                 }
             });
 
-            // Populate camera details when the camera is selected
+           
             $('#Prenotazione_NumeroCamera').on('change', function () {
                 var selectedOption = $(this).find('option:selected');
                 $('#Prenotazione_Camera_Descrizione').val(selectedOption.data('descrizione'));

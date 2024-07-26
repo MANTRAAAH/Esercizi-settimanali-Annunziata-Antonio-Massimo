@@ -12,9 +12,7 @@ namespace GestoreAlbergo.Services
         Task UpdateAsync(Cliente cliente);
         Task DeleteAsync(int id);
         Task<Cliente> GetByCodiceFiscaleAsync(string codiceFiscale);
-        string CalcolaCodiceFiscale(Cliente cliente);
 
-        // Add this method
         Task<IEnumerable<Cliente>> SearchClientiAsync(string query);
     }
 }

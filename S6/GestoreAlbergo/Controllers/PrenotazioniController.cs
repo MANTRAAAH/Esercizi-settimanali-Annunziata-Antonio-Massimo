@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using GestoreAlbergo.Models;
-using GestoreAlbergo.Services;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
+using GestoreAlbergo.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using GestoreAlbergo.Services;
 
 namespace GestoreAlbergo.Controllers
 {
@@ -98,10 +98,8 @@ namespace GestoreAlbergo.Controllers
 
                     _logger.LogInformation("Anno set to {Anno}, NumeroProgressivo set to {NumeroProgressivo}.", model.Prenotazione.Anno, model.Prenotazione.NumeroProgressivo);
 
-                    // Log the camera ID being passed
-                    _logger.LogInformation("Camera ID passed: {CameraId}", model.CameraId);
 
-                    // Ensure the Camera exists
+                    _logger.LogInformation("Camera ID passed: {CameraId}", model.CameraId);
                     var camera = await _cameraService.GetCameraByIdAsync(model.CameraId);
                     if (camera == null)
                     {
@@ -111,7 +109,7 @@ namespace GestoreAlbergo.Controllers
                     }
 
                     model.Prenotazione.Cliente = await _clienteService.GetByCodiceFiscaleAsync(model.Prenotazione.CodiceFiscale);
-                    model.Prenotazione.CameraId = model.CameraId; // Imposta CameraId
+                    model.Prenotazione.CameraId = model.CameraId; 
                     model.Prenotazione.Camera = camera;
 
                     await _prenotazioneService.CreateAsync(model.Prenotazione);
@@ -146,8 +144,8 @@ namespace GestoreAlbergo.Controllers
             }).ToList();
             model.Camere = camere.Select(c => new SelectListItem
             {
-                Value = c.Id.ToString(), // Use Id for value
-                Text = c.Numero.ToString() // Display Numero
+                Value = c.Id.ToString(), 
+                Text = c.Numero.ToString() 
             }).ToList();
 
             return View(model);
@@ -216,7 +214,6 @@ namespace GestoreAlbergo.Controllers
                 {
                     _logger.LogInformation("Model state is valid. Updating prenotazione with id: {Id}", id);
 
-                    // Ensure the Camera exists
                     var camera = await _cameraService.GetCameraByIdAsync(model.Prenotazione.CameraId.Value);
                     if (camera == null)
                     {

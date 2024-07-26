@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using GestoreAlbergo.Models;
-using GestoreAlbergo.Services;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
+using GestoreAlbergo.Models;
+using GestoreAlbergo.Services;
 
 namespace GestoreAlbergo.Controllers
 {
@@ -10,10 +11,12 @@ namespace GestoreAlbergo.Controllers
     public class CamereController : Controller
     {
         private readonly ICameraService _cameraService;
+        private readonly ILogger<CamereController> _logger;
 
-        public CamereController(ICameraService cameraService)
+        public CamereController(ICameraService cameraService, ILogger<CamereController> logger)
         {
             _cameraService = cameraService;
+            _logger = logger;
         }
 
         // GET: Camere
@@ -88,16 +91,6 @@ namespace GestoreAlbergo.Controllers
             }
             return View(camera);
         }
-
-        // GET: Camere/Delete/5
-        public async Task<IActionResult> Delete(int id)
-        {
-            var camera = await _cameraService.GetCameraByIdAsync(id);
-            if (camera == null)
-            {
-                return NotFound();
-            }
-            return View(camera);
-        }
     }
+
 }

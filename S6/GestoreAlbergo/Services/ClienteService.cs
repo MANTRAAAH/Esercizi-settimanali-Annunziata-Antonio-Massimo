@@ -194,16 +194,7 @@ namespace GestoreAlbergo.Services
                 }
             }
 
-            return null; // Return null if no client is found
-        }
-
-
-        public string CalcolaCodiceFiscale(Cliente cliente)
-        {
-            // Logica per calcolare il codice fiscale in base ai dati del cliente
-            // Nota: Questo è solo un esempio e non rappresenta il calcolo reale del codice fiscale italiano
-
-            return $"{cliente.Cognome.Substring(0, 3).ToUpper()}{cliente.Nome.Substring(0, 3).ToUpper()}1234X";
+            return null; 
         }
     }
 }
