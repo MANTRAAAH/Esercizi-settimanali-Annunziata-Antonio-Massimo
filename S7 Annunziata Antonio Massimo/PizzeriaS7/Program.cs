@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PizzeriaS7.Context;
 using PizzeriaS7.Models;
+using PizzeriaS7.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,13 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/auth/login";
     options.AccessDeniedPath = "/auth/accessdenied";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    options.SlidingExpiration = true;
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
 });
 
 builder.Services.AddSession(options =>
@@ -38,6 +46,13 @@ builder.Services.AddSession(options =>
 });
 
 var app = builder.Build();
+
+// Create a scope to resolve scoped services
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await SeedData.Initialize(services); // Chiamata per inizializzare i dati
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -54,7 +69,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseSession(); // Ensure this is added before UseEndpoints
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

@@ -19,13 +19,13 @@ namespace PizzeriaS7.Controllers
             _logger = logger;
         }
 
-        [HttpGet("auth/login")]
+        [HttpGet("login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost("auth/login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginModel model)
         {
             if (!ModelState.IsValid)
@@ -37,67 +37,49 @@ namespace PizzeriaS7.Controllers
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("User logged in.");
+                _logger.LogInformation("User {Username} logged in successfully.", model.Username);
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                return View(model);
-            }
+
+            _logger.LogWarning("Invalid login attempt for user {Username}.", model.Username);
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View(model);
         }
 
-        [HttpGet("auth/register")]
+        [HttpGet("register")]
         public IActionResult Register()
         {
             return View();
         }
 
-        [HttpPost("auth/register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
+                var user = new Utente { UserName = model.Username, Email = model.Email, Nome = model.Nome };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    _logger.LogInformation("User {Username} registered and logged in successfully.", model.Username);
+                    return RedirectToAction("Index", "Home");
+                }
+                foreach (var error in result.Errors)
+                {
+                    _logger.LogError("Error registering user {Username}: {Error}", model.Username, error.Description);
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
             }
-
-            var user = new Utente
-            {
-                UserName = model.Username,
-                Email = model.Email,
-                Nome = model.Nome,
-                Ruolo = "User" // Imposta il ruolo predefinito a "User"
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            if (result.Succeeded)
-            {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                _logger.LogInformation("User registered successfully.");
-                return RedirectToAction("Index", "Home");
-            }
-
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
-
             return View(model);
         }
 
-        [HttpPost("auth/logout")]
+        [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
             return RedirectToAction("Index", "Home");
-        }
-
-        [HttpGet("auth/accessdenied")]
-        public IActionResult AccessDenied()
-        {
-            return View();
         }
     }
 }

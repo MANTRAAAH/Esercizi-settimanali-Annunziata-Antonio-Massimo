@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w7kHjX3tccA=",
+  "dgSpecHash": "JVaS2AuUods=",
   "success": true,
-  "projectFilePath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7\\PizzeriaS7\\PizzeriaS7.csproj",
+  "projectFilePath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\PizzeriaS7.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\antan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\antan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

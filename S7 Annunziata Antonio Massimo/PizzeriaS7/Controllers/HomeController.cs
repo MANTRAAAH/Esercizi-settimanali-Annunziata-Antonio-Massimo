@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PizzeriaS7.Models;
 using System.Diagnostics;
@@ -7,13 +8,31 @@ namespace PizzeriaS7.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserManager<Utente> _userManager;
 
-        public HomeController()
+        public HomeController(UserManager<Utente> userManager)
         {
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                if (await _userManager.IsInRoleAsync(user, "Admin"))
+                {
+                    ViewBag.UserRole = "Admin";
+                }
+                else
+                {
+                    ViewBag.UserRole = "User";
+                }
+            }
+            else
+            {
+                ViewBag.UserRole = null;
+            }
             return View();
         }
 
