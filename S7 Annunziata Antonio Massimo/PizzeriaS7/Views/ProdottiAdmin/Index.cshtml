@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PizzeriaS7.Models.Prodotto>
+
+<h2>Gestione Prodotti</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prodotto in Model)
+        {
+            <tr>
+                <td>@prodotto.Nome</td>
+                <td>@prodotto.Prezzo &euro;</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@prodotto.Id" class="btn btn-primary">Modifica</a>
+                    <a asp-action="Delete" asp-route-id="@prodotto.Id" class="btn btn-danger">Elimina</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success">Aggiungi Nuovo Prodotto</a>

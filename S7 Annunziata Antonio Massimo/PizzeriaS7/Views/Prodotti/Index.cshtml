@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PizzeriaS7.Models.Prodotto>
+
+<h2>Prodotti Disponibili</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Foto</th>
+            <th>Prezzo</th>
+            <th>Tempo di Consegna</th>
+            <th>Ingredienti</th>
+            <th>Azione</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prodotto in Model)
+        {
+            <tr>
+                <td>@prodotto.Nome</td>
+                <td><img src="@prodotto.FotoUrl" alt="@prodotto.Nome" width="100" /></td>
+                <td>@prodotto.Prezzo &euro;</td>
+                <td>@prodotto.TempoConsegna min</td>
+                <td>@prodotto.Ingredienti</td>
+                <td>
+                    <input type="number" id="quantity-@prodotto.Id" min="1" value="1" />
+                    <button class="btn btn-primary" onclick="addToCart(@prodotto.Id)">Aggiungi al carrello</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function addToCart(prodottoId) {
+            var quantity = $("#quantity-" + prodottoId).val();
+            $.ajax({
+                url: '/api/Carrello/AddToCart',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ ProdottoId: prodottoId, Quantity: parseInt(quantity) }),
+                success: function (response) {
+                    alert('Prodotto aggiunto al carrello con successo!');
+                },
+                error: function (error) {
+                    alert('Errore durante l\'aggiunta al carrello. Riprova.');
+                }
+            });
+        }
+    </script>
+}

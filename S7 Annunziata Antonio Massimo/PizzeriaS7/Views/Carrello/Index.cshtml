@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PizzeriaS7.Models.CarrelloViewModel>
+
+<h2>Carrello</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantità</th>
+            <th>Prezzo</th>
+            <th>Totale</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Prodotto.Nome</td>
+                <td>@item.Quantity</td>
+                <td>@item.Prodotto.Prezzo &euro;</td>
+                <td>@(item.Quantity * item.Prodotto.Prezzo) &euro;</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Checkout" class="btn btn-primary">Procedi all'acquisto</a>

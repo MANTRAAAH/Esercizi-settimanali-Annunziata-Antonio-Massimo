@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Report Ordini Evasi";
+}
+
+<h2>Report Ordini Evasi</h2>
+
+<form asp-action="Report" method="post">
+    <div class="form-group">
+        <label for="data">Seleziona Data:</label>
+        <input type="date" class="form-control" id="data" name="data" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Genera Report</button>
+</form>
+
+@if (ViewBag.NumeroOrdiniEvasi != null)
+{
+    <h3>Risultati per la data @ViewBag.Data</h3>
+    <p>Numero di Ordini Evasi: @ViewBag.NumeroOrdiniEvasi</p>
+    <p>Totale Incasso: @ViewBag.TotaleIncasso &euro;</p>
+}
