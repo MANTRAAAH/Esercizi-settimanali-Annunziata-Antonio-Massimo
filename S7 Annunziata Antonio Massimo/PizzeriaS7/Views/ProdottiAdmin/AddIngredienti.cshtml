@@ -1,0 +1,18 @@
+﻿@model PizzeriaS7.Models.Prodotto
+
+@{
+    ViewData["Title"] = "Associa Ingredienti";
+}
+
+<h1>Associa Ingredienti a @Model.Nome</h1>
+
+<form asp-action="AddIngredienti" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label>Ingredienti</label>
+        <select asp-for="Ingredienti" asp-items="ViewBag.Ingredienti" class="form-control" multiple></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salva</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Annulla</a>

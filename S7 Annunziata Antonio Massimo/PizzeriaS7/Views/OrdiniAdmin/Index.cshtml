@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<PizzeriaS7.Models.Ordine>
 
+@{
+    ViewBag.Title = "Gestione Ordini";
+}
+
 <h2>Gestione Ordini</h2>
 
 <table class="table">
     <thead>
         <tr>
             <th>ID Ordine</th>
-            <th>Utente</th>
             <th>Data Ordine</th>
-            <th>Indirizzo</th>
-            <th>Note</th>
+            <th>Cliente</th>
             <th>Totale</th>
             <th>Stato</th>
             <th>Azioni</th>
@@ -20,10 +22,8 @@
         {
             <tr>
                 <td>@ordine.Id</td>
+                <td>@ordine.DataOrdine.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>@ordine.UtenteId</td>
-                <td>@ordine.DataOrdine</td>
-                <td>@ordine.IndirizzoSpedizione</td>
-                <td>@ordine.Note</td>
                 <td>@ordine.DettagliOrdine.Sum(d => d.PrezzoTotale) &euro;</td>
                 <td>@(ordine.Evaso ? "Evaso" : "Non evaso")</td>
                 <td>
@@ -31,8 +31,12 @@
                     {
                         <form asp-action="MarcaComeEvaso" method="post">
                             <input type="hidden" name="id" value="@ordine.Id" />
-                            <button type="submit" class="btn btn-success">Marca come Evaso</button>
+                            <button type="submit" class="btn btn-success">Marca come evaso</button>
                         </form>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Evaso</span>
                     }
                 </td>
             </tr>

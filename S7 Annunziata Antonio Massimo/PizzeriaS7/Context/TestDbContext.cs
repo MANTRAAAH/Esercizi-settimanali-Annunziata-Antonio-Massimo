@@ -18,7 +18,12 @@ public class TestDbContext
             FotoUrl = "url_to_image",
             Prezzo = 7.50m,
             TempoConsegna = 30,
-            Ingredienti = "Pomodoro, Mozzarella, Basilico"
+            Ingredienti = new List<Ingrediente>
+        {
+            new Ingrediente { Nome = "Pomodoro" },
+            new Ingrediente { Nome = "Mozzarella" },
+            new Ingrediente { Nome = "Basilico" }
+        }
         };
 
         _context.Prodotti.Add(prodotto);

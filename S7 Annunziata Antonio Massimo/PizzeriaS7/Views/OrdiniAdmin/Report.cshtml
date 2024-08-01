@@ -1,20 +1,22 @@
-﻿@{
-    ViewBag.Title = "Report Ordini Evasi";
+﻿@model DateTime?
+
+@{
+    ViewData["Title"] = "Report";
 }
 
-<h2>Report Ordini Evasi</h2>
+<h2>Report degli Ordini Evasi</h2>
 
 <form asp-action="Report" method="post">
     <div class="form-group">
-        <label for="data">Seleziona Data:</label>
-        <input type="date" class="form-control" id="data" name="data" required />
+        <label for="data">Seleziona una data:</label>
+        <input type="date" id="data" name="data" class="form-control" value="@Model?.ToString("yyyy-MM-dd")" required />
     </div>
     <button type="submit" class="btn btn-primary">Genera Report</button>
 </form>
 
 @if (ViewBag.NumeroOrdiniEvasi != null)
 {
-    <h3>Risultati per la data @ViewBag.Data</h3>
-    <p>Numero di Ordini Evasi: @ViewBag.NumeroOrdiniEvasi</p>
-    <p>Totale Incasso: @ViewBag.TotaleIncasso &euro;</p>
+    <h3>Report per la data: @Model?.ToString("dd/MM/yyyy")</h3>
+    <p>Numero di ordini evasi: @ViewBag.NumeroOrdiniEvasi</p>
+    <p>Totale incasso: @ViewBag.TotaleIncasso &euro;</p>
 }

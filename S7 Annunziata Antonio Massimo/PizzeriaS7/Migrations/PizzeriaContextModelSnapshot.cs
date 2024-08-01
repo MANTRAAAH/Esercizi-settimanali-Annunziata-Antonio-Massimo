@@ -195,7 +195,7 @@ namespace PizzeriaS7.Migrations
                     b.Property<DateTime>("DataOrdine")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Evado")
+                    b.Property<bool>("Evaso")
                         .HasColumnType("bit");
 
                     b.Property<string>("IndirizzoSpedizione")
@@ -206,8 +206,9 @@ namespace PizzeriaS7.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UtenteId")
-                        .HasColumnType("int");
+                    b.Property<string>("UtenteId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

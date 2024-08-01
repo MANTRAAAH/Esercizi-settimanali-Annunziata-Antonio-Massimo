@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<PizzeriaS7.Models.CarrelloViewModel>
 
-<h2>Carrello</h2>
+<h2>Il tuo carrello</h2>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Nome</th>
+            <th>Nome Prodotto</th>
             <th>Quantità</th>
             <th>Prezzo</th>
             <th>Totale</th>
+            <th>Personalizza Ingredienti</th>
         </tr>
     </thead>
     <tbody>
@@ -16,12 +17,98 @@
         {
             <tr>
                 <td>@item.Prodotto.Nome</td>
-                <td>@item.Quantity</td>
+                <td>
+                    <input type="number" id="quantita-@item.Prodotto.Id" value="@item.Quantity" min="1" class="form-control" onchange="updateQuantita(@item.Prodotto.Id)" />
+                </td>
                 <td>@item.Prodotto.Prezzo &euro;</td>
-                <td>@(item.Quantity * item.Prodotto.Prezzo) &euro;</td>
+                <td id="prezzoTotale-@item.Prodotto.Id">@item.PrezzoTotale &euro;</td>
+                <td>
+                    <input type="hidden" id="prezzoBase-@item.Prodotto.Id" value="@item.Prodotto.Prezzo" />
+                    <input type="text" id="ingredientiAggiunti-@item.Prodotto.Id" value="@(string.Join(",", item.IngredientiAggiunti))" class="form-control" />
+                    <input type="text" id="ingredientiBase-@item.Prodotto.Id" value="@(string.Join(",", item.IngredientiBase))" class="form-control" />
+                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ingredientiModal-@item.Prodotto.Id">Gestisci Ingredienti</button>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<div class="text-end mt-3">
+    <a href="@Url.Action("Checkout", "Carrello")" class="btn btn-primary">Procedi al Checkout</a>
+</div>
 
-<a asp-action="Checkout" class="btn btn-primary">Procedi all'acquisto</a>
+
+
+<!-- Modal per la gestione degli ingredienti -->
+@foreach (var item in Model)
+{
+    <div class="modal fade" id="ingredientiModal-@item.Prodotto.Id" tabindex="-1" aria-labelledby="ingredientiModalLabel-@item.Prodotto.Id" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ingredientiModalLabel-@item.Prodotto.Id">Ingredienti per @item.Prodotto.Nome</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="ingredienti-@item.Prodotto.Id">
+                        @foreach (var ingrediente in ViewBag.AllIngredienti as List<Ingrediente>)
+                        {
+                            <div>
+                                <input type="checkbox" id="ingrediente-@ingrediente.Id-@item.Prodotto.Id" value="@ingrediente.Id"
+                                @(item.IngredientiAggiunti.Contains(ingrediente.Id) || item.IngredientiBase.Contains(ingrediente.Id) ? "checked" : "")
+                                       onchange="updateIngredienti(@item.Prodotto.Id, this)"
+                                       data-is-base="@item.IngredientiBase.Contains(ingrediente.Id)" />
+                                <label for="ingrediente-@ingrediente.Id-@item.Prodotto.Id">@ingrediente.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        function updateIngredienti(prodottoId, checkbox) {
+            const isAggiunto = checkbox.checked;
+            const ingredienteId = parseInt(checkbox.value);
+            const prezzoPerIngrediente = 1.50;
+            const quantita = parseInt($("#quantita-" + prodottoId).val()) || 1;
+
+            let prezzoTotale = parseFloat($("#prezzoBase-" + prodottoId).val());
+
+            let ingredientiAggiunti = $("#ingredientiAggiunti-" + prodottoId).val().split(",").map(Number).filter(n => n);
+            let ingredientiBase = $("#ingredientiBase-" + prodottoId).val().split(",").map(Number).filter(n => n);
+
+            if (isAggiunto) {
+                if (!ingredientiAggiunti.includes(ingredienteId) && !ingredientiBase.includes(ingredienteId)) {
+                    ingredientiAggiunti.push(ingredienteId);
+                    prezzoTotale += prezzoPerIngrediente * quantita;
+                }
+            } else {
+                const index = ingredientiAggiunti.indexOf(ingredienteId);
+                if (index > -1) {
+                    ingredientiAggiunti.splice(index, 1);
+                    prezzoTotale -= prezzoPerIngrediente * quantita;
+                }
+            }
+
+            $("#ingredientiAggiunti-" + prodottoId).val(ingredientiAggiunti.join(","));
+            $("#prezzoTotale-" + prodottoId).text(prezzoTotale.toFixed(2) + " €");
+        }
+
+        function updateQuantita(prodottoId) {
+            const prezzoBase = parseFloat($("#prezzoBase-" + prodottoId).val());
+            const quantita = parseInt($("#quantita-" + prodottoId).val()) || 1;
+
+            const ingredientiAggiunti = $("#ingredientiAggiunti-" + prodottoId).val().split(",").map(Number).filter(n => n);
+            const prezzoPerIngrediente = 1.50;
+            const prezzoTotale = (prezzoBase + (ingredientiAggiunti.length * prezzoPerIngrediente)) * quantita;
+
+            $("#prezzoTotale-" + prodottoId).text(prezzoTotale.toFixed(2) + " €");
+        }
+    </script>
+}

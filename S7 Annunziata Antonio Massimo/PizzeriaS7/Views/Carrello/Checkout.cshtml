@@ -1,0 +1,41 @@
+﻿@model PizzeriaS7.Models.CheckoutViewModel
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome Prodotto</th>
+            <th>Prezzo</th>
+            <th>Quantità</th>
+            <th>Totale</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CarrelloItems)
+        {
+            <tr>
+                <td>@item.prodotto.Nome</td>
+                <td>@item.prodotto.Prezzo &euro;</td>
+                <td>@item.quantity</td>
+                <td>@(item.prodotto.Prezzo * item.quantity) &euro;</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="Checkout" method="post">
+    <div class="form-group">
+        <label for="IndirizzoSpedizione">Indirizzo di Spedizione</label>
+        <input type="text" class="form-control" id="IndirizzoSpedizione" name="Ordine.IndirizzoSpedizione" required />
+    </div>
+    <div class="form-group">
+        <label for="Note">Note</label>
+        <textarea class="form-control" id="Note" name="Ordine.Note"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Conferma Ordine</button>
+</form>

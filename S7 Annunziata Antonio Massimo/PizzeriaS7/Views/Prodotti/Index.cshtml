@@ -2,34 +2,38 @@
 
 <h2>Prodotti Disponibili</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Foto</th>
-            <th>Prezzo</th>
-            <th>Tempo di Consegna</th>
-            <th>Ingredienti</th>
-            <th>Azione</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var prodotto in Model)
-        {
-            <tr>
-                <td>@prodotto.Nome</td>
-                <td><img src="@prodotto.FotoUrl" alt="@prodotto.Nome" width="100" /></td>
-                <td>@prodotto.Prezzo &euro;</td>
-                <td>@prodotto.TempoConsegna min</td>
-                <td>@prodotto.Ingredienti</td>
-                <td>
-                    <input type="number" id="quantity-@prodotto.Id" min="1" value="1" />
+<div class="row">
+    @foreach (var prodotto in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="@prodotto.FotoUrl" class="card-img-top" alt="@prodotto.Nome" />
+                <div class="card-body">
+                    <h5 class="card-title">@prodotto.Nome</h5>
+                    <p class="card-text">@prodotto.Prezzo &euro;</p>
+                    <p class="card-text">Tempo di Consegna: @prodotto.TempoConsegna min</p>
+                    <p class="card-text">
+                        Ingredienti:
+                        @{
+                            var ingredienti = prodotto.Ingredienti.ToList();
+                            for (int i = 0; i < ingredienti.Count; i++)
+                            {
+                                @ingredienti[i].Nome
+                                if (i < ingredienti.Count - 1)
+                                {
+                                    @:,
+                                }
+                            }
+                        }
+                    </p>
+                    <input type="number" id="quantity-@prodotto.Id" min="1" value="1" class="form-control mb-2" />
+                    <a asp-action="Details" asp-route-id="@prodotto.Id" class="btn btn-info">Dettagli</a>
                     <button class="btn btn-primary" onclick="addToCart(@prodotto.Id)">Aggiungi al carrello</button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

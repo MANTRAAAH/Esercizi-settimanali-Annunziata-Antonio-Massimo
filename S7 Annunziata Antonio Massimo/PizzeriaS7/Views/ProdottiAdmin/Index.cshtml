@@ -17,8 +17,10 @@
                 <td>@prodotto.Nome</td>
                 <td>@prodotto.Prezzo &euro;</td>
                 <td>
+                    <a asp-action="Details" asp-route-id="@prodotto.Id" class="btn btn-info">Dettagli</a>
                     <a asp-action="Edit" asp-route-id="@prodotto.Id" class="btn btn-primary">Modifica</a>
                     <a asp-action="Delete" asp-route-id="@prodotto.Id" class="btn btn-danger">Elimina</a>
+                    <a asp-action="AddIngredienti" asp-route-id="@prodotto.Id" class="btn btn-secondary">Associa Ingredienti</a>
                 </td>
             </tr>
         }

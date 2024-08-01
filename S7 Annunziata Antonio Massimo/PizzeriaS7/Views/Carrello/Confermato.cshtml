@@ -1,3 +1,9 @@
-﻿<h2>Ordine Confermato</h2>
+﻿@{
+    ViewData["Title"] = "Ordine Confermato";
+}
 
-<p>Il tuo ordine è stato confermato con successo. Grazie per aver acquistato con noi!</p>
+<h2>Ordine Confermato</h2>
+<p>Grazie per il tuo ordine! Il tuo ordine è stato ricevuto e sarà processato a breve.</p>
+<p>Un'email di conferma ti sarà inviata a breve con i dettagli del tuo ordine.</p>
+
+<a href="@Url.Action("Index", "Prodotti")" class="btn btn-primary">Torna ai Prodotti</a>
