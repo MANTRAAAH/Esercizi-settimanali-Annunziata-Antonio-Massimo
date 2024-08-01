@@ -26,10 +26,17 @@ namespace PizzeriaS7.Context
             });
 
             modelBuilder.Entity<Ordine>()
-                            .HasMany(o => o.DettagliOrdine)
-                            .WithOne(d => d.Ordine)
-                            .HasForeignKey(d => d.OrdineId);
+                .HasOne(o => o.Utente) // Relazione molti-a-uno tra Ordine e Utente
+                .WithMany() // Non c'è una collezione di Ordini in Utente
+                .HasForeignKey(o => o.UtenteId); // Chiave esterna in Ordine che punta a Utente
 
+            // Configurazione esistente tra Ordine e DettaglioOrdine
+            modelBuilder.Entity<Ordine>()
+                .HasMany(o => o.DettagliOrdine)
+                .WithOne(d => d.Ordine)
+                .HasForeignKey(d => d.OrdineId);
+
+            // Configurazione esistente tra DettaglioOrdine e Prodotto
             modelBuilder.Entity<DettaglioOrdine>()
                 .HasOne(d => d.Prodotto)
                 .WithMany()

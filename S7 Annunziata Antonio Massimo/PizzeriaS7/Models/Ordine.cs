@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string UtenteId { get; set; }  // FK to User
+        public Utente Utente { get; set; }
         public DateTime DataOrdine { get; set; }
         public string IndirizzoSpedizione { get; set; }
         public string Note { get; set; }

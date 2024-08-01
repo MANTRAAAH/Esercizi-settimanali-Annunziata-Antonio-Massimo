@@ -1,0 +1,46 @@
+﻿@model PizzeriaS7.Models.OrdineViewModel
+
+@{
+    ViewBag.Title = "Dettagli Ordine";
+}
+
+<h2>Dettagli Ordine #@Model.OrdineId</h2>
+
+<div class="mb-3">
+    <h4>Informazioni Cliente</h4>
+    <p><strong>Nome:</strong> @Model.NomeUtente</p>
+    <p><strong>Indirizzo di Spedizione:</strong> @Model.IndirizzoSpedizione</p>
+    <p><strong>Note:</strong> @Model.Note</p>
+</div>
+
+<div class="mb-3">
+    <h4>Dettagli Ordine</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome Prodotto</th>
+                <th>Quantità</th>
+                <th>Prezzo Totale</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dettaglio in Model.DettagliOrdine)
+            {
+                <tr>
+                    <td>@dettaglio.ProdottoNome</td>
+                    <td>@dettaglio.Quantità</td>
+                    <td>@dettaglio.PrezzoTotale &euro;</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="mb-3">
+    <h4>Stato dell'Ordine</h4>
+    <p>@(Model.Evaso ? "Evaso" : "Non evaso")</p>
+</div>
+
+<div class="mt-3">
+    <a href="@Url.Action("Index", "OrdiniAdmin")" class="btn btn-secondary">Torna alla Lista Ordini</a>
+</div>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PizzeriaS7.Models.Ordine>
+﻿@model IEnumerable<PizzeriaS7.Models.OrdineViewModel>
 
 @{
     ViewBag.Title = "Gestione Ordini";
@@ -12,7 +12,8 @@
             <th>ID Ordine</th>
             <th>Data Ordine</th>
             <th>Cliente</th>
-            <th>Totale</th>
+            <th>Dettagli Ordine</th>
+            <th>Totale Ordine</th>
             <th>Stato</th>
             <th>Azioni</th>
         </tr>
@@ -21,16 +22,25 @@
         @foreach (var ordine in Model)
         {
             <tr>
-                <td>@ordine.Id</td>
+                <td>@ordine.OrdineId</td>
                 <td>@ordine.DataOrdine.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@ordine.UtenteId</td>
+                <td>@ordine.NomeUtente</td>
+                <td>
+                    <ul>
+                        @foreach (var dettaglio in ordine.DettagliOrdine)
+                        {
+                            <li>@dettaglio.ProdottoNome - Quantità: @dettaglio.Quantità - Prezzo Totale: @dettaglio.PrezzoTotale &euro;</li>
+                        }
+                    </ul>
+                </td>
                 <td>@ordine.DettagliOrdine.Sum(d => d.PrezzoTotale) &euro;</td>
                 <td>@(ordine.Evaso ? "Evaso" : "Non evaso")</td>
                 <td>
+                    <a href="@Url.Action("Details", "OrdiniAdmin", new { id = ordine.OrdineId })" class="btn btn-info">Dettagli</a>
                     @if (!ordine.Evaso)
                     {
-                        <form asp-action="MarcaComeEvaso" method="post">
-                            <input type="hidden" name="id" value="@ordine.Id" />
+                        <form asp-action="MarcaComeEvaso" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@ordine.OrdineId" />
                             <button type="submit" class="btn btn-success">Marca come evaso</button>
                         </form>
                     }

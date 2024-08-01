@@ -143,15 +143,6 @@ C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7\PizzeriaS7\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7\PizzeriaS7\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7\PizzeriaS7\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.csproj.AssemblyReference.cache
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.AssemblyInfoInputs.cache
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.AssemblyInfo.cs
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.csproj.CoreCompileInputs.cache
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.RazorAssemblyInfo.cache
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.RazorAssemblyInfo.cs
-C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.sourcelink.json
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\bin\Debug\net8.0\appsettings.json
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\bin\Debug\net8.0\PizzeriaS7.staticwebassets.runtime.json
@@ -387,6 +378,15 @@ C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.csproj.AssemblyReference.cache
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.AssemblyInfoInputs.cache
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.AssemblyInfo.cs
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.csproj.CoreCompileInputs.cache
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.RazorAssemblyInfo.cache
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.RazorAssemblyInfo.cs
+C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\PizzeriaS7.sourcelink.json
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\antan\Desktop\EPICODE\Esercizi-settimanali-Annunziata-Antonio-Massimo\S7 Annunziata Antonio Massimo\PizzeriaS7\obj\Debug\net8.0\staticwebassets\msbuild.PizzeriaS7.Microsoft.AspNetCore.StaticWebAssets.props

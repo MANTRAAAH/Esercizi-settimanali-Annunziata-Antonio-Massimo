@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Carrello\Checkout.cshtml" />
+    <None Include="Views\Shared\Checkout.cshtml" />
   </ItemGroup>
 
 </Project>

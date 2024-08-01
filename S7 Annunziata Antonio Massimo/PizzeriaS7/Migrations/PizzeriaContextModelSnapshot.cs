@@ -48,7 +48,7 @@ namespace PizzeriaS7.Migrations
 
                     b.HasIndex("ProdottoId");
 
-                    b.ToTable("DettagliOrdine");
+                    b.ToTable("DettagliOrdine", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -212,7 +212,7 @@ namespace PizzeriaS7.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ordini");
+                    b.ToTable("Ordini", (string)null);
                 });
 
             modelBuilder.Entity("PizzeriaS7.Models.Prodotto", b =>
@@ -243,7 +243,7 @@ namespace PizzeriaS7.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Prodotti");
+                    b.ToTable("Prodotti", (string)null);
                 });
 
             modelBuilder.Entity("PizzeriaS7.Models.ProdottoImmagine", b =>
@@ -265,7 +265,7 @@ namespace PizzeriaS7.Migrations
 
                     b.HasIndex("ProdottoId");
 
-                    b.ToTable("ProdottiImmagini");
+                    b.ToTable("ProdottiImmagini", (string)null);
                 });
 
             modelBuilder.Entity("PizzeriaS7.Models.Utente", b =>

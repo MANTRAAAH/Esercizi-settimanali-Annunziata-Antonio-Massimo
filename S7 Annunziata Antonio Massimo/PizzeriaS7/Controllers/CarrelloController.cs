@@ -45,6 +45,8 @@ namespace PizzeriaS7.Controllers
             return View(carrelloViewModel);
         }
 
+
+        [HttpGet]
         public IActionResult Checkout()
         {
             var carrello = HttpContext.Session.GetString("Carrello");
@@ -73,14 +75,14 @@ namespace PizzeriaS7.Controllers
                 CarrelloItems = prodottiConDettagli
             };
 
-            return View(checkoutViewModel);
+            return View("Checkout", checkoutViewModel);
         }
 
 
 
 
 
-[HttpPost]
+        [HttpPost]
 public async Task<IActionResult> Checkout(CheckoutViewModel model)
 {
     var carrello = HttpContext.Session.GetString("Carrello");

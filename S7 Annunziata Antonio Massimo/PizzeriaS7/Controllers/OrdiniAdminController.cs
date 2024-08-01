@@ -21,9 +21,30 @@ namespace PizzeriaS7.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var ordini = await _context.Ordini.Include(o => o.DettagliOrdine).ThenInclude(d => d.Prodotto).ToListAsync();
-            return View(ordini);
+            var ordini = await _context.Ordini
+                .Include(o => o.DettagliOrdine)
+                .ThenInclude(d => d.Prodotto)
+                .Include(o => o.Utente) // Include the user information
+                .ToListAsync();
+
+            var ordineViewModels = ordini.Select(o => new OrdineViewModel
+            {
+                OrdineId = o.Id,
+                DataOrdine = o.DataOrdine,
+                NomeUtente = o.Utente.UserName,
+                Evaso = o.Evaso,
+                DettagliOrdine = o.DettagliOrdine.Select(d => new DettaglioOrdineViewModel
+                {
+                    ProdottoNome = d.Prodotto.Nome,
+                    Quantità = d.Quantità,
+                    PrezzoTotale = d.PrezzoTotale
+                }).ToList()
+            }).ToList();
+
+            return View(ordineViewModels);
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> MarcaComeEvaso(int id)
@@ -44,6 +65,38 @@ namespace PizzeriaS7.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            var ordine = await _context.Ordini
+                .Include(o => o.DettagliOrdine)
+                    .ThenInclude(d => d.Prodotto)
+                .Include(o => o.Utente) // Include l'utente per accedere alle sue proprietà
+                .FirstOrDefaultAsync(o => o.Id == id);
+
+            if (ordine == null)
+            {
+                return NotFound();
+            }
+
+            var ordineViewModel = new OrdineViewModel
+            {
+                OrdineId = ordine.Id,
+                DataOrdine = ordine.DataOrdine,
+                NomeUtente = ordine.Utente.Nome,
+                IndirizzoSpedizione = ordine.IndirizzoSpedizione, // Questo viene dal modello Ordine
+                Note = ordine.Note, // Anche questo viene dal modello Ordine
+                Evaso = ordine.Evaso,
+                DettagliOrdine = ordine.DettagliOrdine.Select(d => new DettaglioOrdineViewModel
+                {
+                    ProdottoNome = d.Prodotto.Nome,
+                    Quantità = d.Quantità,
+                    PrezzoTotale = d.PrezzoTotale
+                }).ToList()
+            };
+
+            return View(ordineViewModel);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Report(DateTime data)
