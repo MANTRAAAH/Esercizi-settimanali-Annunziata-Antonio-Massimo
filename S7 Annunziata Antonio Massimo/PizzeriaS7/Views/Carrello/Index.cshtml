@@ -24,8 +24,8 @@
                 <td id="prezzoTotale-@item.Prodotto.Id">@item.PrezzoTotale &euro;</td>
                 <td>
                     <input type="hidden" id="prezzoBase-@item.Prodotto.Id" value="@item.Prodotto.Prezzo" />
-                    <input type="text" id="ingredientiAggiunti-@item.Prodotto.Id" value="@(string.Join(",", item.IngredientiAggiunti))" class="form-control" />
-                    <input type="text" id="ingredientiBase-@item.Prodotto.Id" value="@(string.Join(",", item.IngredientiBase))" class="form-control" />
+                    <input type="hidden" id="ingredientiAggiunti-@item.Prodotto.Id" value="@(string.Join(",", item.IngredientiAggiunti))" />
+                    <input type="hidden" id="ingredientiBase-@item.Prodotto.Id" value="@(string.Join(",", item.IngredientiBase))" />
                     <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ingredientiModal-@item.Prodotto.Id">Gestisci Ingredienti</button>
                 </td>
             </tr>
@@ -35,8 +35,6 @@
 <div class="text-end mt-3">
     <a href="@Url.Action("Checkout", "Carrello")" class="btn btn-primary">Procedi al Checkout</a>
 </div>
-
-
 
 <!-- Modal per la gestione degli ingredienti -->
 @foreach (var item in Model)
@@ -70,6 +68,7 @@
     </div>
 }
 
+
 @section Scripts {
     <script>
         function updateIngredienti(prodottoId, checkbox) {
@@ -78,25 +77,24 @@
             const prezzoPerIngrediente = 1.50;
             const quantita = parseInt($("#quantita-" + prodottoId).val()) || 1;
 
-            let prezzoTotale = parseFloat($("#prezzoBase-" + prodottoId).val());
-
+            let prezzoBase = parseFloat($("#prezzoBase-" + prodottoId).val());
             let ingredientiAggiunti = $("#ingredientiAggiunti-" + prodottoId).val().split(",").map(Number).filter(n => n);
             let ingredientiBase = $("#ingredientiBase-" + prodottoId).val().split(",").map(Number).filter(n => n);
 
             if (isAggiunto) {
                 if (!ingredientiAggiunti.includes(ingredienteId) && !ingredientiBase.includes(ingredienteId)) {
                     ingredientiAggiunti.push(ingredienteId);
-                    prezzoTotale += prezzoPerIngrediente * quantita;
                 }
             } else {
                 const index = ingredientiAggiunti.indexOf(ingredienteId);
                 if (index > -1) {
                     ingredientiAggiunti.splice(index, 1);
-                    prezzoTotale -= prezzoPerIngrediente * quantita;
                 }
             }
 
             $("#ingredientiAggiunti-" + prodottoId).val(ingredientiAggiunti.join(","));
+
+            const prezzoTotale = prezzoBase + (ingredientiAggiunti.length * prezzoPerIngrediente) * quantita;
             $("#prezzoTotale-" + prodottoId).text(prezzoTotale.toFixed(2) + " €");
         }
 
@@ -112,3 +110,5 @@
         }
     </script>
 }
+
+

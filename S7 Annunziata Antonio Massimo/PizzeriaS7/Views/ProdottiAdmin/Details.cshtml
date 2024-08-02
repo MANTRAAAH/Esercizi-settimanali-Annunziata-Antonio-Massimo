@@ -4,50 +4,74 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="display-4">Details Admin</h1>
 
-<div>
-    <h4>Prodotto</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FotoUrl)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FotoUrl)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prezzo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prezzo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TempoConsegna)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TempoConsegna)
-        </dd>
-        <dt class="col-sm-2">
-            Ingredienti
-        </dt>
-        <dd class="col-sm-10">
-            <ul>
-                @foreach (var ingrediente in Model.Ingredienti)
+<div class="card mt-4">
+    <div class="card-header">
+        <h4 class="card-title">Prodotto Details</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt class="col-sm-3">
+                Foto
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.Immagini != null && Model.Immagini.Any())
                 {
-                    <li>@ingrediente.Nome</li>
+                    @foreach (var immagine in Model.Immagini)
+                    {
+                        <img src="@immagine.ImmagineUrl" alt="Immagine del prodotto" class="img-fluid rounded" style="max-width: 200px; margin-bottom: 10px;" />
+                    }
                 }
-            </ul>
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                else
+                {
+                    <span class="text-muted">No image available</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Prezzo) &euro;
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.TempoConsegna)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.TempoConsegna) minuti
+            </dd>
+
+            <dt class="col-sm-3">
+                Ingredienti
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.Ingredienti != null && Model.Ingredienti.Any())
+                {
+                    <ul class="list-group">
+                        @foreach (var ingrediente in Model.Ingredienti)
+                        {
+                            <li class="list-group-item">@ingrediente.Nome</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span class="text-muted">No ingredients available</span>
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer text-end">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
 </div>

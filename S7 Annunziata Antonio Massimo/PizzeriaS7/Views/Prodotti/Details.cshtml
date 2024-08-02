@@ -4,50 +4,68 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="text-center">Details</h1>
 
-<div>
-    <h4>Prodotto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FotoUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FotoUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Prezzo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Prezzo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TempoConsegna)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TempoConsegna)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ingredienti)
-        </dt>
-        <dd class="col-sm-10">
-            <ul>
-                @foreach (var ingrediente in Model.Ingredienti)
-                {
-                    <li>@ingrediente.Nome</li>
-                }
-            </ul>
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card mt-4" style="width: 100%; max-width: 600px;">
+        <div class="card-header text-center">
+            <h4 class="card-title">Prodotto Details</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row text-center">
+                <dt class="col-12">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd class="col-12 mb-3">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt class="col-12">
+                    Foto
+                </dt>
+                <dd class="col-12 mb-3">
+                    @if (Model.Immagini != null && Model.Immagini.Any())
+                    {
+                        @foreach (var immagine in Model.Immagini)
+                        {
+                            <img src="@immagine.ImmagineUrl" alt="Immagine del prodotto" class="img-fluid rounded mb-3" style="max-width: 400px;" />
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted">No image available</span>
+                    }
+                </dd>
+
+                <dt class="col-12">
+                    @Html.DisplayNameFor(model => model.Prezzo)
+                </dt>
+                <dd class="col-12 mb-3">
+                    @Html.DisplayFor(model => model.Prezzo) &euro;
+                </dd>
+
+                <dt class="col-12">
+                    Ingredienti
+                </dt>
+                <dd class="col-12">
+                    @if (Model.Ingredienti != null && Model.Ingredienti.Any())
+                    {
+                        <div class="list-group">
+                            @foreach (var ingrediente in Model.Ingredienti)
+                            {
+                                <span class="list-group-item list-group-item-action">@ingrediente.Nome</span>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No ingredients available</span>
+                    }
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
 </div>

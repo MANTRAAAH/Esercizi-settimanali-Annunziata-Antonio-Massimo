@@ -1,0 +1,48 @@
+﻿@model PizzeriaS7.Models.OrdineViewModel
+
+@{
+    ViewData["Title"] = "Riepilogo Ordine";
+}
+
+<h1>Riepilogo Ordine</h1>
+
+@if (Model != null)
+{
+    <div>
+        <h2>Dettagli Ordine</h2>
+        <p><strong>ID Ordine:</strong> @Model.OrdineId</p>
+        <p><strong>Data Ordine:</strong> @Model.DataOrdine.ToString("dd/MM/yyyy HH:mm")</p>
+        <p><strong>Nome Utente:</strong> @Model.NomeUtente</p>
+        <p><strong>Indirizzo di Spedizione:</strong> @Model.IndirizzoSpedizione</p>
+        <p><strong>Note:</strong> @Model.Note</p>
+        <p><strong>Stato dell'Ordine:</strong> @(Model.Evaso ? "Evaso" : "Non Evaso")</p>
+
+        <h3>Dettagli del Prodotto</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome Prodotto</th>
+                    <th>Quantità</th>
+                    <th>Prezzo Totale</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dettaglio in Model.DettagliOrdine)
+                {
+                    <tr>
+                        <td>@dettaglio.ProdottoNome</td>
+                        <td>@dettaglio.Quantità</td>
+                        <td>@dettaglio.PrezzoTotale.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <h3>Totale Ordine</h3>
+        <p><strong>Totale:</strong> @Model.TotaleOrdine.ToString("C")</p>
+    </div>
+}
+else
+{
+    <p>Non ci sono ordini da mostrare.</p>
+}

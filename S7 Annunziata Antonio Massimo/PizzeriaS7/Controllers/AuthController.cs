@@ -61,6 +61,20 @@ namespace PizzeriaS7.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // Recupera il ruolo "User" dalla tabella AspNetRoles
+                    var roleId = "185c9685-79e8-4ecb-a967-a4a45c5e8d31"; // ID del ruolo User
+
+                    var roleResult = await _userManager.AddToRoleAsync(user, "User");
+                    if (!roleResult.Succeeded)
+                    {
+                        foreach (var error in roleResult.Errors)
+                        {
+                            _logger.LogError("Error assigning role to user {Username}: {Error}", model.Username, error.Description);
+                            ModelState.AddModelError(string.Empty, "Failed to assign user role.");
+                        }
+                        return View(model); // Ritorna la vista con l'errore se il ruolo non è stato assegnato
+                    }
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User {Username} registered and logged in successfully.", model.Username);
                     return RedirectToAction("Index", "Home");
@@ -73,6 +87,7 @@ namespace PizzeriaS7.Controllers
             }
             return View(model);
         }
+
 
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()

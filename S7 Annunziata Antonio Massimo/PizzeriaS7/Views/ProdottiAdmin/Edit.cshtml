@@ -10,39 +10,38 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FotoUrl" class="control-label"></label>
-                <input asp-for="FotoUrl" class="form-control" />
-                <span asp-validation-for="FotoUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="Prezzo" class="control-label"></label>
                 <input asp-for="Prezzo" class="form-control" />
                 <span asp-validation-for="Prezzo" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="TempoConsegna" class="control-label"></label>
                 <input asp-for="TempoConsegna" class="form-control" />
                 <span asp-validation-for="TempoConsegna" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label>Ingredienti</label>
                 <div>
                     @foreach (var ingrediente in ViewBag.AllIngredienti as List<PizzeriaS7.Models.Ingrediente>)
                     {
-                        <div>
-                            <input type="checkbox" name="IngredientiIds" value="@ingrediente.Id" @(Model.IngredientiIds.Contains(ingrediente.Id) ? "checked" : "") />
-                            <label>@ingrediente.Nome</label>
+                        <div class="form-check">
+                            <input type="checkbox" name="IngredientiIds" value="@ingrediente.Id" class="form-check-input" @(Model.IngredientiIds.Contains(ingrediente.Id) ? "checked" : "") />
+                            <label class="form-check-label">@ingrediente.Nome</label>
                         </div>
                     }
                 </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="immagineFile" class="control-label">Immagine del prodotto</label>
+                <input type="file" id="immagineFile" name="immagineFile" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -52,5 +51,5 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
 </div>

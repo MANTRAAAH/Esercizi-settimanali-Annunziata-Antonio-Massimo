@@ -28,22 +28,40 @@ namespace PizzeriaS7.Controllers
 
         public IActionResult Index()
         {
+            // Recupera il carrello dalla sessione
             var carrello = HttpContext.Session.GetString("Carrello");
             var carrelloItems = carrello == null ? new List<CarrelloItem>() : JsonConvert.DeserializeObject<List<CarrelloItem>>(carrello);
 
-            var prodotti = _context.Prodotti.Include(p => p.Ingredienti).ToList();
-            var carrelloViewModel = from item in carrelloItems
-                                    join prodotto in prodotti on item.ProdottoId equals prodotto.Id
-                                    select new CarrelloViewModel
-                                    {
-                                        Prodotto = prodotto,
-                                        Quantity = item.Quantity,
-                                        PrezzoTotale = prodotto.Prezzo * item.Quantity
-                                    };
+            // Ottiene la lista dei prodotti con gli ingredienti inclusi
+            var prodotti = _context.Prodotti
+                                   .Include(p => p.Ingredienti)
+                                   .ToList();
 
+            // Crea il ViewModel per ogni item nel carrello
+            var carrelloViewModel = carrelloItems.Select(item =>
+            {
+                var prodotto = prodotti.FirstOrDefault(p => p.Id == item.ProdottoId);
+
+                // Calcola il prezzo totale considerando gli ingredienti aggiunti
+                var prezzoIngredientiAggiunti = item.IngredientiAggiuntiIds.Count * 1.50m;
+                var prezzoTotale = (prodotto.Prezzo + prezzoIngredientiAggiunti) * item.Quantity;
+
+                return new CarrelloViewModel
+                {
+                    Prodotto = prodotto,
+                    Quantity = item.Quantity,
+                    PrezzoTotale = prezzoTotale,
+                    IngredientiBase = prodotto.Ingredienti.Select(i => i.Id).ToList(),
+                    IngredientiAggiunti = item.IngredientiAggiuntiIds
+                };
+            }).ToList();
+
+            // Passa tutti gli ingredienti alla vista per la gestione nel modale
             ViewBag.AllIngredienti = _context.Ingredienti.ToList();
+
             return View(carrelloViewModel);
         }
+
 
 
         [HttpGet]

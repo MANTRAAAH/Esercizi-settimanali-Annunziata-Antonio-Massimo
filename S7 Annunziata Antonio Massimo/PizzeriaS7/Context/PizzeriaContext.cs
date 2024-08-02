@@ -12,7 +12,7 @@ namespace PizzeriaS7.Context
         public DbSet<Ordine> Ordini { get; set; }
         public DbSet<DettaglioOrdine> DettagliOrdine { get; set; }
         public DbSet<Utente> Utenti { get; set; }
-        public DbSet<ProdottoImmagine> ProdottiImmagini { get; set; }
+        public DbSet<ProdottiImmagini> ProdottiImmagini { get; set; }
         public DbSet<Ingrediente> Ingredienti { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -59,6 +59,13 @@ namespace PizzeriaS7.Context
                         .HasForeignKey("ProdottoId")
                         .OnDelete(DeleteBehavior.Cascade) // Cancellazione a cascata per i prodotti
                 );
+
+            modelBuilder.Entity<Prodotto>()
+                .HasMany(p => p.Immagini)
+                .WithOne(i => i.Prodotto)
+                .HasForeignKey(i => i.ProdottoId)
+                .OnDelete(DeleteBehavior.Cascade); // Cancellazione a cascata per le immagini
+
 
 
         }

@@ -23,11 +23,11 @@ namespace PizzeriaS7.Controllers
         {
             var prodotti = await _context.Prodotti
                 .Include(p => p.Ingredienti) // Include degli ingredienti
+                .Include(p => p.Immagini) // Include delle immagini
                 .ToListAsync();
 
             return View(prodotti);
         }
-
 
         // GET: Prodotti/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -39,6 +39,7 @@ namespace PizzeriaS7.Controllers
 
             var prodotto = await _context.Prodotti
                 .Include(p => p.Ingredienti) // Includi gli ingredienti
+                .Include(p => p.Immagini) // Includi le immagini
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (prodotto == null)
@@ -49,103 +50,7 @@ namespace PizzeriaS7.Controllers
             return View(prodotto);
         }
 
-        // GET: Prodotti/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: Prodotti/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descrizione,Prezzo,ImmagineUrl")] Prodotto prodotto)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(prodotto);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(prodotto);
-        }
-
-        // GET: Prodotti/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var prodotto = await _context.Prodotti.FindAsync(id);
-            if (prodotto == null)
-            {
-                return NotFound();
-            }
-            return View(prodotto);
-        }
-
-        // POST: Prodotti/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descrizione,Prezzo,ImmagineUrl")] Prodotto prodotto)
-        {
-            if (id != prodotto.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(prodotto);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProdottoExists(prodotto.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(prodotto);
-        }
-
-        // GET: Prodotti/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var prodotto = await _context.Prodotti
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (prodotto == null)
-            {
-                return NotFound();
-            }
-
-            return View(prodotto);
-        }
-
-        // POST: Prodotti/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var prodotto = await _context.Prodotti.FindAsync(id);
-            _context.Prodotti.Remove(prodotto);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         private bool ProdottoExists(int id)
         {

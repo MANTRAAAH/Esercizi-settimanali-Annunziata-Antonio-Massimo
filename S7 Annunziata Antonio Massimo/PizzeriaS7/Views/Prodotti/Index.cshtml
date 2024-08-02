@@ -7,7 +7,14 @@
     {
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="@prodotto.FotoUrl" class="card-img-top" alt="@prodotto.Nome" />
+                @if (prodotto.Immagini != null && prodotto.Immagini.Any())
+                {
+                    <img src="@prodotto.Immagini.First().ImmagineUrl" class="card-img-top" alt="@prodotto.Nome" />
+                }
+                else
+                {
+                    <img src="path-to-placeholder-image.jpg" class="card-img-top" alt="@prodotto.Nome" />
+                }
                 <div class="card-body">
                     <h5 class="card-title">@prodotto.Nome</h5>
                     <p class="card-text">@prodotto.Prezzo &euro;</p>
@@ -31,6 +38,10 @@
                     <button class="btn btn-primary" onclick="addToCart(@prodotto.Id)">Aggiungi al carrello</button>
                 </div>
             </div>
+            <div aria-live="polite" aria-atomic="true" class="position-relative" style="z-index: 1080;">
+                <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+            </div>
+
         </div>
     }
 </div>
@@ -46,12 +57,30 @@
                 contentType: 'application/json',
                 data: JSON.stringify({ ProdottoId: prodottoId, Quantity: parseInt(quantity) }),
                 success: function (response) {
-                    alert('Prodotto aggiunto al carrello con successo!');
+                    showToast('Successo', 'Prodotto aggiunto al carrello con successo!', 'bg-success');
                 },
                 error: function (error) {
-                    alert('Errore durante l\'aggiunta al carrello. Riprova.');
+                    showToast('Errore', 'Errore durante l\'aggiunta al carrello. Riprova.', 'bg-danger');
                 }
             });
         }
+
+        function showToast(title, message, bgClass) {
+            var toastHtml = `
+                    <div class="toast ${bgClass} text-white" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                        <div class="toast-header">
+                            <strong class="me-auto">${title}</strong>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            ${message}
+                        </div>
+                    </div>`;
+
+            $('#toast-container').append(toastHtml);
+            var toast = new bootstrap.Toast($('#toast-container .toast').last()[0]);
+            toast.show();
+        }
     </script>
+
 }

@@ -11,41 +11,64 @@
     <h4>Prodotto</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FotoUrl)
+
+        <dt class="col-sm-2">
+            Foto
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FotoUrl)
+        <dd class="col-sm-10">
+            @if (Model.Immagini != null && Model.Immagini.Any())
+            {
+                <img src="@Model.Immagini.First().ImmagineUrl" alt="Immagine del prodotto" style="max-width: 200px;" />
+            }
+            else
+            {
+                <span>No image available</span>
+            }
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Prezzo)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Prezzo)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Prezzo) &euro;
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TempoConsegna)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TempoConsegna)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TempoConsegna) minuti
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ingredienti)
+
+        <dt class="col-sm-2">
+            Ingredienti
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ingredienti)
+        <dd class="col-sm-10">
+            @if (Model.Ingredienti != null && Model.Ingredienti.Any())
+            {
+                <ul>
+                    @foreach (var ingrediente in Model.Ingredienti)
+                    {
+                        <li>@ingrediente.Nome</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>No ingredients available</span>
+            }
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </form>
 </div>

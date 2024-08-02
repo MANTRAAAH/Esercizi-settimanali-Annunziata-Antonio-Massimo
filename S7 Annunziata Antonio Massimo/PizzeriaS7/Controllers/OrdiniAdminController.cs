@@ -101,12 +101,21 @@ namespace PizzeriaS7.Controllers
         [HttpPost]
         public async Task<IActionResult> Report(DateTime data)
         {
-            var ordiniEvasi = await _context.Ordini.Where(o => o.Evaso && o.DataOrdine.Date == data.Date).ToListAsync();
+            // Includi i dettagli dell'ordine
+            var ordiniEvasi = await _context.Ordini
+                .Where(o => o.Evaso && o.DataOrdine.Date == data.Date)
+                .Include(o => o.DettagliOrdine) // Include dei dettagli dell'ordine
+                .ToListAsync();
+
+            // Calcola il totale incasso
             var totaleIncasso = ordiniEvasi.Sum(o => o.DettagliOrdine.Sum(d => d.PrezzoTotale));
+
+            // Assegna i valori a ViewBag per visualizzarli nella vista
             ViewBag.NumeroOrdiniEvasi = ordiniEvasi.Count;
             ViewBag.TotaleIncasso = totaleIncasso;
 
             return View();
         }
+
     }
 }

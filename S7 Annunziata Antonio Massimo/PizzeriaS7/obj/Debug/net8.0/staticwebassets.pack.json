@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\wwwroot\\images\\Elementi-Pizzeria-Diavola-480x480.png",
+      "PackagePath": "staticwebassets\\images\\Elementi-Pizzeria-Diavola-480x480.png"
+    },
+    {
+      "Id": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\wwwroot\\images\\Pizza_Margherita_stu_spivack.jpg",
+      "PackagePath": "staticwebassets\\images\\Pizza_Margherita_stu_spivack.jpg"
+    },
+    {
+      "Id": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\wwwroot\\images\\Pizza_marinara.jpg",
+      "PackagePath": "staticwebassets\\images\\Pizza_marinara.jpg"
+    },
+    {
       "Id": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
