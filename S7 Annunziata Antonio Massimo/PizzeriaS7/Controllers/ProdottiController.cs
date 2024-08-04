@@ -22,8 +22,8 @@ namespace PizzeriaS7.Controllers
         public async Task<IActionResult> Index()
         {
             var prodotti = await _context.Prodotti
-                .Include(p => p.Ingredienti) // Include degli ingredienti
-                .Include(p => p.Immagini) // Include delle immagini
+                .Include(p => p.Ingredienti)
+                .Include(p => p.Immagini) 
                 .ToListAsync();
 
             return View(prodotti);
@@ -38,8 +38,8 @@ namespace PizzeriaS7.Controllers
             }
 
             var prodotto = await _context.Prodotti
-                .Include(p => p.Ingredienti) // Includi gli ingredienti
-                .Include(p => p.Immagini) // Includi le immagini
+                .Include(p => p.Ingredienti) 
+                .Include(p => p.Immagini) 
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (prodotto == null)

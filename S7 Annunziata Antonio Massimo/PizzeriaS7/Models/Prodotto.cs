@@ -11,7 +11,7 @@
         public ICollection<ProdottiImmagini> Immagini { get; set; } = new List<ProdottiImmagini>();
 
 
-        // Proprietà non mappata al database, usata solo per la selezione degli ingredienti nel form
+       
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public int[] IngredientiIds { get; set; }
     }

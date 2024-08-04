@@ -13,7 +13,7 @@
         {
             get
             {
-                // Calcola il totale sommando i prezzi dei dettagli dell'ordine
+              
                 return DettagliOrdine?.Sum(d => d.PrezzoTotale) ?? 0m;
             }
         }

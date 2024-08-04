@@ -45,7 +45,7 @@ namespace PizzeriaS7.Data
             }
             else
             {
-                // Verifica se l'utente è già in ruolo di Admin
+               
                 if (!await userManager.IsInRoleAsync(_user, "Admin"))
                 {
                     await userManager.AddToRoleAsync(_user, "Admin");

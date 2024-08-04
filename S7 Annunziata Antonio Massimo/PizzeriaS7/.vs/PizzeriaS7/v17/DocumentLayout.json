@@ -1,7 +1,48 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\models\\utente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:models\\utente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\models\\prodotto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:models\\prodotto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\models\\ordineviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:models\\ordineviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\models\\ordine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:models\\ordine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\controllers\\prodotticontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:controllers\\prodotticontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\controllers\\prodottiadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:controllers\\prodottiadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\controllers\\ordinicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:controllers\\ordinicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\controllers\\ordiniadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:controllers\\ordiniadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|c:\\users\\antan\\desktop\\epicode\\esercizi-settimanali-annunziata-antonio-massimo\\s7 annunziata antonio massimo\\pizzerias7\\controllers\\carrellocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A0048-2456-4198-8A83-D5A5A335F584}|PizzeriaS7.csproj|solutionrelative:controllers\\carrellocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +50,138 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Utente.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\Utente.cs",
+              "RelativeDocumentMoniker": "Models\\Utente.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\Utente.cs",
+              "RelativeToolTip": "Models\\Utente.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:35:04.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Prodotto.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\Prodotto.cs",
+              "RelativeDocumentMoniker": "Models\\Prodotto.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\Prodotto.cs",
+              "RelativeToolTip": "Models\\Prodotto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:34:56.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrdineViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\OrdineViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\OrdineViewModel.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\OrdineViewModel.cs",
+              "RelativeToolTip": "Models\\OrdineViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:34:45.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Ordine.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\Ordine.cs",
+              "RelativeDocumentMoniker": "Models\\Ordine.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Models\\Ordine.cs",
+              "RelativeToolTip": "Models\\Ordine.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:34:40.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "Data\\SeedData.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Data\\SeedData.cs",
+              "RelativeToolTip": "Data\\SeedData.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwC8AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:34:15.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProdottiController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\ProdottiController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProdottiController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\ProdottiController.cs",
+              "RelativeToolTip": "Controllers\\ProdottiController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCkAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:34:00.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProdottiAdminController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\ProdottiAdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProdottiAdminController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\ProdottiAdminController.cs",
+              "RelativeToolTip": "Controllers\\ProdottiAdminController.cs",
+              "ViewState": "AQIAAOwAAAAAAAAAAAAAwBIBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:33:31.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrdiniController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\OrdiniController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrdiniController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\OrdiniController.cs",
+              "RelativeToolTip": "Controllers\\OrdiniController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCcAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:33:22.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrdiniAdminController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\OrdiniAdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrdiniAdminController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\OrdiniAdminController.cs",
+              "RelativeToolTip": "Controllers\\OrdiniAdminController.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAcwFUAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:33:06.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CarrelloController.cs",
+              "DocumentMoniker": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\CarrelloController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CarrelloController.cs",
+              "ToolTip": "C:\\Users\\antan\\Desktop\\EPICODE\\Esercizi-settimanali-Annunziata-Antonio-Massimo\\S7 Annunziata Antonio Massimo\\PizzeriaS7\\Controllers\\CarrelloController.cs",
+              "RelativeToolTip": "Controllers\\CarrelloController.cs",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAuwBgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T12:32:45.666Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"

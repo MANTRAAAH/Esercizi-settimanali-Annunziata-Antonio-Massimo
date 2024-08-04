@@ -21,7 +21,7 @@ namespace PizzeriaS7.Controllers
 
         public async Task<IActionResult> Riepilogo()
         {
-            var utenteId = User.Identity.Name; // Assumendo che l'utente sia autenticato
+            var utenteId = User.Identity.Name; 
             var ordine = await _context.Ordini
                 .Where(o => o.Utente.UserName == utenteId && !o.Evaso)
                 .Select(o => new OrdineViewModel
@@ -37,7 +37,7 @@ namespace PizzeriaS7.Controllers
                     }).ToList(),
                     IndirizzoSpedizione = o.IndirizzoSpedizione,
                     Note = o.Note
-                    // Non è necessario assegnare TotaleOrdine qui
+                    
                 })
                 .FirstOrDefaultAsync();
 
@@ -46,7 +46,7 @@ namespace PizzeriaS7.Controllers
                 return NotFound();
             }
 
-            // Non c'è bisogno di calcolare TotaleOrdine manualmente; è calcolato automaticamente quando accedi alla proprietà.
+         
 
             return View(ordine);
         }

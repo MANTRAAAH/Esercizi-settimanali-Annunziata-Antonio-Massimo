@@ -40,7 +40,7 @@ namespace PizzeriaS7.Controllers
 
             var prodotto = await _context.Prodotti
                 .Include(p => p.Ingredienti)
-                .Include(p => p.Immagini) // Include delle immagini
+                .Include(p => p.Immagini) 
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (prodotto == null)
             {
@@ -117,7 +117,7 @@ namespace PizzeriaS7.Controllers
 
             var prodotto = await _context.Prodotti
                 .Include(p => p.Ingredienti)
-                .Include(p => p.Immagini) // Include delle immagini
+                .Include(p => p.Immagini) 
                 .FirstOrDefaultAsync(p => p.Id == id);
             if (prodotto == null)
             {
@@ -233,7 +233,7 @@ namespace PizzeriaS7.Controllers
 
             var prodotto = await _context.Prodotti
                 .Include(p => p.Ingredienti)
-                .Include(p => p.Immagini) // Include delle immagini
+                .Include(p => p.Immagini)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (prodotto == null)
             {
@@ -250,7 +250,7 @@ namespace PizzeriaS7.Controllers
         {
             var prodotto = await _context.Prodotti
                 .Include(p => p.Ingredienti)
-                .Include(p => p.Immagini) // Include delle immagini
+                .Include(p => p.Immagini) 
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (prodotto == null)
@@ -273,7 +273,6 @@ namespace PizzeriaS7.Controllers
             }
             _context.ProdottiImmagini.RemoveRange(immagini);
 
-            // Ora puoi rimuovere il prodotto
             _context.Prodotti.Remove(prodotto);
             await _context.SaveChangesAsync();
 

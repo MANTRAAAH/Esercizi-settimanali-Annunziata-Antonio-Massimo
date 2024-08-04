@@ -24,7 +24,7 @@ namespace PizzeriaS7.Controllers
             var ordini = await _context.Ordini
                 .Include(o => o.DettagliOrdine)
                 .ThenInclude(d => d.Prodotto)
-                .Include(o => o.Utente) // Include the user information
+                .Include(o => o.Utente) 
                 .ToListAsync();
 
             var ordineViewModels = ordini.Select(o => new OrdineViewModel
@@ -70,7 +70,7 @@ namespace PizzeriaS7.Controllers
             var ordine = await _context.Ordini
                 .Include(o => o.DettagliOrdine)
                     .ThenInclude(d => d.Prodotto)
-                .Include(o => o.Utente) // Include l'utente per accedere alle sue proprietà
+                .Include(o => o.Utente) 
                 .FirstOrDefaultAsync(o => o.Id == id);
 
             if (ordine == null)
@@ -83,8 +83,8 @@ namespace PizzeriaS7.Controllers
                 OrdineId = ordine.Id,
                 DataOrdine = ordine.DataOrdine,
                 NomeUtente = ordine.Utente.Nome,
-                IndirizzoSpedizione = ordine.IndirizzoSpedizione, // Questo viene dal modello Ordine
-                Note = ordine.Note, // Anche questo viene dal modello Ordine
+                IndirizzoSpedizione = ordine.IndirizzoSpedizione, 
+                Note = ordine.Note, 
                 Evaso = ordine.Evaso,
                 DettagliOrdine = ordine.DettagliOrdine.Select(d => new DettaglioOrdineViewModel
                 {

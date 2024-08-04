@@ -16,13 +16,13 @@ namespace PizzeriaS7.Controllers
     {
         private readonly PizzeriaContext _context;
         private readonly UserManager<Utente> _userManager;
-        private readonly ILogger<CarrelloController> _logger; // Inietta il logger
+        private readonly ILogger<CarrelloController> _logger; 
 
         public CarrelloController(PizzeriaContext context, UserManager<Utente> userManager, ILogger<CarrelloController> logger)
         {
             _context = context;
             _userManager = userManager;
-            _logger = logger; // Assegna il logger
+            _logger = logger; 
         }
 
 
